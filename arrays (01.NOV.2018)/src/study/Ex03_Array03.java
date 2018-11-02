@@ -20,8 +20,3 @@ public class Ex03_Array03 {
 		num4 = new int[]{10,20};	
 	}
 }
-
-
-
-
-
