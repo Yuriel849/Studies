@@ -1,5 +1,7 @@
 package study;
 
+// Project "007 -- 06.NOV.2018 (OOP)" >> package "study" >> file "OOP_BingoCheckTest"
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -109,7 +111,7 @@ class BingoCheckTestUpdate {
 		int row, col, leftD, rightD;
 		row = col = leftD = rightD = 0;
 		
-		// 방법 04		
+		// 방법 04 >> 방법 03은 반복문이 너무 많아서 수를 줄이고 전체적으로 개량	
 		for(int i = 0; i < 5; i++, row = 0, col = 0) {
 			for(int j = 0; j < 5; j++) {
 				if (bingo[i][j] == 1) {
