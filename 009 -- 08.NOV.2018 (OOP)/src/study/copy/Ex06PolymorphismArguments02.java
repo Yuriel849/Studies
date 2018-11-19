@@ -76,7 +76,7 @@ class Buyer { // 고객, 물건을 사는 사람
 	}
 }
 
-public class PolymorphismArguments2 {
+public class Ex06PolymorphismArguments02 {
 	public static void main(String[] args) {
 		Buyer b = new Buyer();
 		

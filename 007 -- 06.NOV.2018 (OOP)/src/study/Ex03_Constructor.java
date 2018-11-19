@@ -65,7 +65,7 @@ class Point {
 	}
 }
 
-public class OOP_Constructor {
+public class Ex03_Constructor {
 	public static void main(String[] args) {
 		// 점 p(3,5)
 		Point p = new Point(); // --> <Point()> --> 이 부분이 생성자 호출하는 것

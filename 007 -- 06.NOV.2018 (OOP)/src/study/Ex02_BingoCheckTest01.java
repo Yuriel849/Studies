@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class OOP_BingoCheckTest {
+class Ex02_BingoCheckTest01 {
 	/* 2차원 배열을 받아서 bingo의 개수를 세서 반환
 	 * 메서드 이름 : bingoCheck
 	 * 매개변수(입력) : 2차원 int 배열

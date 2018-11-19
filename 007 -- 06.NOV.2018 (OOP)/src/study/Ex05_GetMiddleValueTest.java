@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-class OOP_GetMiddleValueOfThreeNumbersTest {
+class Ex05_GetMiddleValueTest {
 	/* 3개의 값을 입력 받아서 중간값을 반환하는 메서드 작성
 	 * 메서드 이름 : mid
 	 * 입력 : 정수값 3개

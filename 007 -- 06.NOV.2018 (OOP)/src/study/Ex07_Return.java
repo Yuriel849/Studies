@@ -11,7 +11,7 @@ class Return {
 	}
 }
 
-public class OOP_Return {
+public class Ex07_Return {
 	public static void main(String[] args) {
 		Return ret = new Return();
 		ret.max(4, 5); // 호출할 때 반환값을 받지 않는 것은 문제되지 않는다

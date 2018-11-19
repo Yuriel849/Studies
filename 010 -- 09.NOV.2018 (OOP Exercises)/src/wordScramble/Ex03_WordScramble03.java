@@ -2,7 +2,7 @@ package wordScramble;
 
 import java.util.Scanner;
 
-public class WordScrambleMod02 {
+public class Ex03_WordScramble03 {
     public static void main(String[] args) { 
         String[] strArr = { "CHANGE", "LOVE", "HOPE", "VIEW"}; 
         

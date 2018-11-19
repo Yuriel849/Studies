@@ -1,6 +1,6 @@
 package study;
 
-class Super {
+class Ex03_Super {
 	public static void main(String[] args) {
 		PointA p = new PointA();
 		Point3D p3 = new Point3D(1,2,3);	

@@ -22,7 +22,7 @@ class Card {
 	}
 }
 
-class CardCheckTest {
+class Ex04_CardCheckTest01 {
 	String rankCheck(Card[] cArr) {
 //		Card[] input = cArr;
 //		

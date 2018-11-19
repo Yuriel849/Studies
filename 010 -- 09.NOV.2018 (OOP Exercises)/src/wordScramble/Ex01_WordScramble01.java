@@ -1,6 +1,6 @@
 package wordScramble;
 
-public class WordScramble {
+public class Ex01_WordScramble01 {
     public static void main(String[] args) { 
         String[] strArr = { "CHANGE", "LOVE", "HOPE", "VIEW"}; 
 

@@ -2,7 +2,7 @@ package wordScramble;
 
 import java.util.Scanner;
 
-public class WordScrambleMod03 {
+public class Ex04_WordScramble04 {
     public static void main(String[] args) { 
         String[] strArr = { "BERLIN IS THE CAPITAL OF GERMANY", "BOSTON IS A CITY IN AMERICA", "ROME IS THE CRADLE OF WESTERN CIVILIZATION", "APPLE IS NOT A GOOD APPLE"}; 
         

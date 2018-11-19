@@ -1,9 +1,9 @@
 package point;
 
-public class Point4D extends Point3D {
+public class Ex04_Point4D extends Ex03_Point3D {
 	int a;
 	
-	Point4D() {
+	Ex04_Point4D() {
 		this(1,1,1,1);
 	}
 	
@@ -11,7 +11,7 @@ public class Point4D extends Point3D {
 	 * 	>> 바로 위의 parent class 하나에 접근한다 (grandparent 이상에 접근하지 않는다)
 	 * 	>> 여러 클래스가 상속으로 일렬로 이어져있다면, super & super() 썼을 때는 그 클래스 바로 위의 parent 하나에만 접근한다
 	 */
-	Point4D(int x, int y, int z, int a) {
+	Ex04_Point4D(int x, int y, int z, int a) {
 		super(x,y,z);
 		this.a = a;
 	}
@@ -22,8 +22,8 @@ public class Point4D extends Point3D {
 	public boolean equals(Object obj) {
 		// 두 점의 x, y를 비교해서 같으면 true.
 		// 아니면 false를 반환하시요.
-		if (obj instanceof Point4D) {
-			Point4D point = (Point4D) obj; // parent 타입에서 child의 child의 child 타입 참조변수로 단번에 형변환
+		if (obj instanceof Ex04_Point4D) {
+			Ex04_Point4D point = (Ex04_Point4D) obj; // parent 타입에서 child의 child의 child 타입 참조변수로 단번에 형변환
 										   // Object --> Point --> Point3D --> Point4D 형변환
 			if (this.x == point.x && this.y == point.y && this.z == point.z && this.a == point.a) {
 				return true;

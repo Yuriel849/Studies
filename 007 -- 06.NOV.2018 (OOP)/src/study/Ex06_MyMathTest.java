@@ -36,7 +36,7 @@ class MyMath {
 	 */
 }
 
-public class OOP_MyMathTest {
+public class Ex06_MyMathTest {
 	public static void main(String[] args) {
 		MyMath mm = new MyMath();
 //		long result = mm.add(3, 5);

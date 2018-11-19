@@ -22,7 +22,7 @@ class Tv { // Tv 클래스의 시작
 	}
 } // Tv 클래스의 끝
 
-public class OOP_TvTest {
+public class Ex10_TvTest {
 	public static void main(String[] args) {
 		// 2. 객체의 생성
 		Tv tv = new Tv();

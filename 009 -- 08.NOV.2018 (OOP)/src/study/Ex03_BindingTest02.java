@@ -1,6 +1,6 @@
 package study;
 
-public class BindingTest2 {
+public class Ex03_BindingTest02 {
 	public static void main(String[] args) {
 		Parent2 p = new Child2();
 		Child2 c = new Child2();

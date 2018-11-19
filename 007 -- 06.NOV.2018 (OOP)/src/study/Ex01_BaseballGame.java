@@ -2,7 +2,7 @@ package study;
 
 import java.util.Scanner;
 
-public class OOP_BaseballGame {
+public class Ex01_BaseballGame {
 	public static void main(String[] args) {
 		/* 1. 1 ~ 9 사이의 숫자로 이루어진 3자리 정수(중복 X)를 임의로 생성
 		 * 		>> use Math.random() to get digits b/w 0 ~ 9

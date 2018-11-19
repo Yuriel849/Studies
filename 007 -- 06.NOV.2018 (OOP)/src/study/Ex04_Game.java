@@ -11,6 +11,6 @@ class Marine { // º´»ç
 	void stop() { } 
 }
 
-public class OOP_Game {
+public class Ex04_Game {
 
 }

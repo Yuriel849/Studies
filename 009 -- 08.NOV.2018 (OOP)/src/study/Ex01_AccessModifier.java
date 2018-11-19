@@ -20,7 +20,7 @@ class Time {
 	}
 }
 
-public class AccessModifier {
+public class Ex01_AccessModifier {
 	public static void main(String[] args) {
 		Time t = new Time();
 		// t.hour = 10;

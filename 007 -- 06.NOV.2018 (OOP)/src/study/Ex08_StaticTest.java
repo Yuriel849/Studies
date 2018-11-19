@@ -14,7 +14,7 @@ class StaticBlockTest {
 	}
 }
 
-public class OOP_StaticTest {
+public class Ex08_StaticTest {
 	public static void main(String[] args) {
 	}
 

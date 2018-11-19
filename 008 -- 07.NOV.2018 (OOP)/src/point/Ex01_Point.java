@@ -1,15 +1,15 @@
 package point;
 
-public class Point {
+public class Ex01_Point {
 	int x; // --> this.x --> iv (인스턴스 변수)
 	int y; // --> 객체를 생성해야만 존재한다
 	
-	Point() {
+	Ex01_Point() {
 		this(1, 1); // == Point(1,1) --> 아래 Point(int x, int y) 생성자 호출
 					// 코드 중복 피하려고 this() 사용
 	}
 	
-	Point(int x, int y) {
+	Ex01_Point(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
@@ -19,8 +19,8 @@ public class Point {
 	public boolean equals(Object obj) {
 		// 두 점의 x, y를 비교해서 같으면 true.
 		// 아니면 false를 반환하시요.
-		if (obj instanceof Point) { // 형변환하기 전에 obj가 Point의 객체가 맞기는 한지 먼저 확인해야 한다.
-			Point point = (Point) obj; // instanceof로 확인 후 parent형 --> child형 참조변수로 형변환
+		if (obj instanceof Ex01_Point) { // 형변환하기 전에 obj가 Point의 객체가 맞기는 한지 먼저 확인해야 한다.
+			Ex01_Point point = (Ex01_Point) obj; // instanceof로 확인 후 parent형 --> child형 참조변수로 형변환
 			return (this.x == point.x && this.y == point.y); // this의 x, y & point가 참조하는 x, y가 같은지 비교
 			}
 //			if (this.x == point.x && this.y == point.y) {
@@ -54,7 +54,7 @@ public class Point {
 	}
 	
 	// <객체1>.getDistance(<객체2>);로 호출 --> 여러 값을 <객체2>라고 부르는 하나의 객체 안에 묶어서 인수전달
-	double getDistance(Point p) {
+	double getDistance(Ex01_Point p) {
 		/* static double getDistance(Point p) -->> 에러!!!
 		 * 	>> "this" 자체는 지역변수이지만 this는 인스턴스 자신을 가리키는 참조변수다
 		 * 	>> 여기서 this는 메서드 호출할 때 사용한 객체 자신을 의미 --> 즉, 이 메서드는 객체를 생성해야만 사용 가능
@@ -75,7 +75,7 @@ public class Point {
 	}
 	
 	// Point p1, Point p2 --> 이 함수를 호출하는 곳으로부터 참조형 변수의 주소값을 전달 받는 것
-	static double getDistance(Point p1, Point p2) {
+	static double getDistance(Ex01_Point p1, Ex01_Point p2) {
 //		double square = Math.pow((p2.x - p1.x), 2) + Math.pow((p2.y - p1.y), 2);
 //		double result = Math.sqrt(square); 
 		return Math.sqrt(Math.pow((p2.x - p1.x), 2) + Math.pow((p2.y - p1.y), 2));

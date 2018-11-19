@@ -1,6 +1,6 @@
 package cardCheckMods;
 
-// project "Day06" --> package "study" --> file "DeckTestTest.java"
+// Project "009 -- 08.NOV.2018 (OOP)" >> package "study" >> file "Ex04_CardCheckTest"
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
 //	}
 //}
 
-class CardCheckMod2 {
+class Ex01_CardCheckTest02 {
 	String rankCheck(Card[] cArr) {
 //		Card[] input = cArr;
 //		

@@ -21,7 +21,7 @@ class Time {
 
 }
 
-public class OOP_TimeTest {
+public class Ex09_TimeTest {
 	public static void main(String[] args) {
 		// 객체를 생성해야 Time 클래스의 멤버변수들의 저장공간이 생긴다.
 		Time time = new Time();

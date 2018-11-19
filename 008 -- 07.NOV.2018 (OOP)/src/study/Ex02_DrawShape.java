@@ -1,6 +1,6 @@
 package study;
 
-public class DrawShape {
+public class Ex02_DrawShape {
 	public static void main(String[] args) {
 		/* 15번째 줄과 같은 내용
 		 * Point p1 = new Point(1,1);

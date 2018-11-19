@@ -1,6 +1,6 @@
 package cardCheckMods;
 
-// project "Day06" --> package "study" --> file "DeckTestTest.java"
+// Project "009 -- 08.NOV.2018 (OOP)" >> package "study" >> file "Ex04_CardCheckTest"
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,7 +24,7 @@ class Card {
 	}
 }
 
-class CardCheckMod3 {
+class Ex02_CardCheckTest03 {
 		// 강사님 코드 (INCOMPLETE)
 	String rankCheck(Card[] cArr) {
 		// 카드 숫자 범위 1 ~ 13
