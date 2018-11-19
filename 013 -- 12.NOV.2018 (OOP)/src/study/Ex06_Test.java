@@ -1,6 +1,6 @@
 package study;
 
-class Test {
+class Ex06_Test {
 	public static void main(String[] args) {
 		Child c = new Child();
 			/* 생성자 호출 순서

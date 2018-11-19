@@ -1,20 +1,20 @@
 package collectionsFramework;
 
 // 이미 존재하는 Vector 클래스를 모방하는 나만의 클래스를 만들어보자.
-class MyVector {
+class Ex01_MyVector {
 	Object[] objArr;
 	int size;
 	int capacity;
 	
 	// 사용자가 capacity를 지정할 수 있는 생성자
-	MyVector(int capacity) {
+	Ex01_MyVector(int capacity) {
 		if(capacity < 0) { System.exit(0); } // 0보다 작은 인자를 사용하면 종료하도록 한다.
 		this.capacity = capacity;
 		objArr = new Object[capacity];
 	}
 	
 	// 기본생성자 (default capacity = 16)
-	MyVector() {
+	Ex01_MyVector() {
 		this(16);
 	}
 

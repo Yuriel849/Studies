@@ -1,12 +1,12 @@
 package collectionsFramework;
 
-class MyVectorAnswer {
+class Ex02_MyVectorAnswer {
 	Object[] objArr; // null로 자동초기화
 		// capacity를 얼마로 할지 모르는데 간단초기화하지 못한다 --> 생성자에서 초기화해야
 	int size;
 	
 	// 생성자 : 주어진 값의 크기로 iv 초기화 
-	MyVectorAnswer(int capacity) {
+	Ex02_MyVectorAnswer(int capacity) {
 			// capacity는 배열의 크기
 		if(capacity < 0) {
 			throw new IllegalArgumentException("잘못된 값을 입력했습니다 --> " + capacity);
@@ -15,7 +15,7 @@ class MyVectorAnswer {
 	}
 	
 	// 기본생성자 : 사용자가 capacity를 설정하지 않는다면
-	MyVectorAnswer() {
+	Ex02_MyVectorAnswer() {
 		this(16); // == MyVectorAnswer(16);
 //		objArr = new Object[16];
 	}

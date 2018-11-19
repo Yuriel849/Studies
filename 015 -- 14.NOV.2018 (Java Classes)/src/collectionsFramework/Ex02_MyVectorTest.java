@@ -2,9 +2,9 @@ package collectionsFramework;
 
 import java.util.Vector;
 
-class MyVectorTest {
+class Ex02_MyVectorTest {
 	public static void main(String[] args) {
-		MyVector v = new MyVector(5);
+		Ex02_MyVector v = new Ex02_MyVector(5);
 		// 잘 안된다면 Vector 객체를 선언/생성하여 실행, 비교해보자
 		Vector v4 = new Vector();
 		System.out.println(v.isEmpty());

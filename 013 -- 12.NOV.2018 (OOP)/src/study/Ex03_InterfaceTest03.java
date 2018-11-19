@@ -1,6 +1,6 @@
 package study;
 
-class InterfaceTest3 {
+class Ex03_InterfaceTest03 {
 	public static void main(String[] args) {
 		A3 a = new A3();
 		a.methodA(); // OR a.methodA(new B3());

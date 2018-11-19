@@ -1,6 +1,6 @@
 package study;
 
-class InnerClass {
+class Ex07_InnerClass {
 	public static void main(String[] args) {
 		Outer o = new Outer(); // Outer 클래스의 객체 생성
 		System.out.println("o.iv = " + o.iv); // '100' 출력 --> Outer 클래스의 인스턴스변수 iv

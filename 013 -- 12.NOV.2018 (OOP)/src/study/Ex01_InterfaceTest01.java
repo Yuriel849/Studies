@@ -1,6 +1,6 @@
 package study;
 
-class InterfaceTest {
+class Ex01_InterfaceTest01 {
 	public static void main(String[] args) {
 		A a = new A();
 		a.methodA(new B()); /* A클래스의 객체 a의 methodA 메서드를 호출, 인자로는 B클래스의 객체를 새롭게 생성하여 전달

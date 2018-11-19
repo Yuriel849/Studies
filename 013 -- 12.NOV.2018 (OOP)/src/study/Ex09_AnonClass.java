@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 // 아무것도 출력되지 않는 것이 정상!
-class AnonClass {
+class Ex09_AnonClass {
 	public static void main(String[] args) {
 		Button b = new Button("Start");
 		b.addActionListener(new ActionListener() {

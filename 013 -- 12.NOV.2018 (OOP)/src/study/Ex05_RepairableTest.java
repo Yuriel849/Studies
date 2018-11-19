@@ -1,6 +1,6 @@
 package study;
 
-class RepairableTest {
+class Ex05_RepairableTest {
 	public static void main(String[] args) {
 		Tank tank = new Tank();
 		Dropship dropship = new Dropship();

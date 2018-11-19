@@ -34,7 +34,7 @@ class HTMLParser implements Parseable {
 	}
 }
 
-class ParserTest {
+class Ex04_ParserTest {
 	public static void main(String[] args) {
 		Parseable parser = ParserManager.getParser("XML"); // parser 참조변수는 XMLParser 객체를 참조하게 된다
 		parser.parse("document.xml"); // XMLParser.parse("document.xml")와 동일하다

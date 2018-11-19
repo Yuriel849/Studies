@@ -1,6 +1,6 @@
 package study;
 
-class InterfaceTest2 {
+class Ex02_InterfaceTest02 {
 	public static void main(String[] args) {
 	A2 a = new A2();
 	a.autoPlay(new B2());

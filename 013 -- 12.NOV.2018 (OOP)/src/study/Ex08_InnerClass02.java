@@ -1,6 +1,6 @@
 package study;
 
-class InnerClass2 {
+class Ex08_InnerClass02 {
 	public static void main(String[] args) {
 		Outer2 outer = new Outer2();
 		Outer2.Inner2 inner = outer.new Inner2();

@@ -1,7 +1,7 @@
 package simpleQuiz;
 
 //data의 내용을 문제, 답, 선택지로 나눠서 배열에 다시 저장한다.
-class SimpleQuizMod1 { 
+class Ex02_SimpleQuiz02 { 
 	public static void main(String[] args) { 
 		String[] data = { 
 				"다음 중 키워드가 아닌 것은?`2`final`True`if`public", 

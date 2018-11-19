@@ -3,7 +3,7 @@ package simpleQuiz;
 import java.util.Scanner;
 
 // data의 내용을 문제, 답, 선택지로 나눠서 출력하지만 반복문을 이용하면서 계속 기존 내용을 덮어쓴다.
-class SimpleQuizMod2 { 
+class Ex03_SimpleQuiz03 { 
 	public static void main(String[] args) { 
 		String[] data = { 
 				"다음 중 키워드가 아닌 것은?`2`final`True`if`public", 
