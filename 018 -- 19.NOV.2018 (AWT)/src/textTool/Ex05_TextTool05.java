@@ -4,19 +4,21 @@ import java.awt.*;
 import java.awt.event.*; 
 import java.util.*; 
 
-// TextArea 데이터 중에서 tfParam1에 입력된 문자 또는 문자들을 제거하는 기능의 '문자삭제'버튼을 완성하라.
-
-class Ex03_TextTool03 extends Frame implements WindowListener { 
+class Ex05_TextTool05 extends Frame implements WindowListener {
+	// TextArea의 각 라인의 앞에는 param1에 입력된 문자열을, 뒤에는 param2에 입력된 문자열을 붙이는 기능을 접두사추가 버튼으로 구현하라. 
 	TextArea ta;
     TextField tfParam1, tfParam2;
     Panel pNorth, pSouth;
     Label lb1, lb2;
-
+    
     // 생성자에서 btnName의 데이터를 btn으로 옮긴다.
     String[] btnName = {
     		"Undo", // 작업이전 상태로 되돌림
             "짝수줄삭제", // 짝수줄을 삭제하는 기능
             "문자삭제", // tfParam1에 지정된 문자들을 삭제하는 기능
+            "trim", // 라인의 앞뒤 공백을 제거
+            "빈줄삭제", // 빈 줄 삭제
+            "접두사추가", // tfParam1 & tfParam2의 문자열을 각 라인의 앞 뒤에 붙이는 기능
 	};
 
     Button[] btn = new Button[btnName.length];
@@ -30,7 +32,8 @@ class Ex03_TextTool03 extends Frame implements WindowListener {
 
         int n = 0; // 버튼순서
 
-        btn[n++].addActionListener(new ActionListener() { // Undo - 작업이전 상태로 되돌림
+        // 1. // Undo --> 작업이전 상태로 되돌림
+        btn[n++].addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent ae) {
         		String curText = ta.getText();
 
@@ -39,10 +42,11 @@ class Ex03_TextTool03 extends Frame implements WindowListener {
         		}
 
                 prevText = curText;
-        	}
+        	}	        	
         });
 
-        btn[n++].addActionListener(new ActionListener() { // 짝수줄삭제 - 짝수줄을 삭제하는 기능
+        // 2. 짝수줄삭제 --> 짝수줄을 삭제하는 기능
+        btn[n++].addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent ae) {
         		String curText = ta.getText();
                 StringBuffer sb = new StringBuffer(curText.length());
@@ -63,18 +67,19 @@ class Ex03_TextTool03 extends Frame implements WindowListener {
         	}
         });
 
-        btn[n++].addActionListener(new ActionListener() { // 문자삭제 - Param1에 지정된 문자를 삭제하는 기능
+        // 3. 문자삭제 - Param1에 지정된 문자를 삭제하는 기능
+        btn[n++].addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent ae) {
         		String curText = ta.getText();
         		StringBuffer sb = new StringBuffer(curText.length());
-        		
+	        		
         		prevText = curText;
-        		
+	        		
         		// 1. TextField tfParam1의 값을 가져온다.(getText()사용)
         		String para = tfParam1.getText();
 
         		if(para.equals("")) { return; } // tfParam1이 비었다면 종료한다.
-        		
+	        		
         		// 2. 반복문을 이용해서 curText를 한글자씩 읽어서 Param1에서 가져온 문자열에 포함되어 있는지 확인한다.
         		for(int i = 0; i < curText.length(); i++) {
         			char ch = curText.charAt(i);
@@ -82,21 +87,74 @@ class Ex03_TextTool03 extends Frame implements WindowListener {
                         // 3. 만일 포함되어 있지 않으면 sb에 저장하고 포함되어 있으면 sb에 저장하지 않는다.
         				sb.append(ch);
         		}
+	        		
+        		// 4. 작업이 끝난 후에 sb에 담긴 내용을 ta에 보여준다.(setText()사용)
+        		ta.setText(sb.toString());
+        	}
+        });
+        
+        // 4. trim - 라인의 좌우공백을 제거하는 기능
+        btn[n++].addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent ae) {
+        		String curText = ta.getText();
+        		StringBuffer sb = new StringBuffer(curText.length());
+	        		
+        		prevText = curText;
         		
-        		// 2. 반복문을 이용해서 curText를 한글자씩 읽어서 Param1에서 가져온 문자열에 포함되어 있는지 확인한다.
-//        		for(int i = 0; i < curText.length(); i++) {
-//        			boolean flag = false;
-//        			for(int j = 0; j < para.length(); j++) {
-//        				// 3 만일 포함되어 있으면 flag를 true로 바꾸고 break한다.
-//        				if(curText.charAt(i) == para.charAt(j)) {
-//        					flag = true;
-//        					break;
-//        				}
-//        			}
-//        			// flag가 true가 아닐 때만 (para에 curText의 글자와 일치하는게 없을 때만) sb에 append한다.
-//        			if(flag == false) { sb.append(curText.charAt(i)); }
-//        		} // 바깥 for문 끝.
- 		
+        		// 1. Scanner클래스와 반복문을 이용해서 curText를 라인단위로 읽는다.
+        		Scanner scan = new Scanner(curText);
+        		while(scan.hasNextLine()) {
+        			String line = scan.nextLine();
+        			// 2. 읽어온 라인의 왼쪽공백과 오른쪽 공백을 제거한다.(String클래스의 trim()사용)
+        			sb.append(line.trim() + CR_LF);
+        		}
+
+        		// 3. 작업이 끝난 후에 sb에 담긴 내용을 ta에 보여준다.(setText()사용)
+        		ta.setText(sb.toString());
+        	}
+        });
+        
+        // 5. 빈줄삭제 - 빈 줄 삭제 기능
+        btn[n++].addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent ae) {
+        		String curText = ta.getText();
+        		StringBuffer sb = new StringBuffer(curText.length());
+	        		
+        		prevText = curText;
+        		
+        		// 1. Scanner클래스와 반복문을 이용해서 curText를 라인단위로 읽는다.
+        		Scanner scan = new Scanner(curText);
+        		while(scan.hasNextLine()) {
+        			String line = scan.nextLine();
+        			// 2. 읽어온 라인이 내용이 없는 빈 라인이면 sb에 저장하지 않는다.
+        			if(!(line.equals(""))) { sb.append(line).append(CR_LF); }
+        		}
+        		
+        		// 3. 작업이 끝난 후에 sb에 담긴 내용을 ta에 보여준다.(setText()사용)
+        		ta.setText(sb.toString());
+        	}
+        });
+        
+        // 6. 접두사추가 --> 각 라인에 접두사, 접미사 붙이기
+        btn[n++].addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent ae) {
+        		String curText = ta.getText();
+        		StringBuffer sb = new StringBuffer(curText.length());
+	        		
+        		prevText = curText;
+        		
+        		// 1. tfParam1과 tfParam2의 값을 가져온다.(getText()사용)
+        		String param1 = tfParam1.getText();
+        		String param2 = tfParam2.getText();
+        		
+        		// 2. Scanner클래스와 반복문을 이용해서 curText를 라인단위로 읽는다.
+        		Scanner scan = new Scanner(curText);
+        		while(scan.hasNextLine()) {
+        			String line = scan.nextLine();
+        			// 3. 읽어온 라인의 앞뒤에 param1과 param2의 값을 붙여서 sb에 담는다.
+        			sb.append(param1).append(line).append(param2).append(CR_LF);
+        		}
+
         		// 4. 작업이 끝난 후에 sb에 담긴 내용을 ta에 보여준다.(setText()사용)
         		ta.setText(sb.toString());
         	}
@@ -106,12 +164,12 @@ class Ex03_TextTool03 extends Frame implements WindowListener {
     // main()!!
     @SuppressWarnings("deprecation")
 	public static void main(String[] args) {
-    	Ex03_TextTool03 win = new Ex03_TextTool03("Text Tool");
+    	Ex05_TextTool05 win = new Ex05_TextTool05("Text Tool");
         win.show();
 	} // main() 끝.
 
     // 생성자!!
-    public Ex03_TextTool03(String title) {
+    public Ex05_TextTool05(String title) {
     	super(title);
         lb1 = new Label("param1:", Label.RIGHT);
         lb2 = new Label("param2:", Label.RIGHT);

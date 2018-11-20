@@ -13,11 +13,9 @@ class Ex02_TextTool02 extends Frame implements WindowListener {
     Panel pNorth, pSouth; 
     Label lb1, lb2;
 
-    // btnName[0] --> Undo 기능
-    // btnName[1] --> 짝수줄 삭제하는 기능
-    // 	>> 생성자에서 btnName의 데이터를 btn으로 옮긴다.
+    // 생성자에서 btnName의 데이터를 btn으로 옮긴다.
     String[] btnName = {
-    		"Undo",    // 작업이전 상태로 되돌림 
+    		"Undo", // 작업이전 상태로 되돌림 
             "짝수줄삭제", // 짝수줄을 삭제하는 기능 
     };
 
@@ -34,16 +32,25 @@ class Ex02_TextTool02 extends Frame implements WindowListener {
         btn[0].addActionListener(new ActionListener() { // Undo - 작업이전 상태로 되돌림 
         	public void actionPerformed(ActionEvent ae) {
         		String curText = ta.getText();
-        		StringBuffer sb = new StringBuffer(prevText.length());
 
-        		Scanner scan = new Scanner(prevText);
-        		
-        		for(int i = 0; scan.hasNextLine(); i++) {
-        			String line = scan.nextLine();
-        			sb.append(line + CR_LF);
+        		if(!prevText.equals("")) {
+        			ta.setText(prevText);
         		}
-        		ta.setText(sb.toString());
-        		prevText = curText;
+
+                prevText = curText;
+
+                // 이미 "짝수줄 삭제" 기능을 통해 prevText에 저장된 문자열은  개행문자까지 포함하여 완성되어 있는 상태! 굳이 아래와 같이 다시 처리할 필요가 없다!
+//    			String curText = ta.getText();
+//    			StringBuffer sb = new StringBuffer(prevText.length());
+//
+//    			Scanner scan = new Scanner(prevText);
+//    		
+//    			for(int i = 0; scan.hasNextLine(); i++) {
+//    				String line = scan.nextLine();
+//    				sb.append(line + CR_LF);
+//    			}
+//    			ta.setText(sb.toString());
+//    			prevText = curText;
         	}
         });
 

@@ -63,10 +63,15 @@ class Circle extends Shape {
 	double r;
 	
 	Circle() {
-		this(1);
+		this(new Point(0,0), 1);
 	}
 	
 	Circle(double x) {
+		this(new Point(0,0), x);
+	}
+	
+	Circle(Point p, double x) {
+		super(p);
 		this.r = x;
 	}
 	
@@ -79,10 +84,15 @@ class Rectangle extends Shape {
 	double width, height;
 	
 	Rectangle() {
-		this(1, 1);
+		this(new Point(0,0), 1, 1);
 	}
 	
-	Rectangle(int x, int y) {
+	Rectangle(double x, double y) {
+		this(new Point(0,0), x, y);
+	}
+	
+	Rectangle(Point p, double x, double y) {
+		super(p);
 		this.width = x;
 		this.height = y;
 	}
@@ -92,6 +102,6 @@ class Rectangle extends Shape {
 	}
 	
 	boolean isSquare() {
-		return width == height;
+		return width == height && width*height != 0; // 높이 또는 넓이가 0이 아니어야 한다 (높이와 넓이를 곱했을 때 0이 아니어야 한다)
 	}
 } // Rectangle 클래스 끝.
