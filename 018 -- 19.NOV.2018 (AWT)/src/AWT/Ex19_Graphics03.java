@@ -1,4 +1,4 @@
-package AWT_cont;
+package AWT;
 
 // Image를 이용해서 이미지 출력하기
 // 내가 직접 그리는 것의 문제점 --> 현재진행형으로 그리고 출력하니까, 계속 깜빡거리면서 repaint()가 진행된다
