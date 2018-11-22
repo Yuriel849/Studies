@@ -20,7 +20,7 @@ class Ex05_Thread05 implements Runnable {
 		}
 		
 		System.out.println("프로그램을 종료합니다.");
-	}
+	} // main() 끝.
 
 	public void run() {
 		while(true) {
@@ -32,9 +32,9 @@ class Ex05_Thread05 implements Runnable {
 				autoSave();
 			}
 		}
-	}
+	} // run() 끝.
 	
 	public void autoSave() {
 		System.out.println("작업파일이 자동저장되었습니다.");
-	}
-}
+	} // autoSave() 끝.
+} // 클래스 끝.

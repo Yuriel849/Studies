@@ -14,8 +14,8 @@ public class Ex04_Thread04 {
 		
 		th1.start();
 		th2.start();
-	}
-}
+	} // main() 끝.
+} // 클래스 끝.
 
 class ThreadEx04 extends Thread {
 	public void run() {
@@ -23,8 +23,8 @@ class ThreadEx04 extends Thread {
 			System.out.print("-");
 			for(int x = 0; x < 10000000; x++);
 		}
-	}
-}
+	} // run() 끝.
+} // 클래스 끝.
 
 class ThreadEx05 extends Thread {
 	public void run() {
@@ -32,5 +32,5 @@ class ThreadEx05 extends Thread {
 			System.out.print("|");
 			for(int x = 0; x < 10000000; x++);
 		}
-	}
-}
+	} // run() 끝.
+} // 클래스 끝.

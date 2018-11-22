@@ -16,7 +16,7 @@ class Ex01_Thread01 {
 		}
 		// 쓰레드 실행 중 에러/예외가 발생해도 그 쓰레드만 영향을 받지, 다른 쓰레드는 영향 받지 않는다.
 	} // main() 끝. --> 하지만 main 외 다른 쓰레드가 실행 중임으로 프로그램이 종료되지 않는다.
-}
+} // 클래스 끝.
 
 // 쓰레드를 만들면 그 후는 쓰레드가 할 일을 제공해야 한다 --> 할 일을 명시한 것이 run() --> 그래서 run()을 오버라이딩하거나 구현하는 것이다.
 
@@ -25,8 +25,8 @@ class ThreadEx01 extends Thread { // Thread 클래스를 상속 받아서 run() 오버라이�
 		for(int i = 0; i < 5; i++) {
 			System.out.println("1." + getName()); // superclass Thread의 getName() 바로 호출
 		}
-	}
-}
+	} // run() 끝.
+} // 클래스 끝.
 
 class ThreadEx02 implements Runnable { // Runnable 인터페이스를 구현 --> Runnable에는 추상메서드 run() 밖에 없기에 Runnable 구현 means run() 구현
 	public void run() {
@@ -38,5 +38,5 @@ class ThreadEx02 implements Runnable { // Runnable 인터페이스를 구현 --> Runnabl
 			 * 	>> currentThread()가 현재 실행중인 Thread를 반환하면, 이제 그것을 이용해서 Thread 클래스에 접근할 수 있다.
 			 */
 		}
-	}
-}
+	} // run() 끝.
+} // 클래스 끝.
