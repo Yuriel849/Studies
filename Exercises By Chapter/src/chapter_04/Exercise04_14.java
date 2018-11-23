@@ -1,6 +1,6 @@
-package chapter_4;
+package chapter_04;
 
-class Exercise4_14 {
+class Exercise04_14 {
 	public static void main(String[] args) {
 		// 1 ~ 100 사이의 임의의 값을 얻어서 answer에 저장한다.
 		int answer = (int)(Math.random() * 100 + 1);

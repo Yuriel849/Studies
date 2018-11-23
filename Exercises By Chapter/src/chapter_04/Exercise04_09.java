@@ -1,8 +1,8 @@
-package chapter_4;
+package chapter_04;
 
 // 문자열의 각 문자를 더해서 합을 구하라 (문자열 "12345")
 
-public class Exercise4_09 {
+public class Exercise04_09 {
 	public static void main(String[] args) {
 		String str = "12345";
 		int sum = 0;

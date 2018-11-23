@@ -1,4 +1,4 @@
-package chapter_4;
+package chapter_04;
 
 // ´Ù½Ã!!
 
@@ -13,7 +13,7 @@ package chapter_4;
  * 5*3=6	6*3=9	7*3=12
  */
 
-public class Exercise4_12 {
+public class Exercise04_12 {
 	public static void main(String[] args) {
 
 	} // main() ³¡.

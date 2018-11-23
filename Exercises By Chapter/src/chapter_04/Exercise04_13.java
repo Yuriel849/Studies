@@ -1,6 +1,6 @@
-package chapter_4;
+package chapter_04;
 
-class Exercise4_13 {
+class Exercise04_13 {
 	public static void main(String[] args) {
 		String value = "12o34";
 		char ch = ' ';

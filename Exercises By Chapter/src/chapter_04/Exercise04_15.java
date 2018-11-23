@@ -1,6 +1,6 @@
-package chapter_4;
+package chapter_04;
 
-class Exercise4_15 {
+class Exercise04_15 {
 	public static void main(String[] args) {
 		int number = 12321;
 		int tmp = number;
