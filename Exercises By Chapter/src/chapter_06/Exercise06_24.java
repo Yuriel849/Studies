@@ -1,6 +1,8 @@
-package study;
+package chapter_06;
 
-public class Ex05_ABS {
+// 주어진 값의 절대값을 반환하라.
+
+public class Exercise06_24 {
 	public static void main(String[] args) {
 		int value = 5;
 		System.out.println(value + "의 절다값: " + abs(value));

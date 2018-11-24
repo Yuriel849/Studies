@@ -1,6 +1,8 @@
-package study;
+package chapter_06;
 
-public class Ex07_SutdaDeck {
+// SutdaCard 클래스를 작성하라.
+
+public class Exercise06_02 {
 	public static void main(String[] args) {
 		SutdaDeck deck = new SutdaDeck();
 		

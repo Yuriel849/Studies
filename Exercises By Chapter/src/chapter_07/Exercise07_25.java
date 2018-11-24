@@ -1,6 +1,6 @@
-package study;
+package chapter_07;
 
-//add this file to 14 Nov. 2018 (7장 연습문제)
+// Outer클래스의 Inner 내부클래스의 멤버변수 iv의 값을 구하라.
 
 class Outer {
 	class Inner {
@@ -13,7 +13,7 @@ class Outer {
 } // 외부클래스 Outer 끝.
 
 
-class Ex06_Outer_Inner {
+class Exercise07_25 {
 	public static void main(String[] args) {
 		// Outer 클래스의 내부 클래스 Inside의 멤버변수 iv를 출력한다.
 		Outer.Inside inside = new Outer.Inside(); // Inside 내부클래스는 static이기에 외부클래스 객체생성이 불필요하다

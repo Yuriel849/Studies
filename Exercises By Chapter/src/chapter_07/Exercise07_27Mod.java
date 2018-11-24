@@ -1,6 +1,8 @@
-package study;
+package chapter_07;
 
-public class Ex08_Outer_Inner03 {
+// 3가지 멤버변수 value의 값을 구하라.
+
+public class Exercise07_27Mod {
 	public static void main(String[] args) {
 		Outer2 outer = new Outer2();
 		Outer2.Inner2 inner = outer.new Inner2();

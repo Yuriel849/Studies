@@ -1,8 +1,8 @@
-package study;
+package chapter_07;
 
-// add this file to 14 Nov. 2018 (7장 연습문제)
+// 원과 직사각형, 넓이 구하기를 정의한 Shape클래스를 작성하라.
 
-class Ex05_Shapes {
+class Exercise07_22 {
 	// 주어진 배열에 담긴 도형들의 넓이를 모두 더해서 반환한다.
 	static double sumArea(Shape[] arr) {
 		double sum = 0;

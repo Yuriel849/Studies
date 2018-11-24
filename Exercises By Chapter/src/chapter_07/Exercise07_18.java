@@ -1,6 +1,8 @@
-package study;
+package chapter_07;
 
-class Ex01_Robots {
+// 주어진 객체의 메서드를 호출하는 프로그램을 작성하라.
+
+class Exercise07_18 {
 	static void action(Robot r) { // 매개변수는 Robot 인스턴스 OR Robot의 child 인스턴스
 		if(r instanceof DanceRobot) {
 			((DanceRobot) r).dance();

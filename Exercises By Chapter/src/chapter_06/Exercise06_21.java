@@ -1,6 +1,8 @@
-package study;
+package chapter_06;
 
-public class Ex02_TV {
+// TV클래스를 작성하라.
+
+public class Exercise06_21 {
 	public static void main(String[] args) {
 		MyTV t = new MyTV();
 		

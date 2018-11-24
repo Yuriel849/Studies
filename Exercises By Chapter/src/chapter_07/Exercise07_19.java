@@ -1,8 +1,8 @@
-package study;
+package chapter_07;
 
-// 물건을 사고, 산 물건을 장바구니에 저장하고, 쇼핑의 결과를 출력하는 예제
+// Buyer클래스를 작성하고 물건을 사고, 산 물건을 장바구니에 저장하고, 쇼핑의 결과를 출력하는 예제
 
-class Ex02_Buyer {
+class Exercise07_19 {
 	public static void main(String[] args) {
 		Buyer b = new Buyer();
 		b.buy(new Tv());

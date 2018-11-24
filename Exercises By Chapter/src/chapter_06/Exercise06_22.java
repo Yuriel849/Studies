@@ -1,6 +1,8 @@
-package study;
+package chapter_06;
 
-public class Ex03_IsNumber {
+// 주어진 문자열이 숫자로만 이루어져있는지 확인하는 메서드를 작성하라.
+
+public class Exercise06_22 {
 	public static void main(String[] args) {
 		String str = "123";
 		System.out.println(str + "는 숫자입니까? " + isNumber(str));

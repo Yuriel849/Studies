@@ -1,6 +1,8 @@
-package study;
+package chapter_06;
 
-public class Ex04_Max {
+// 주어진 int형 배열의 값 중에서 제일 큰 값을 반환하라.
+
+public class Exercise06_23 {
 	public static void main(String[] args) {
 		int[] data = {3,2,9,4,7};
 		System.out.println(java.util.Arrays.toString(data));
@@ -9,7 +11,6 @@ public class Ex04_Max {
 		System.out.println("최대값:" + max(new int[] {})); // 크기가 0인 배열
 	}
 	
-	// 주어진 int형 배열의 값 중에서 제일 큰 값을 반환한다.
 	// 만일 주어진 배열이 null이거나 크기가 0인 경우, -999999를 반환한다.
 	static int max(int[] arr) {
 		if(arr == null || arr.length == 0) { return -999999; }

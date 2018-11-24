@@ -1,6 +1,8 @@
-package study;
+package chapter_06;
 
-public class Ex06_Student {
+// Student 클래스를 작성하라.
+
+public class Exercise06_04 {
 	public static void main(String[] args) {
 		Student s = new Student();
 		s.name = "홍길동";

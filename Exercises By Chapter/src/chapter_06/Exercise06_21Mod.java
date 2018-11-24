@@ -1,6 +1,8 @@
-package study;
+package chapter_06;
 
-public class Ex08_TVMod1 {
+// TV클래스에 getter & setter를 추가하라.
+
+public class Exercise06_21Mod {
 	public static void main(String args[]) {
 		MyTv2 t = new MyTv2();
 
