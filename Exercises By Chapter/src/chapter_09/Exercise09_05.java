@@ -16,7 +16,7 @@ class Exercise09_05 {
 			} else {
 				// 3. 찾으면 count의 값을 1 증가시키고, pos의 값을 target.length만큼 증가시킨다.
 				count++;
-				pos += target.length();
+				pos += target.length(); // pos를 찾은 단어 이후로 옮긴다.
 			}
 		} // while문 끝.
 		return count;
