@@ -1,4 +1,4 @@
-package collectionsFramework;
+package myVector;
 
 class Ex02_MyVectorAnswer {
 	Object[] objArr; // null로 자동초기화

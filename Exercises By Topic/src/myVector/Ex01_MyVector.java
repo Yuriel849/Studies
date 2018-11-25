@@ -1,4 +1,4 @@
-package collectionsFramework;
+package myVector;
 
 // 이미 존재하는 Vector 클래스를 모방하는 나만의 클래스를 만들어보자.
 class Ex01_MyVector {

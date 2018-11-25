@@ -1,4 +1,4 @@
-package collectionsFramework;
+package myVector;
 
 // 무엇을 만들 때마다 꾸준히 test하는 것이 중요!!!
 class Ex02_MyVectorAnswerTest {
