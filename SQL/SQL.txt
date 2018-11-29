@@ -1,0 +1,89 @@
+SQL
+..."Structured Query Language"
+--> Structured, so that the user can interact with the CPU, which is incapable of understanding natural languages (i.e. English)
+--> Query language, meaning this langauge is used to "query" databases and ask for information
+
+SQL is used with Relational DataBases (RDB)
+--> Keyword is "relational", RDB is about creating and utilizing the relationships between tables
+
+SQL terms
+--> Table
+--> Column
+--> Row
+--> Field
+--> Primary Key
+--> Foreign Key
+
+RDB terms
+--> Table
+--> View
+--> Sequence
+--> Index
+--> Synonym
+--> Program Unit
+
+Table naming rules
+--> Names of tables and columns must start with characters and can be at most 30 characters long.
+--> Permissible characters are A - Z, a - z, 0 - 9, _, $, and #.
+--> Names must not overlap with other objects possessed by the same user.
+--> Reserved words of the ORACLE Server may not be used.
+
+SQL data types
+VARCHAR2 --> Characters of variable length, minimum length is 1 and maximum length is 2000
+	  --> Use VARCHAR2 where possible
+CHAR 	  --> Characters of fixed length, default length is 1 and maximum length is 255
+NUMBER    --> A floating-point number with a maximum precision of 38 figures
+NUMBER(p,s) --> A floating-point number with precision of p and scale of s
+DATE 	   --> The date and time from January 4712 BCE to 31 December 4712 CE
+LONG	   --> Text formed of characters of variable length, maximum length is 2GB and there can be only one LONG column per table
+RAW	   --> Same as VARCHAR2 but used to save binary data
+LONGRAW  --> Same as LONG but used to save binary data
+
+SQL commands
+Data Retrieval Language --> SELECT
+	--> Used to query for the data the user is looking for
+Data Manipulation Language --> INSERT, UPDATE, DELETE
+	--> Used to insert a new row, update existing rows, or delete unwanted data
+		--> INSERT "inserts" a single new row into the table, usually at the very end
+		--> UPDATE and DELETE can, depending on the conditions, alter or delete one or several or all rows in a table
+Data Definition Language --> CREATE, ALTER, DROP, RENAME, TRUNCATE, COMMENT
+	--> Used to create, alter, delete, and otherwise manipulate tables and data
+Transaction Control Language --> COMMIT, ROLLBACK, SAVEPOINT
+	--> Used to manipulate the data worked on by DML
+Data Control Language --> GRANT, REVOKE
+	--> Used to give and take away privileges to access the database and use the objects within
+
+Templates for using SQL commands
+SELECT (DISTINCT) <column_name> (AS <alias>) FROM <table_name>;
+	--> SELECT --> To be followed by the list of data (columns) that the user wants to see, the individual columns are separated by commas. It is possible to apply arithmetic calculations to the listed columns, using "+", "-", "*", or "/".
+	--> DISTINCT --> If used, removes duplicate values. Without DISTINCT, any duplicate rows are all returned.
+	--> alias --> Can be used to give an alias, or nickname to the designated column. The name of the column in the table does not change, however, the name of the column that appears in the returned data changes. The "AS" can be left off, however "" should be used if the alias is more than one word.
+	--> FROM --> The columns in SELECT come from the tables listed after FROM
+SELECT * FROM <column_name>;
+	--> Returns all the data in the designated table
+SELECT <column_name> || <column_name> FROM <table_name>;
+	--> Concatenation, combines the two columns (or other values) to create a single column.
+SELECT <column_name> FROM <table_name> ORDER BY <column_name or expression> (ASC or DESC);
+	--> ORDER BY --> Used to order (sort) the data that is returned, ORDER BY must be placed at the very end
+	--> ASC / DESC --> Sorts the data in ascending or descending order. ASC can be omitted.
+SELECT <column_name> FROM <table_name> WHERE <condition>;
+	--> WHERE --> Ensures that only the rows that meet the condition are returned. The conditional statement consists of column names, expresions, constants, or operators.
+
+CREATE
+CREATE TABLE (<schema>.)<table_name> (<column_name> <datatype>, <column_name> <datatype>, .... );
+	--> schema --> Collection of database objects that are associated with one database user
+	--> table_name --> The name of the new table to be created
+	--> column_name --> The name of the column(s) to be included in the table
+	--> datatype --> The type and size of the datatype for the column(s)
+
+INSERT
+INSERT INTO <table_name> (<column_name>, <column_name>, .... ) VALUES (<value>, <value>, .... );
+	--> If inserting the same data into all columns in a table, the columns list can be left out
+
+UPDATE
+UPDATE <table_name> SET <column_name> = <value>, .... (WHERE <condition>);
+
+DELETE
+DELETE FROM <table_name> (WHERE <condition>);
+	--> DELETE does not require column(s) or "*", but it does require a conditional statement, otherwise it may delete all the rows
+
