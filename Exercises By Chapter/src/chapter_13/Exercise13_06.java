@@ -1,13 +1,9 @@
 package chapter_13;
 
-/* 실행결과를 예측하라.
- * 		>> th1은 0부터 9까지의 숫자를 1초에 한번씩 한줄 한줄 출력한다.
- * 		>> main()에서는 th1.sleep을 사용하나 th1 대신 main 쓰레드가 sleep한다.
- * 		>> main쓰레드에서 의도적으로 예외를 발생시키고 suspend된다.
- * 		>> main쓰레드는 예외 처리를 하지 않았기에 끝나지 않고, th1은 데몬쓰레드이지만 무한반복이 아니기에 종료된다. 
- */
+// 원래라면 main 쓰레드에사 예외가 발생하면서 종료되어야 하지만, eclipse여서 그런지 종료되지 않는다.
 
 class Exercise13_06 {
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) throws Exception	{
 		Thread4 th1 = new Thread4();
 		th1.setDaemon(true);
