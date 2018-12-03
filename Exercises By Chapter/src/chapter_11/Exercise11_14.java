@@ -69,10 +69,10 @@ class Exercise11_14 {
 			// 1. Scanner를 이용해서 화면으로 부터 데이터를 입력받는다.(','를 구분자로)
 			try {
 				String[] input = scan.nextLine().split(",");
-				// 2. 입력받은 값이 q 또는 Q이면 메서드를 종료하고, 그렇지 않으면 입력받은 값으로 Student인스턴스를 생성하고 record에 추가한다.
+				// 2. 입력받은 값이 q 또는 Q이면 메서드를 종료하고, 그렇지 않으면 입력받은 값으로 Student6인스턴스를 생성하고 record에 추가한다.
 				if(input[0].equalsIgnoreCase("q")) { return; }
 				else {
-					Student std = new Student(input[0], Integer.parseInt(input[1]), Integer.parseInt(input[2]),
+					Student6 std = new Student6(input[0], Integer.parseInt(input[1]), Integer.parseInt(input[2]),
 							Integer.parseInt(input[3]), Integer.parseInt(input[4]), Integer.parseInt(input[5]));
 					record.add(std);
 				}
@@ -95,12 +95,12 @@ class Exercise11_14 {
 			System.out.println("이름 반 번호 국어 영어 수학 총점 평균 전교등수 반등수");
 			System.out.println("====================================================");
 			for (int i = 0; i < length ; i++) {
-				Student student = (Student)record.get(i);
-				System.out.println(student);
-				koreanTotal += student.kor;
-				mathTotal += student.math;
-				englishTotal += student.eng;
-				total += student.total;
+				Student6 Student6 = (Student6)record.get(i);
+				System.out.println(Student6);
+				koreanTotal += Student6.kor;
+				mathTotal += Student6.math;
+				englishTotal += Student6.eng;
+				total += Student6.getTotal();
 			} // for문 끝.
 			System.out.println("====================================================");
 			System.out.println("총점: "+koreanTotal+" "+englishTotal +" "+mathTotal+" "+total);
@@ -114,7 +114,7 @@ class Exercise11_14 {
 } // 클래스 끝.
 
 @SuppressWarnings("rawtypes")
-class Student implements Comparable {
+class Student6 implements Comparable {
 	String name;
 	int ban;
 	int no;
@@ -126,7 +126,7 @@ class Student implements Comparable {
 	int classRank; // 반등수
 	
 	// 생성자
-	Student(String name, int ban, int no, int kor, int eng, int math) {
+	Student6(String name, int ban, int no, int kor, int eng, int math) {
 		this.name = name;
 		this.ban = ban;
 		this.no = no;
@@ -145,8 +145,8 @@ class Student implements Comparable {
 	}
 		
 	public int compareTo(Object o) {
-		if(o instanceof Student) {
-			Student tmp = (Student)o;
+		if(o instanceof Student6) {
+			Student6 tmp = (Student6)o;
 			return tmp.total - this.total;
 		} else {
 			return -1;
@@ -157,4 +157,4 @@ class Student implements Comparable {
 		return name + "," + ban + "," + no + "," + kor + "," + eng + "," + math + ","
 				+ getTotal() + "," + getAverage() + "," + schoolRank + "," + classRank;
 	}
-} // Student 클래스 끝.
+} // Student6 클래스 끝.
