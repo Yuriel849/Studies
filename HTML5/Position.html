@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>POSITION_TEST</title>
+
+    <style>
+        .container { /* container 클래스의 position을 relative로 설정 */
+            position: relative;
+        }
+        
+        .center {
+            position: absolute;
+            color: whitesmoke;
+            left: 0;
+            top: 50%;
+            width: 50%;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        img {
+            width: 50%;
+            height: auto;
+            opacity: 0.5;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://www.fjordnorway.com/imageresizer/?image=%2Fdbimgs%2F7-floyen-bergen-sverre-hjornevik-fjordnorway.JPG&action=Background_Overlay" alt="Norway" width="1000" height="300">
+        <div class="center">Centered</div>
+    </div>
+</body>
+</html>
