@@ -3,4 +3,4 @@
 
 ###   >>   Updated to include SQL
 
-###   >>   Updated to include HTML
+###   >>   Updated to include HTML5, CSS3, and JavaScript (ECMA 5th)
