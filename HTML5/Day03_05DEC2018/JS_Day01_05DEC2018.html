@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2 onclick="this.innerHTML='Ooops!'">Click on this text!</h2> <!-- Ooops! 주위에 ''만 쓴 이유는 그 부분 전체가 "" 속에 위치하기 때문... "" 속에서 "" 또하면 2개 문자열로 깨진다. -->
+
+    <!-- 아래 두 개의 h1은 같다! h1 태그는 하드코딩을 작성한 것, script는 브라우저가 동적으로 해석해서 출력하는 것 -->
+    <h1>Hello</h1>
+
+    <script>
+        document.write("<h1>Hello</h1>");
+    </script>
+
+    <!-- 별찍기 실습
+        *
+        **
+        ***
+        ****
+        *****
+    -->
+    <script>
+        for(i = 1; i <= 5; i++) {
+            for(j = 1; j <= i; j++) {
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+    </script>
+
+    <script>
+        document.querySelector("h1").innerHTML = "Good-Bye"
+        // 실행 후 브라우저에서 개발자 도구로 보면, 위에 있는 h1의 콘텐츠가 바뀌어있다. --> 브라우저에서는 여기서 제공해준 코드를 해석해서 출력하는 것. 브라우저에서 "console" 탭으로 수정하면, 실시간으로 수정 (여기 있는 코드는 영향이 없다.)
+    
+    </script>
+
+    <script>
+        typeof "john" + "<br>" +
+        typeof 3.14 + "<br>" +
+        typeof NaN + "<br>" +
+        typeof false + "<br>" +
+        typeof [1,2,3,4] + "<br>"
+    </script>
+</body>
+</html>

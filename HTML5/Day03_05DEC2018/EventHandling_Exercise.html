@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="header">Click me!!!</h1>
+
+    <script>
+        window.onload = function() {
+            // 이벤트를 적용할 요소를 선택
+            var header = document.getElementById('header')
+            
+            // 요소의 이벤트 속성에 함수 연결(함수 저장)
+            // header.onclick = function() { alert("Hello") }
+            header.onclick = click
+            // header.onclick = click() // 에러, 함수 호출
+        }
+
+        // header.onclick = null // 해당 이벤트 해체
+
+        // 이벤트 속성에 함수를 연결하는데, 함수를 따로 분리시킨 것
+        function click() { alert("Hello") }
+    </script>
+</body>
+</html>

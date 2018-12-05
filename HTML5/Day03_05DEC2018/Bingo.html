@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bingo_Exercise</title>
+</head>
+<body>
+    <script>
+    // 1. 5x5 크기의 2차원 배열 bingo를 만들고 1 ~ 25의 숫자로 초기화하라.
+        // 비어 있는 1차원 배열 생성
+        var bingo = []; // SAME AS var bingo = new Array();
+
+        // 1차원 배열의 각 칸에 5칸짜리 1차원 배열을 대입
+        for(i = 0; i < 5; i++)
+        bingo[i] = new Array(5)
+
+        var n = 0;
+        for(i = 0; i < bingo.length; i++)
+            for(j = 0; j < bingo[i].length; j++)
+                bingo[i][j] = (i*5) + (j+1)
+                // OR bingo[i][j] = ++n;
+           
+        // 2. 배열 bingo에 저장된 숫자를 섞어라.
+        for(i = 0; i < bingo.length; i++) {
+            for(j = 0; j < bingo[i].length; j++) {
+                var r1 = Math.floor(Math.random() * 5)
+                var r2 = Math.floor(Math.random() * 5)
+                var temp = bingo[i][j]
+                bingo[i][j] = bingo[r1][r2]
+                bingo[r1][r2] = temp
+            }
+        }
+        
+        // 3. 배열 bingo를 <table>로 페이지에 출력하라.
+        var table = "<table border=2>"
+        for(i = 0; i < bingo.length; i++) {
+            table += "<tr>"
+            for(j = 0; j < bingo[i].length; j++) {
+                table += "<td onclick=\"this.style.backgroundColor='yellow'\">" + bingo[i][j] + "</td>"
+                // CSS에서는 background-color지만 JS에서는 빼기 표시 (minus sign)으로 읽기에 없애고 대신 붙이면서 첫글자를 대문자로 한다.
+            }
+            table += "</tr>"
+        }
+        table += "</table>"
+        document.write(table)
+        
+        // OR
+        document.write("<table border = 2px>")
+        for(i = 0; i < 5; i++) {
+            document.write("<tr>")
+            for(j = 0; j < 5; j++) {
+                document.write("<td onclick=\"this.style.backgroundColor='yellow'\">" + bingo[i][j] + "</td>")
+            }
+            document.write("</tr>")
+        }
+        document.write("</table>")
+    </script>
+</body>
+</html>
