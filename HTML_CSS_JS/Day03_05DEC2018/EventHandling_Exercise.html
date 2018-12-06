@@ -11,13 +11,15 @@
 
     <script>
         window.onload = function() {
-            // 이벤트를 적용할 요소를 선택
+            // 1. 이벤트를 적용할 요소를 선택
             var header = document.getElementById('header')
             
-            // 요소의 이벤트 속성에 함수 연결(함수 저장)
-            // header.onclick = function() { alert("Hello") }
+            // 2. 요소의 이벤트 속성에 함수 연결(함수 저장)
+            // header.onclick = function() { alert("Hello") } -> 이것과 같다!
             header.onclick = click
-            // header.onclick = click() // 에러, 함수 호출
+            header.onclick = null; // 이벤트 해지
+            
+            // header.onclick = click() // 에러, 이것은 함수 호출!
         }
 
         // header.onclick = null // 해당 이벤트 해체
