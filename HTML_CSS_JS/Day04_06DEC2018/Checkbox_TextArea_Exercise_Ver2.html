@@ -8,19 +8,17 @@
 </head>
 <body>
     <!-- 1. HTML 구성을 한다. -->
-    <form action="">
+    <form>
         <input type="checkbox" value="전체선택">전체선택<br>
         <input type="checkbox" value="야구">야구<br>
         <input type="checkbox" value="축구">축구<br>
         <input type="checkbox" value="농구">농구<br>
         <input type="checkbox" value="탁구">탁구<br>
-        <!-- form 태그는 다른 곳으로 데이터를 전송하기 위해서 사용하는 태그
+        <!-- form 태그는 다른 곳으로 데이터를 전송하기 위해서 사용하는 태그,
              value 속성은 어떤 데이터를 넘길지를 설정 -->
 
-        <textarea name="" id="ta" cols="30" rows="10"></textarea>
-
+        <textarea id="tArea" cols="30" rows="10"></textarea>
     </form>
-
 
     <!-- Script태그가 body 태그의 마지막에 위치하는 이유 -> 다른 곳에 있으면 그것을 실행하는데 시간 걸리기 때문이다. -->
     <script>
@@ -38,23 +36,40 @@
 
         // 체크박스를 클릭했을 때 실행되는 함수.
         function chkClick() {
-            var ta = document.getElementById(ta)
-            ta.value += "농구";
-
-            
-            // if(this.value=="전체선택") {
-            //     // 전체선택이 체크된 상태면
-            //     if(this.checked) {
-            //         // 모든 체크박스를 선택하다.
-
-            //     } else { // 전체선택이 체크된 상태가 아니면
-            //         // 모든 체크박스의 선택을 해지한다.
-            //     }
-            // } else { // 전체 선택 이외의 체크박스가 클릭된다면
-
-            // }
-
-        }
+            var ta = document.querySelector("textarea");
+            chk = document.querySelectorAll("input[type=checkbox]");
+            if(this.value=="전체선택") { // this는 chkBox로 받은 checkbox 요소 중 하나
+                // 전체선택이 체크된 상태면,
+                if(this.checked) {
+                    // 모든 체크박스를 선택하다.
+                    for(i = 1; i < chk.length; i++) {
+                        chk[i].checked = true;
+                        ta.value += chk[i].value + "\n";
+                    }
+                } else { // 전체선택이 체크된 상태가 아니면,
+                    // 모든 체크박스의 checked 상태를 false로 바꾸고,
+                    for(i = 1; i < chk.length; i++) {
+                        chk[i].checked = false;
+                    }
+                    // textarea의 모든 내용을 지운다.
+                    ta.value = "";
+                }
+            } else { // 전체 선택 이외의 체크박스가 클릭된다면,
+                if(this.checked) {
+                    // 해당 체크박스의 값을 textarea에 추가한다.
+                    ta.value += this.value + "\n";
+                } else {
+                    // textarea의 모든 내용을 지운 후,
+                    ta.value = "";
+                    // 모든 체크박스의 checked 상태를 확인하면서 true인 경우만 (체크된 경우만) 다시 textarea에 추가한다.
+                    for(i = 1; i < chk.length; i++) {
+                        if(chk[i].checked == true) {
+                            ta.value += chk[i].value + "\n";
+                        }
+                    }
+                } // 전체선택 이외의 체크박스 checked VS unchecked 구분.
+            } // 전체선택 VS 그 외 체크박스 구분.
+        } // chkClick 함수 끝.
     </script>
 </body>
 </html>

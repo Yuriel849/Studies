@@ -10,8 +10,9 @@
             display: inline
         }
 
-        form {
-            display: inline-flex;
+        table {
+            width: 38%;
+            text-align: center;
         }
         
         li {
@@ -20,38 +21,71 @@
         
         button {
             width: 40px;
-            height: 60px;
-            display: inline-flex;
-            justify-content: center;
-            float: none;
-            width: 20%;
+            height: 30px;
+            display: inline-block;
+            text-align: center;
+            line-height: 20px;
+            background-color: slateblue;
+            color: yellow;
         }
 
         select {
-            width: 150px;
-            height: 400px;
+            width: 100px;
+            height: 300px;
             font-size: 30px;
+            background-color: dodgerblue;
+            color: gold;
         }
     </style>
 </head>
 <body>
-    <select name="chooser" id="chooser" multiple size="10">
-        <option value="농구" id="basket">농구</option>
-        <option value="야구" id="base">야구</option>
-        <option value="축구" id="foot">축구</option>
-        <option value="탁구" id="table">탁구</option>
-    </select>
+    <h1>Select Multiple Application Exercise (Ver. 2)</h1>
+    
+    <table>
+        <tr>
+            <th rowspan="4">
+                <!-- 왼쪽 select (처음에 4가지 선택지가 있다.) -->
+                <select name="chooser" id="chooser" multiple size="10">
+                    <option value="농구" id="basket">농구</option>
+                    <option value="야구" id="base">야구</option>
+                    <option value="축구" id="foot">축구</option>
+                    <option value="탁구" id="table">탁구</option>
+                </select>
+            </th>
+            <td>
+                <li><button type="button" onclick="adder()">&gt;</button></li>
+            </td>
+            <th rowspan=4>
+                <!-- 오른쪽 select (처음에는 비어있다.) -->
+                <select name="catcher" id="catcher" multiple size="10"></select>
+            </th>
+        </tr>
 
-    <ul>
-        <li><button type="button" onclick="adder()">&gt;</button></li>
-        <li><button type="button" onclick="remover()">&lt;</button></li>
-        <li><button type="button" onclick="allAdder()">&gt;&gt;</button></li>
-        <li><button type="button" onclick="allRemover()">&lt;&lt;</button></li>
-    </ul>
-
-    <select name="catcher" id="catcher" multiple size="10"></select>
+        <!-- 4개의 버튼 (">", "<", ">>", "<<") -->
+        <ul>
+            <!-- <tr>
+                <li><button type="button" onclick="adder()">&gt;</button></li>
+            </tr> -->
+            <tr>
+                <td>
+                    <li><button type="button" onclick="remover()">&lt;</button></li>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <li><button type="button" onclick="allAdder()">&gt;&gt;</button></li>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <li><button type="button" onclick="allRemover()">&lt;&lt;</button></li>
+                </th>
+            </tr>
+        </ul>
+    </table>
 
     <script>
+        // ">" 버튼을 누르면, 지정된 하나의 선택지를 오른쪽으로 옮긴다.
         function adder() {
             choosing = document.getElementById("chooser");
             for(i = 0; i < choosing.length; i++) {
@@ -63,6 +97,7 @@
             }
         }
 
+        // "<" 버튼을 누르면, 지정된 하나의 선택지를 왼쪽으로 옮긴다.
         function remover() {
             catching = document.getElementById("catcher");
             for(i = 0; i < catching.length; i++) {
@@ -74,6 +109,7 @@
             }
         }
 
+        // ">>" 버튼을 누르면, 왼쪽의 모든 선택지를 오른쪽으로 옮긴다.
         function allAdder() {
             choosing = document.getElementById("chooser");
             for(var i = 0; i < 4; i++) {
@@ -81,13 +117,13 @@
             }
         }
 
+        // "<<" 버튼을 누르면, 오른쪽의 모든 선택지를 왼쪽으로 옮긴다.
         function allRemover() {
             catching = document.getElementById("catcher");
             for(var i = 0; i < 4; i++) {
                 chooser.add(catching[0]);
             }
         }
-
     </script>
 </body>
 </html>
