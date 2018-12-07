@@ -15,21 +15,22 @@ CSS를 HTML에 적용하는 방법
     4. 웹브라우저 옵션에서 CSS 파일을 지정하는 방법 (Internet Explorer 전용)
 각 방법의 우선순위
     상위에 있는 태그의 CSS 설정의 영향을 받지만, 중복 적용될 경우 가장 마지막에 실행되는 코드의 우선순위가 높다.
-style의 상속
-    inherit -> 자손 태그는 조상 태그로부터 속성을 물려받는다.
-    initial -> 속성의 값을 initial로 지정하면 해당 속성의 기본값이 적용된다.
-        각 속성의 기본값은 w3schools.com css_default_values에서 확인 가능!
-CSS의 단위 (units)
-        숫자를 값으로 갖는 속성에 사용될 수 있는 단위다.
-        값과 단위 사이에는 공백이 없어야 한다.
-    em -> 해당 글꼴의 대문자 M의 폭(width) 기준의 크기 (2em은 M의 2배 크기)
+Style의 상속
+    inherit -> 자손 태그는 조상 태그의 속성을 물려받는다.
+    initial -> 속성 값으로 지정하면 속성의 기본값(default value)이 적용된다.
+        기본값은 w3schools.com css_default_values에서 확인!
+CSS의 단위
+    숫자를 값으로 갖는 속성에 사용될 수 있는 단위
+    값과 단위 사이에는 공백이 올 수 없다 ("10 px" 사용 불가! -> "10px")
+
+    em -> 해당 글꼴의 대문자 M의 폭(width) 기준의 크기 (ex) 2em은 M의 2배 크기)
     ex -> 소문자 x의 높이를 기준으로 하는 크기
-    % -> 부모 요소의 속성 값에 의해 결정되는 상대적인 속성 값을 지정한다.
+    % -> percent (부모 요소의 속성 값에 의해 결정되는 상대적인 속성 값을 지정하는데 사용)
     cm -> centimeters
     rmm -> millimeters
     in -> inches (1in = 2.54cm = 96px)
-    px -> pixels (1px = 1/96 in)
-    pt -> points (1pt = 1/72 in)
+    px -> pixels (1px = 1/96in; 폰트 크기에 사용)
+    pt -> points (1pt = 1/72in)
 -->
 
 <!DOCTYPE html>
@@ -41,13 +42,115 @@ CSS의 단위 (units)
     <title>Document</title>
 
     <style>
-        /* CSS로 color 지정하기 */
+        /*
+        CSS Backgrounds
+                -> 일부 요소는 생략 가능하지만, 사용하려면 순서가 중요하다!
+            background-color -> 배경색
+            backgroudn-image -> 배경에 사용할 이미지 (여러개 지정 가능)
+            background-repeat -> 배경 이미지 반복 (repeat-x == x축으로만 이미지 반복, repeat-y == y축으로만 이미지 반복, no-repeat)
+            background-attachment -> 배경 이미지 이동 여부 (fixed, scroll)
+            background-position -> 배경 이미지 위치
+            background-size -> 배경 이미지 크기 (auto,cover, contain)
+        */
+        #p1 { /* red with opacity */
+            background-color: rgba(255,0,0,0.3);
+        }
+        #p2 { /* light green */
+            background-color: hsl(120,100%,75%);
+                /* hsl == Hue, Saturation, Lightness*/
+        }
+        #p3 { /* dark green with opacity */
+            background-color: hsla(120,100%,25%,0.3);
+        }
+        #p4 { /* red with opacity (color & opacity 분리) */
+            background-color: rgb(255, 0,0);
+            opacity: 0.6;
+        }
+
+        /*
+        CSS Box Model
+            (From developer.mozilla.org)
+                "When laying out a document, the browser's rendering engine represents each element as a rectangular box according
+                    to the standard CSS basic box model. CSS determines the size, position, and properties (color, background, border
+                    size, etc.) of these boxes. Every box is composed of four parts (or areas), defined by their respective edges:
+                    the content edge, padding edge, border edge, and margin edge."
+            Content area
+                실제 요소의 콘텐츠(text, image, video, etc.)가 위치한 공간
+                폭과 높이를 지정하는 속성
+                    width -> 컨텐츠 영역의 폭 (100%이면 브라우저의 전체 폭을 차지)
+                    height -> 컨텐츠 영역의 높이
+                    max-width -> 컨텐츠 영역의 최대 폭 (브라우저를 늘려도 지정한 값 이상으로 커지지 않는다)
+                    max-height -> 컨텐츠 영역의 최대 높이
+                    min-width -> 컨텐츠 영역의 최소 폭 (브라우저를 지정한 값 이하로 줄이면 스크롤바가 생긴다)
+                    min-height -> 컨텐츠 영역의 최소 높이
+                (From developer.mozilla.org)
+                    "If the box-sizing property is set to content-box (default), the content area's size can be explicitly defined
+                        with the width, min-width, max-width, height, min-height, and max-height properties."
+            Padding area
+                Content area 주위를 둘러싼 영역
+                위(padding-top), 오른쪽(padding-right), 아래(padding-bottom), 왼쪽(padding-left) 경계에 개별적으로 적용 가능
+                    >> 명시적으로 어느 경계인지 지정하지 않으면, 위 순서대로 지정된다!!!
+                        ex) padding: 100px -> 4개 경계 모두에 적용
+                        ex) padding: 100px 150px -> 위 / 아래 경계는 100px, 오른쪽 / 왼쪽 경계는 150px 적용
+            Border area
+                Content / padding areas를 둘러싼 영역
+                위(border-top), 오른쪽(border-right), 아래(border-bottom), 왼쪽(border-left) 경계에 개별적으로 적용 가능
+                추가적인 속성
+                    border-style -> 경계선의 종류 (solid, dotted, double, etc.)
+                    border-width -> 경계선의 두께
+                    border-color -> 경계선의 색깔
+                    border-radius -> 경계선의 모서리 반경 (둥근 모서리)
+                        Outline (border의 바깥 테두리) -> 요소를 돋보이게 할 때 사용
+                    outline-width
+                    outline-style
+                    outline-color
+                (From developer.mozilla.org)
+                    "If the box-sizing property is set to border-box, the border area's size can be explicitly defined with
+                        the width, min-width, max-width, height, min-height, and max-height properties."
+            Margin area
+                Content / padding / border areas를 둘러싼 가장 바깥쪽 영역
+                위(margin-top), 오른쪽(margin-right), 아래(margin-bottom), 왼쪽(margin-left) 경계에 개별적으로 적용 가능
+                (From developer.mozilla.org)
+                    "The margin area, bounded by the margin edge, extends the border area to include an empty area used to
+                        separate the element from its neighbors."
+                Margin collapse
+                    브라우저에 의해 자동적으로 위아래로 인접한 요소 간의 bottom & top margins가 하나로 합쳐진다.
+                    좌우 margins는 합쳐지지 않는다!
+                    인접한 위아래 margins 중 큰 값으로 합쳐진다 (큰 값을 하나의 공동 margin으로 사용한다!)
+        */
+        #p5 {
+            padding: 100px 150px 100px 150px;
+            border-style: solid;
+            border-color: red;
+        }
+        #p6 {
+            padding: 100px 150px;
+            border-style: solid;
+            border-color: red green blue yellow;
+        }
+        #p7 {
+            padding: 100px;
+            border-style: dotted;
+            border-width: 2px 10px 4px 20px;
+        }
     </style>
 </head>
 <body>
-    <!-- CSS로 color 지정하기 -->
-    <h2 style="background-color:red">Color Test 01</h2>
-    <h2 style="background-color:#00FF00">Color Test 02</h2>
-    <h2 style="background-color:rgb(0, 255, 0)">Color Test 03</h2>
+    <!-- CSS로 color 지정하는 방법 01 -->
+    <h2 style="background-color:red">NUMBER  1</h2>
+    <h2 style="background-color:#00ff00">NUMBER  2</h2> <!-- NUMBER2 & NUMBER3는 같다!-->
+    <h2 style="background-color:rgb(0, 255, 0)">NUMBER  3</h2> <!-- NUMBER2는 16진수로 표현, NUMBER3는 rgb(숫자)로 표현  -->
+
+    <!-- CSS로 color 지정하는 방법 02 -> head 태그의 style 태그 볼 것! -->
+    <h2 id="p1">NUMBER  4</h2>
+    <h2 id="p2">NUMBER  5</h2>
+    <h2 id="p3">NUMBER  6</h2>
+    <h2 id="p4">NUMBER  7</h2>
+
+    <h2 id="p5">NUMBER  8</h2>
+    <h2 id="p6">NUMBER  9</h2>
+    <h2 id="p7">NUMBER 10</h2>
+    <h2 id="p8">NUMBER 11</h2>
+
 </body>
 </html>
