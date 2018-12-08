@@ -1,3 +1,7 @@
+<!--
+JavaScript로 코딩하는 것은 (거의) Java에서 하던대로 코딩하면 된다.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +11,20 @@
     <title>Document</title>
 </head>
 <body>
-
     <h2 onclick="this.innerHTML='Ooops!'">Click on this text!</h2> <!-- Ooops! 주위에 ''만 쓴 이유는 그 부분 전체가 "" 속에 위치하기 때문... "" 속에서 "" 또하면 2개 문자열로 깨진다. -->
 
     <!-- 아래 두 개의 h1은 같다! h1 태그는 하드코딩을 작성한 것, script는 브라우저가 동적으로 해석해서 출력하는 것 -->
     <h1>Hello</h1>
 
     <script>
-        document.write("<h1>Hello</h1>");
+        // 앞서 위치한 "Click on this text!" & "Hello"까지만 찍히고 여기서 prompt 창이 뜬다.
+        var menu = prompt("먹고 싶은 메뉴는?"); // 사용자가 입력한 내용이 변수 menu의 값이 된다.
+        document.body.innerHTML += menu; // body의 콘텐츠에 menu의 값을 추가한다.
+    </script>
+
+    <script>
+        document.write("<h1>Hello</h1>"); // Java 코드에서 semi-colon 찍을 위치라면 JavaScript도 찍어야 한다.
+                                          // JS에서 semi-colon을 찍는 것이 원칙, 하지만 안 찍어도 문제 없다!
     </script>
 
     <!-- 별찍기 실습
@@ -26,7 +36,7 @@
     -->
     <script>
         for(i = 1; i <= 5; i++) {
-            for(j = 1; j <= i; j++) {
+            for(j = 1; j <= i; j++) { // Java에서와 똑같이, 괄호가 없으면 첫번째 문장만 for문에 속한 것으로 본다.
                 document.write("*")
             }
             document.write("<br>")
