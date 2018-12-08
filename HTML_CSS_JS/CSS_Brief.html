@@ -1,5 +1,8 @@
-<!-- CSS?
-    HTML 문서에 디자인(스타일)을 입히는데 사용하는 언어 -->
+<!--
+CSS?
+    HTML 문서에 디자인(스타일)을 입히는데 사용하는 언어
+    원래는 HTML으로 내용과 디자인을 둘 다 처리했으나, 이제는 각각 담당 영역이 생겼다.
+-->
 
 <!--
 Useful Websites
@@ -249,6 +252,7 @@ CSS의 단위
             Box-sizing 속성
                 box-sizing: content-box
                     -> contents, padding, border, margin 4종류나 되기 때문에 영역을 계산하기 어렵다.
+                    -> 기본값이다!!!
                 box-sizing: border-box
                     -> contents, padding, border를 하나로 묶기 떄문에 크기 계산이 쉽다.
                     -> border-box로 설정하면, 크기를 지정할 때 contents, padding, border 묶음의 크기를 지정하는 것이다.
@@ -279,6 +283,8 @@ CSS의 단위
         /*
         Pseudo elements (의사 요소)
                 요소의 특정 부분에 스타일을 적용하기 위해서 사용되는 가짜 요소 (실존하는 요소가 아니다)
+                태그가 특별한 "상태"일 때 디자인을 어떻게 바꿀 것인가를 지정하는 것이다.
+                    ex) a:hover -> 마우스가 해당 a태그 위에 놓였을 때 어떻게 색깔이나 모양일 변할 것인가를 지정
             <요소>::after -> 지정된 요소의 콘텐츠 다음에 내용을 넣는다.
             <요소>::before -> 지정된 요소의 콘텐츠 이전에 내용을 넣는다.
             <요소>::first-letter -> 지정된 요소의 콘텐츠의 첫번째 글자에 적용한다.
@@ -314,7 +320,10 @@ CSS의 단위
     <h2 id="p3">NUMBER  6</h2>
     <h2 id="p4">NUMBER  7</h2>
 
-    <!-- cursor 모양을 바꾸도록 설정했다. 이외에도 많은 cursor 모양들이 있다! -->
+    <!--
+        cursor 모양을 바꾸도록 설정했다. 이외에도 많은 cursor 모양들이 있다!
+            CSS 중 유일하게 cursor 모양은 태그 안에서 지정한다!!!
+    -->
     <p id="p5" style="cursor:crosshair">NUMBER  8</p>
     <p id="p6" style="cursor:nw-resize">NUMBER  9</p>
     <p id="p7" style="cursor:progress">NUMBER 10</p>
