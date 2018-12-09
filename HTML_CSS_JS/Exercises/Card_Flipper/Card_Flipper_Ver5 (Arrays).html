@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        img {
+            width: 120px;
+            height:170px;
+        }
+
+        button {
+            width: 120px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Card Flipper Ver5 (Arrays)</h1>
+    <!-- Card Flipper Ver3에서 카드의 내부정보를 이용하는 것과 달리 배열을 이용해서 구현 -->
+
+    <button id="hideBtn">가리기</button>
+    <button id="showBtn">보이기</button>
+    <button id="mixBtn">섞기</button><br><br>
+    <div id="main"></div>
+
+    <script>
+        // 모든 함수들이 참조할 수 있게 cardArr 배열을 전역변수로 선언한다.
+        var cardArr = [];
+        
+        window.onload=function() {
+            // 1. 카드 덱 한 개(카드 52장)를 앞면이 보이게 띄운다.
+
+            for(var i = 0; i < 52; i++) {
+                cardArr[i] = i + "";
+            }
+            shower();
+            
+            // 이벤트 등록하기
+            document.getElementById("hideBtn").onclick = hider;
+            document.getElementById("showBtn").onclick = shower;
+            document.getElementById("mixBtn").onclick = mixer;
+        }
+
+        // 2. 호출되면 모든 카드가 앞면을 보이게 띄우며
+                // 각 카드마다 click하면 개별적으로 뒤집히도록 이벤트 등록을 한다.
+        function shower() {
+            var tmp = '';
+
+            for(i = 0; i < cardArr.length; i++) {
+                tmp += "<img src = '" + cardArr[i] + ".png'>";
+            }
+            main.innerHTML = tmp;
+
+            // 이벤트 등록
+            var cardTmp = document.querySelectorAll("img")
+            for(var i = 0; i < cardArr.length; i++) {
+                // flipper()에서 사용할 수 있도록 src를 name에도 저장한다.
+                cardTmp[i].name = cardArr[i] + ".png";
+                cardTmp[i].onclick = flipper;
+            }
+        }
+
+        // 3. "가리기"를 누르면 모든 카드가 뒷면을 보인다.
+        function hider() {
+            shower();
+            
+            var cardTmp = document.querySelectorAll("img")
+            for(var i = 0; i < cardArr.length; i++) {
+                cardTmp[i].src = "back.png";
+            }
+        }
+
+        // 4. "섞기"를 누르면 카드가 섞인다. 앞면이 보이던 뒷면이 보이던 상관 없이 섞여야 한다.
+        function mixer() {
+            // 몇몇 카드가 뒤집혀있을 수 있기에,
+                // 첫번째 카드가 앞면이면 모든 카드가 앞면을 보인다.
+            if(document.querySelector("img").src !== "file:///C:/Users/Yuriel/eclipse-workspace/Java-based-Web-Apps/HTML_CSS_JS/Exercises/Card_Flipper/back.png") {
+                shower();
+                // 첫번째 카드가 뒷면이면 모든 카드가 뒷면을 보인다.
+            } else {
+                hider();
+            }
+
+            for(var i = 0; i < cardArr.length; i++) {
+                var ran1 = Math.floor(Math.random() * cardArr.length);
+                var ran2 = Math.floor(Math.random() * cardArr.length);
+                var T = cardArr[ran1];
+                cardArr[ran1] = cardArr[ran2];
+                cardArr[ran2] = T;
+            }
+        }
+
+        // 5. 카드 한 장에 click하면 앞면에서 뒷면으로, 뒷면에서 앞면으로 뒤집힌다.
+        function flipper() {
+            // 현재 앞면을 보이고 있다면,
+            if(this.src !== "file:///C:/Users/Yuriel/eclipse-workspace/Java-based-Web-Apps/HTML_CSS_JS/Exercises/Card_Flipper/back.png") {
+                this.src = "back.png";
+            // 현재 뒷면을 보이고 있다면,
+            } else {
+                this.src = this.name;
+            }
+        }
+    </script>
+</body>
+</html>
