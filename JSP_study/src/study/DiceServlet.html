@@ -1,0 +1,18 @@
+out.println("<!DOCTYPE html>");
+out.println("<html>");
+out.println("<head>");
+out.println("</head>");
+out.println("<body>");
+out.println("    <div id=\"main\"></div>");
+out.println("    <script>");
+out.println("        var main = document.getElementById(\"main\");");
+out.println("        var tmp = '';");
+out.println("        var path = \"file:///C:/Users/5CLASS-184/eclipse-workspace/MyWebsite/WebContent/Dice/\";");
+out.println("        for(var i = 0; i < 2; i++) {");
+out.println("            var ran = Math.floor(Math.random() * 6) + 1;");
+out.println("            tmp += '<img src=\"' + path + 'dice' + ran + '.jpg\">';");
+out.println("        }");
+out.println("            main.innerHTML = tmp;");
+out.println("    </script>");
+out.println("</body>");
+out.println("</html>");

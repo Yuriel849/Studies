@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>login</title>
+<style>
+	#avatar {
+		width: 300px;
+		height: 300px;
+	}
+</style>
+</head>
+<body>
+<form action="/LoginAction" method=post> <!-- "method=get(or post)"라고 적지 않으면 기본값이 "method=get" -->
+	id: <input name="id" type=text value="" placeholder="your id."><br>
+		<!-- name="X"에서의 X와 LoginAction.java의 request.getParameter("X")에서의 X가 일치해야 한다! -->
+	pwd: <input name="pw" type=password value="" placeholder="your password."><br>
+	     <input type=submit value="OK">
+		
+</form>
+</body>
+</html>
