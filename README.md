@@ -1,6 +1,6 @@
-# Java-based-Web-Apps
+# Studies Repository
 
-## A repository of my studies regarding Java, and web and application development.
+## A repository of my studies on Java, SQL, HTML, CSS, JavaScript, Servlet/JSP, and web and application development.
 
 ###   >>   Updated to include SQL
 
