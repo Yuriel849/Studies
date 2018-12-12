@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" onclick="alert('0-html')">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            border: 3px solid black;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<!-- 버블링 예시 -->
+<body onclick="alert('1-body')"> 1-body
+    <form onclick="alert('2-form')">2-form
+        <div onclick="alert('3-div')">3-div<BR>
+            <button id="btn" onclick="alert('4-button')">
+                4-button
+            </button>        
+        </div>
+    </form>
+</body>
+</html>

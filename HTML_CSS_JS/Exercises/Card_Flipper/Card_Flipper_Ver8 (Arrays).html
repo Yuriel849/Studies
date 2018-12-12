@@ -34,11 +34,11 @@
 
         window.onload=function() {
             initCardArr(); // cardArr를 초기화한다.
-            addEventToBtn(); // 버튼에 이벤트 등록
             createImgTag(); // cardArr를 읽어서 <img> 생성
+            addEventforImage(); // 각 카드(즉, <img>)에 이벤트 등록
+            addEventToBtn(); // 버튼에 이벤트 등록
             shuffleCards(); // 카드를 섞는다.
             showCards(); // 카드를 화면에 보여주는 함수
-            addEventsToCards(); // 각 카드(즉, <img>)에 이벤트 등록
         }
 
         // cardArr를 초기화하는 함수
@@ -46,25 +46,6 @@
             // "0" ~ "51"까지 저장
             for(i = 0; i < 52; i++) {
                 cardArr[i] = i + "";
-            }
-        }
-
-        // 버튼에 이벤트를 등록하는 함수
-        function addEventToBtn() {
-            document.getElementById("hideBtn").onclick = hideCards;
-            document.getElementById("showBtn").onclick = showCards;
-            document.getElementById("mixBtn").onclick = shuffleCards;
-            document.getElementById("vanishBtn").onclick = vanishCards;
-            document.getElementById("sortBtn").onclick = sortCards;
-        }
-
-        // 각 카드에 이벤트를 등록하여, 누르면 뒤집는 함수
-        function addEventsToCards() {
-            // <img>에 대한 참조를 얻어온다.
-            var imgTagArr = document.getElementsByTagName("img");
-            for(i=0; i<imgTagArr.length;i++) {
-                imgTagArr[i].name = cardArr[i] + ".png"
-                imgTagArr[i].onclick = flipOneCard;
             }
         }
 
@@ -85,6 +66,24 @@
             main.innerHTML = tmp;
         }
 
+        // 각 카드에 이벤트를 등록하여, 누르면 뒤집는 함수
+        function addEventforImage() {
+            // <img>에 대한 참조를 얻어온다.
+            var imgTagArr = document.getElementsByTagName("img");
+            for(i=0; i<imgTagArr.length;i++) {
+                imgTagArr[i].onclick = clickImgTag;
+            }
+        }
+
+        // 버튼에 이벤트를 등록하는 함수
+        function addEventToBtn() {
+            document.getElementById("hideBtn").onclick = hideCards;
+            document.getElementById("showBtn").onclick = showCards;
+            document.getElementById("mixBtn").onclick = shuffleCards;
+            document.getElementById("vanishBtn").onclick = vanishCards;
+            document.getElementById("sortBtn").onclick = sortCards;
+        }
+
         // cardArr를 섞는 함수
         function shuffleCards() {
             // cardArr를 섞는다.
@@ -100,8 +99,8 @@
             // 배열의 내용대로 카드를 보여준다.
             for(i=0;i<imgTagArr.length;i++){
                 // console.log(imgTagArr[i].src);
-                imgTagArr[i].name = cardArr[i]+".png";
                 imgTagArr[i].src = path+cardArr[i]+".png";
+                imgTagArr[i].setAttribute("data-value", cardArr[i]);
                 // console.log(imgTagArr[i].src);
             }
         }
@@ -134,13 +133,15 @@
             showCards();
         }
 
+        // void actionPerformed(ActionEvent e)와 비슷한 원리.
         // click한 카드 한 장을 뒤집는다.
-        function flipOneCard() {
-            // alert('Hi!');
+        function clickImgTag(e) {
+            console.dir(e);
+            var data = e.srcElement;
             if(this.src !== back)
                 this.src = back;
             else
-                this.src = path + this.name;
+                this.src = path + data.getAttribute("data-value") + ".png";
         }
     </script>
 </body>
