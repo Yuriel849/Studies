@@ -8,8 +8,8 @@ import java.sql.SQLException;
 
 public class Dao {
 	String DB_URL = "jdbc:mysql://localhost:3306/book_ex?useUnicode=true&characterEncoding=utf8";
-	String DB_USER = "student1234";  // DB�� user ID�� password�� �˸°� ����
-	String DB_PASSWORD = "1234";
+	String DB_USER = "System";  // DB�� user ID�� password�� �˸°� ����
+	String DB_PASSWORD = "IriDesCence";
 
 	Connection conn = null;
 	PreparedStatement pstmt = null;
