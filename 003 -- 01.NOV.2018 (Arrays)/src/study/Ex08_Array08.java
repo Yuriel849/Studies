@@ -12,7 +12,7 @@ public class Ex08_Array08 {
 		score[4] = 60;
 		/* score[5] = 50;
 		 * 	>> 배열은 score[0] ~ score[4]까지만 존재
-		 * 	>> 에러 안나지만 실행하면 에러
+		 * 	>> 코드를 작성할 때는 에러 안나지만 실행하면 에러
 		 */
 		
 		int[] score1 = {100, 90, 80, 70, 60};
@@ -27,7 +27,7 @@ public class Ex08_Array08 {
 		// 배열의 내용을 단 번에 출력
 		System.out.println(Arrays.toString(score2));
 		
-		// score.length 배열의 길이 반환 --> 배열의 요소 수를 바꿔도 문제 없이 for문에 반영
+		// score.length -> 배열의 길이 반환 --> 배열의 요소 수를 바꿔도 문제 없이 for문에 반영
 		for(int i = 0; i < score.length; i++) {
 			System.out.println(score1[i]);
 		}

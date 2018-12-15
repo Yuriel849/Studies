@@ -23,18 +23,6 @@ public class Ex07_Array07 {
 				System.out.printf("score[%d][%d] : %d\n", i, j, score[i][j]);
 			}
 		}
-		
-//		personal experiment of mine... unfinished...
-//		for(int i = 5; i > 0; i--) {
-//			for(int j = 0; j < 5; j++) {
-//				array[j] = new int[i];
-//				for(int k = 1; k <= i; k++) {
-//					for(int l = 1; l <= i; l++) {
-//						array[j][i] = k;
-//					}
-//				}
-//			}
-//		}
 	}
 
 }

@@ -1,6 +1,6 @@
 package study;
 
-public class Exercise {
+public class Ex_PrintingBooleanAndNull {
 
 	public static void main(String[] args) {
 		System.out.println("true" + null); // 문자열과의 덧셈연산의 결과는 문자열

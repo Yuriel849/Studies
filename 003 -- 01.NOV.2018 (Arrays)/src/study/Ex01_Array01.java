@@ -2,8 +2,8 @@ package study;
 
 public class Ex01_Array01 {
 	public static void main(String[] args) {
-		// 배열(변수) 선언
-		int number; // data 저장공간 확보 --> (일반) 변수 선언
+		// 배열 (변수) 선언
+		int number; // data 저장공간 확보 --> 변수 선언
 				// --> 변수명 앞의 int는 int 자료형 데이터 1개만 들어갈 수있다는 명령
 		int[] array; // data의 주소 저장공간 확보, 아직 배열 생성 X --> 배열 (레퍼런스) 변수 선언
 				// --> 변수명 앞의 int[]는 int형 데이터만 저장할 수 있는 1차원 배열이라는 명령
@@ -17,7 +17,7 @@ public class Ex01_Array01 {
 		 * 
 		 * int[3]
 		 * 		>> int data 3개를 담는 공간 확보
-		 * 		>> int 배열 공간 3개가 각각 0으로 초기회됨
+		 * 		>> int 배열 공간 3개가 각각 기본값인 0으로 초기화됨
 		 */
 		array = new int[3];
 		

@@ -1,7 +1,5 @@
 package study;
 
-import java.util.Arrays;
-
 public class Ex_Array01 {
 	public static void main(String[] args) {
 		// 1. 5X5 2차원 배열 만든다 --> bingo[0][0] - bingo [4][4]

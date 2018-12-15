@@ -15,8 +15,16 @@ public class Ex03_Array03 {
 		num5 = 50;
 		num6 = 60;
 		
-		num4 = new int[]{10,20,30,40,50};
+		num4 = new int[]{10,20,30,40,50}; // 5칸짜리 1차원 배열을 새롭게 생성해서 num4로 참조한다.
+										  // 기존에 num4가 참조하던 배열은 더이상 num4에게 참조되지 않는다.
+		for(int num : num4) {
+			System.out.println(num);
+		}
 		
-		num4 = new int[]{10,20};	
+		num4 = new int[]{10,20}; // 2칸짜리 1차원 배열을 새롭게 생성해서 num4로 참조한다.
+		  						 // 기존에 num4가 참조하던 배열은 더이상 num4에게 참조되지 않는다.
+		for(int num : num4) {
+			System.out.println(num);
+		}
 	}
 }

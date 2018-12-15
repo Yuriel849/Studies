@@ -11,8 +11,8 @@ public class Ex04_Array04 {
 		
 		// 배열 : index 0, 1, 2 <-- 성적 저장, index 3 <-- 총점
 		int[] score = new int[subject_number+1];
-		// score.length <-- 4
-		// 인덱스의 최댓값 = 배열의 크기 - 1
+			// score.length <-- 4
+			// 인덱스의 최댓값 = 배열의 크기 - 1
 		float average;
 		
 		// index 1 ~ 2 까지 3과목의 성적을 입력하면서 index 3에 값을 누적덧셈하기
@@ -26,8 +26,8 @@ public class Ex04_Array04 {
 		
 		// average = (float)score[3] / 3;
 		average = (float)score[subject_number] / (score.length-1);
-		/* (score.length-1) --> 괄호를 해야지 순서대로 계산이된다
-		 * 					--> 괄호가 없으면 나눗셈 후 빼기를 실시한다
+		/* A / (score.length-1) --> 괄호를 해야지 순서대로 계산이된다
+		 * 						--> 괄호가 없으면 나눗셈 후 빼기를 실시한다 -> (A / score.length) - 1
 		 */
 		
 		// System.out.printf("총점 : %d점, 평균 : %.2f점", score[3], average);	

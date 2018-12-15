@@ -2,31 +2,79 @@ package study;
 
 public class Ex12_Array12 {
 	public static void main(String[] args) {
-		// 45개의 정수값을 저장하기 우한 배열 생성.
-		int[] ball = new int[45];
+		noCheckRepetition();
+		checkRepetition();
+		baseballGame();
+	}
+	
+	private static void noCheckRepetition() {
+		// 두 배열에 같은 숫자가 몇게 있는지 세어서 출력하라.
+		int[] arr1 = {1,2,3};
+		int[] arr2 = {1,1,3,1,1,};
+		int cnt = 0;
 		
-		// 배열의 각 요소에 1 ~ 45의 값을 저장한다.
-		for(int i = 0; i< ball.length; i++) {
-			ball[i] = i + 1;
-		}
-		
-		int temp = 0; // 두 값을 바꾸는데 사용할 임시변수
-		int j = 0; // 임의의 값을 얻어서 저장할 변수
-		
-		for(int i = 0; i < 100; i++) {
-			j = (int) (Math.random() * 45); // 배열의 범위(0~44)에서 임의의 값을 얻는다.
-			temp = ball[0];
-			ball[0] = ball[j];
-			ball[j] = temp;
-		}
-		
-		// 배열 ball의 앞에서부터 6개의 요소를 출력한다.
-		for(int i = 1; i < 46; i++) {
-			System.out.printf("%3d ", ball[i-1]);
-			if(i % 5 == 0) {
-				System.out.println();
+		for(int i = 0; i < arr1.length; i++) {
+			for(int j = 0; j < arr2.length; j++) {
+				if (arr1[i] == arr2[j]) {
+					cnt++;
+				}
 			}
 		}
+		System.out.println("같은 숫자의 개수 = " + cnt);
 	}
+	
+	// INCOMPLETE!!! --> rethink the logic...
+	private static void checkRepetition() {
+		// 두 배열에 같은 숫자가 몇게 있는지 세고, 다만 중복되는 값은 중복하여 세지 않는다.
+		int[] arr1 = {1,2,3};
+		int[] arr2 = {1,1,3,1,1,};
+		int array;
+		if (arr1.length >= arr2.length) {
+			array = arr1.length;
+		} else {
+			array = arr2.length;
+		}
+		int[] cnt = new int[array];
+		int a = 0;
+		
+		for(int i = 0; i < arr1.length; i++) {
+			for(int j = 0; j < arr2.length; j++) {
+				if (arr1[i] == arr2[j]) {
+					for(int k = 0; k < cnt.length; k++) {
+						if(cnt[k] == arr1[i]) {
+							break;
+						} else {
+							a++;	
+						}
+					}
+				}
+			}
+		}
+		System.out.println("같은 숫자의 개수 = " + a);
+	}
+	
+	private static void baseballGame() {
+		// 두 배열에 같은 숫자가 몇게 있는지 세어서 출력하라.
+		int[] arr1 = {1,2,3};
+		int[] arr2 = {2,1,3};
 
+		// ball 같은 숫자가 있는데, 위치가 다를 때
+		int b = 0;
+		// strike 같은 숫자가 있는데, 위치가 같을 때
+		int s = 0;
+		
+		for(int i = 0; i < arr1.length; i++) {
+			for(int j = 0; j < arr2.length; j++) {
+				if (arr1[i] == arr2[j]) { // 두 값이 같을 때, ball or strike
+					if (i != j) { // 값은 같은데 위치가 다를 때
+						b++;
+					} else { // 값은 같은데 위치가 같을 때
+						s++;
+					}
+				}
+			}
+		}
+		System.out.printf("%dS%dB\n", s, b);
+	}
 }
+
