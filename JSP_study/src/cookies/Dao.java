@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class Dao {
 	String DB_URL = "jdbc:mysql://localhost:3306/book_ex?useUnicode=true&characterEncoding=utf8";
-	String DB_USER = "System";  // DB�� user ID�� password�� �˸°� ����
+	String DB_USER = "System";
 	String DB_PASSWORD = "IriDesCence";
 
 	Connection conn = null;
@@ -37,7 +37,7 @@ public class Dao {
 		Connection conn = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection(DB_URL,  DB_USER, DB_PASSWORD); // �����ͺ��̽��� ������ �Ͽ� �� ������ "conn" ���������� �ٷ��.
+			conn = DriverManager.getConnection(DB_URL,  DB_USER, DB_PASSWORD); // 데이터베이스와 연결을 하여 그 연결을 "conn" 참조변수로 다룬다.
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
