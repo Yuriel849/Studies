@@ -14,7 +14,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+@SuppressWarnings("unused")
 @WebServlet("/LoginAction02")
 public class LoginAction02 extends HttpServlet { // HttpServlet 상속
 	private static final long serialVersionUID = 1L;
@@ -25,6 +27,9 @@ public class LoginAction02 extends HttpServlet { // HttpServlet 상속
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 요청 시 넘어온 값을 읽는다.
+
+		HttpSession session = request.getSession();
+		
 //		System.out.println("getting");
 		id = request.getParameter("id");
 		pw = request.getParameter("pw");
@@ -35,10 +40,11 @@ public class LoginAction02 extends HttpServlet { // HttpServlet 상속
 		
 		if((id!=null) && (pw!=null) && id.equals("asdf") && pw.equals("1234")) {
 			// id & pw가 일치하는 경우
+			session.removeAttribute("loginFailure");
 			response.sendRedirect("/");
 		} else {
 			// id & pw가 일치하지 않는 경우
-			request.setAttribute("msg", "아이디 또는 비밀번호가 틀립니다."); // request 객체에 메시지를 저장
+//			request.setAttribute("msg", "아이디 또는 비밀번호가 틀립니다."); // request 객체에 메시지를 저장
 		
 			if(chk!=null && chk.equals("on")) {
 				Cookie cookie = new Cookie("id", URLEncoder.encode(id, "utf-8"));
@@ -48,6 +54,8 @@ public class LoginAction02 extends HttpServlet { // HttpServlet 상속
 				cookie.setMaxAge(0);
 				response.addCookie(cookie);
 			}
+			
+			session.setAttribute("loginFailure", "아이디 또는 비밀번호를 잘못 입력했습니다.");
 		
 			response.sendRedirect("loginForm02.jsp");
 			// forward로는 cookie가 보내지지만 자동으로 로딩되지 않는다 (내가 새로고침해야 된다) -> redirect 사용할 것!

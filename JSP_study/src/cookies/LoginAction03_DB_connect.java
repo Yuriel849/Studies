@@ -10,6 +10,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 // LoginAction03_DB_connect.java servlet & DB를 연동하기
 
@@ -19,6 +20,8 @@ public class LoginAction03_DB_connect extends HttpServlet { // HttpServlet 상�
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 요청 시 넘어온 값을 읽는다.
+		HttpSession session = request.getSession();
+		
 //		System.out.println("getting");
 		// DB 연동이 제대로 되는지 확인하는 코드
 //		String id = "dolphin";
@@ -52,6 +55,7 @@ public class LoginAction03_DB_connect extends HttpServlet { // HttpServlet 상�
 		
 		if(user!=null && id.equals(compareId) && pw.equals(comparePwd)) {
 			// DB에서 정보를 가져왔고, 해당 정보와 id & pw가 일치하는 경우
+			session.removeAttribute("loginFailure");
 			response.sendRedirect("/");
 		} else { // DB에서 정보를 가져오지 못했거나 (user==null) DB에서 정보를 가져왔으나 해당 정보와 id & pw가 일치하지 않을 경우
 //			request.setAttribute("msg", "아이디 또는 비밀번호가 틀립니다."); // request 객체에 메시지를 저장
@@ -65,6 +69,8 @@ public class LoginAction03_DB_connect extends HttpServlet { // HttpServlet 상�
 				response.addCookie(cookie);
 			}
 		
+			session.setAttribute("loginFailure", "아이디 또는 비밀번호를 잘못 입력했습니다.");
+
 			response.sendRedirect("/loginForm03_DB_connect.jsp");
 			// forward로는 cookie가 보내지지만 자동으로 로딩되지 않는다 (내가 새로고침해야 된다) -> redirect 사용할 것!
 //			RequestDispatcher reqDis = request.getRequestDispatcher("/loginForm03_DB_connect.jsp");

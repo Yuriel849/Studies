@@ -60,15 +60,16 @@
 </style>
 </head>
 <body>
-<h2>Login Form</h2>
-<%
-String msg = (String) request.getAttribute("msg");
-if(msg!=null) {
-%>
-<label><b><%=msg%></b></label>
-<%} %>
+<h2>Login</h2>
 
 <form action="/LoginAction03_DB_connect" method="post">
+<%
+	String msg = "";
+	if(null != session.getAttribute("loginFailure"))
+		msg = (String) session.getAttribute("loginFailure");
+%>
+		<label><b><%=msg%></b></label>
+
 	<div class="imgcontainer">
 		<img src="Pictures\loginPic.jpg" alt="Avatar" class="avatar"><br><br>
 	</div>
