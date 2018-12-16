@@ -6,4 +6,4 @@
 
 ###   >>   Updated to include HTML5, CSS3, and JavaScript (ECMA 5th)
 
-###   >>   Updated to include Servlet and JSP
+###   >>   Updated to include Servlet and JSP, using a MySQL DB
