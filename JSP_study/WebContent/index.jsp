@@ -149,7 +149,7 @@
 <div class="w3-top">
 	<div class="w3-bar w3-white w3-wide w3-padding w3-card">
 		<!-- Link back to the index page (home page) -->
-		<a href="/Haven" class="w3-bar-item w3-button"><b>HAVEN</b> Main Page</a>
+		<a href="/" class="w3-bar-item w3-button"><b>HAVEN</b> Main Page</a>
 		<!-- Float links to the right. -->
     	<div class="w3-right w3-hide-small">
     		<!-- Button to the modal login form -->
@@ -165,7 +165,7 @@
 
 <!-- Modal login form -->
 <div id="login" class="modal">
-	<form class="modal-content animate" action="/Haven/LoginAction02">
+	<form class="modal-content animate" action="/LoginAction02">
 		<div class="imgcontainer">
 			<span onclick="document.getElementById('login').style.display='none'" class="close" title="close">
 				&times;

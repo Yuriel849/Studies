@@ -31,6 +31,8 @@ public class LoginAction03_DB_connect extends HttpServlet { // HttpServlet 상�
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		String chk = request.getParameter("checked");
+		String compareId = "";
+		String comparePwd = "";
 
 		// request로 값이 제대로 넘어왔는지 확인하는 코드
 //		System.out.println(id);
@@ -39,9 +41,11 @@ public class LoginAction03_DB_connect extends HttpServlet { // HttpServlet 상�
 
 		UserDAO udao = UserDAO.getInstance(); // UserDAO 객체를 만든다.
         User user = udao.selectUser(id); // id와 일치하는 user_id를 가진 정보를 DB에서 받아온다.
-        String compareId = user.getUserId();
-        String comparePwd = user.getPassword();
-        
+        if(user!=null) {
+        	compareId = user.getUserId();
+        	comparePwd = user.getPassword();
+        }
+		
         // DB 연동이 제대로 되는지 확인하는 코드
 //      System.out.println(user);
 //      System.out.println(compareId);
@@ -59,7 +63,6 @@ public class LoginAction03_DB_connect extends HttpServlet { // HttpServlet 상�
 			response.sendRedirect("/");
 		} else { // DB에서 정보를 가져오지 못했거나 (user==null) DB에서 정보를 가져왔으나 해당 정보와 id & pw가 일치하지 않을 경우
 //			request.setAttribute("msg", "아이디 또는 비밀번호가 틀립니다."); // request 객체에 메시지를 저장
-		
 			if(chk!=null && chk.equals("on")) {
 				Cookie cookie = new Cookie("id", URLEncoder.encode(id, "utf-8"));
 				response.addCookie(cookie);
@@ -69,13 +72,13 @@ public class LoginAction03_DB_connect extends HttpServlet { // HttpServlet 상�
 				response.addCookie(cookie);
 			}
 		
-			session.setAttribute("loginFailure", "아이디 또는 비밀번호를 잘못 입력했습니다.");
+		session.setAttribute("loginFailure", "아이디 또는 비밀번호를 잘못 입력했습니다.");
 
-			response.sendRedirect("/loginForm03_DB_connect.jsp");
-			// forward로는 cookie가 보내지지만 자동으로 로딩되지 않는다 (내가 새로고침해야 된다) -> redirect 사용할 것!
-//			RequestDispatcher reqDis = request.getRequestDispatcher("/loginForm03_DB_connect.jsp");
-//			reqDis.forward(request, response);
-		} // 안쪽 if-else문 끝.
+		response.sendRedirect("/loginForm03_DB_connect.jsp");
+		// forward로는 cookie가 보내지지만 자동으로 로딩되지 않는다 (내가 새로고침해야 된다) -> redirect 사용할 것!
+//		RequestDispatcher reqDis = request.getRequestDispatcher("/loginForm03_DB_connect.jsp");
+//		reqDis.forward(request, response);
+		}
 	} // doGet() 끝.
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
