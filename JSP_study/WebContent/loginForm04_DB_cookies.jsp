@@ -88,7 +88,7 @@
 	
 	<div class="container">
 		<label><b>Username</b></label>
-		<input type="text" placeholder="Enter Username" name="userName" <%=value%> required><br>
+		<input type="text" placeholder="Enter Username" name="userName" value="<%=value%>" required><br>
 		
 		<label><b>Password</b></label>
 		<input type="password" placeholder="Enter Password" name="pw" required><br>

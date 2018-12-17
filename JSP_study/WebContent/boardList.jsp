@@ -15,12 +15,12 @@ THIS IS THE BOARD<br>
 		Cookie cookie = new Cookie("msg", URLEncoder.encode("<script>alert(\"로그인하셔야 합니다.\");</script>", "utf-8"));
 		response.addCookie(cookie);
 		
-		cookie = new Cookie("loginFrom", URLEncoder.encode("board", "utf-8"));
+		cookie = new Cookie("loginFrom", URLEncoder.encode("boardList.jsp", "utf-8"));
 		response.addCookie(cookie);
 		response.sendRedirect("/loginForm04_DB_cookies.jsp");
 
 		// 어디서 오는지를 쿠키로 전달하는 대신, document.referer를 이용하기
-//		response.sendRedirect("/Haven/loginForm_DB_cookies.jsp?refer=boardList.jsp");
+//		response.sendRedirect("/loginForm_DB_cookies.jsp?refer=boardList.jsp");
 	}
 %>
 </body>

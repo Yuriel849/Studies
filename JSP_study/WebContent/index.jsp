@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "java.net.URLDecoder" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -166,7 +167,7 @@
 
 <!-- Modal login form -->
 <div id="login" class="modal">
-	<form class="modal-content animate" action="/Haven/LoginAction_DB_cookies">
+	<form class="modal-content animate" action="/LoginAction04_DB_cookies">
 		<div class="imgcontainer">
 			<span onclick="document.getElementById('login').style.display='none'" class="close" title="close">
 				&times;

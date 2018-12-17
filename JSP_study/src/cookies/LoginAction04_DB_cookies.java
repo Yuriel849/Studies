@@ -33,14 +33,6 @@ public class LoginAction04_DB_cookies extends HttpServlet { // HttpServlet 상�
 		String chk = request.getParameter("checker");
 		String compareId = "";
 		String comparePwd = "";
-		
-//		String referer = request.getHeader("Referer");
-//		System.out.println(referer);
-
-		// request로 값이 제대로 넘어왔는지 확인하는 코드
-//		System.out.println(id);
-//		System.out.println(pw);
-//		System.out.println(chk);
 
 		UserDAO03 udao = UserDAO03.getInstance(); // UserDAO 객체를 만든다.
         User02 user = udao.selectUser(id); // id와 일치하는 user_id를 가진 정보를 DB에서 받아온다.
@@ -49,38 +41,34 @@ public class LoginAction04_DB_cookies extends HttpServlet { // HttpServlet 상�
         	comparePwd = user.getPassword();
         }
 		
-        // DB 연동이 제대로 되는지 확인하는 코드
-//      System.out.println(user);
-//      System.out.println(compareId);
-//      System.out.println(comparePwd);
-	
 		if(user!=null && id.equals(compareId) && pw.equals(comparePwd)) {
 			// DB에서 정보를 가져왔고, 해당 정보와 id & pw가 일치하는 경우
 			session.setAttribute("id", id);
-			// 제대로 id 속성이 session에 추가되었는지 확인하는 용도
-//			System.out.println(session.getAttribute("id"));
 
 			// 만약 index.jsp에서 "board" 버튼을 눌러서 loginForm으로 넘어간 것이라면, loginFrom 쿠키가 있을 것이다
 				// loginFrom 쿠키가 있으면 board.jsp로 가도록 한다.
 			boolean flag = false;
+			String addr = "";
 			Cookie[] cookies = request.getCookies();
 			if(cookies != null && cookies.length > 0) {
 				for(int i = 0; i < cookies.length; i++) {
-					if(cookies[i].getName().equals("msg") || cookies[i].getName().equals("loginFrom")) {
-						if(cookies[i].getName().equals("loginFrom"))
+					if(cookies[i].getName().equals("msg") ||
+							cookies[i].getName().equals("loginFrom") || cookies[i].getName().equals("userName")) {
+						if(cookies[i].getName().equals("loginFrom")) {
+							addr = cookies[i].getValue();
 							flag = true;
+						}
 						cookies[i].setMaxAge(0);
 						response.addCookie(cookies[i]);
 					}
 				}
 			}
 			if(flag == true)
-				response.sendRedirect("/boardList.jsp");
+				response.sendRedirect("/" + addr);
 			else
 				// loginFrom 쿠키가 없으면 index.jsp(메인페이지)로 가도록 한다.
 				response.sendRedirect("/");
 		} else { // DB에서 정보를 가져오지 못했거나 (user==null) DB에서 정보를 가져왔으나 해당 정보와 id & pw가 일치하지 않을 경우
-//			request.setAttribute("msg", "아이디 또는 비밀번호가 틀립니다."); // request 객체에 메시지를 저장
 			if(chk!=null && chk.equals("on")) {
 				Cookie cookie = new Cookie("userName", URLEncoder.encode(id, "utf-8"));
 				response.addCookie(cookie);
@@ -90,7 +78,7 @@ public class LoginAction04_DB_cookies extends HttpServlet { // HttpServlet 상�
 				response.addCookie(cookie);
 			}
 		
-		Cookie cookie = new Cookie("msg", URLEncoder.encode("<script>alert(\"아이디 또는 비밀번호를 잘못 입력했습다.\");</script>", "utf-8"));
+		Cookie cookie = new Cookie("msg", URLEncoder.encode("<script>alert(\"아이디 또는 비밀번호를 잘못 입력했습니다.\");</script>", "utf-8"));
 		response.addCookie(cookie);
 
 		response.sendRedirect("/loginForm04_DB_cookies.jsp");
