@@ -153,9 +153,10 @@
 		<!-- Float links to the right. -->
     	<div class="w3-right w3-hide-small">
     		<!-- Button to the modal login form -->
-    		<a href="#login" onclick="document.getElementById('login').style.display='block'" class="w3-bar-item w3-button">Login</a>    		
+    		<a href="#login" onclick="document.getElementById('login').style.display='block'" class="w3-bar-item w3-button">Login</a>
+    		<a href="/logout.jsp" class="w3-bar-item w3-button">Logout</a>
     		<a href="#projects" class="w3-bar-item w3-button">Projects</a>
-      		<a href="#work" class="w3-bar-item w3-button">Work</a>
+      		<a href="/boardList.jsp" class="w3-bar-item w3-button">Board</a>
       		<a href="#about" class="w3-bar-item w3-button">About</a>
       		<a href="#contact" class="w3-bar-item w3-button">Contact</a>
       		<a href="#menu" class="w3-bar-item w3-button" onclick="openNav()">Menu</a>
@@ -165,7 +166,7 @@
 
 <!-- Modal login form -->
 <div id="login" class="modal">
-	<form class="modal-content animate" action="/LoginAction02">
+	<form class="modal-content animate" action="/Haven/LoginAction_DB_cookies">
 		<div class="imgcontainer">
 			<span onclick="document.getElementById('login').style.display='none'" class="close" title="close">
 				&times;
@@ -175,14 +176,14 @@
 	
 		<div class="container">
 			<label><b>Username</b></label>
-			<input type="text" id="userName" placeholder="Enter Username" name="id" value="" required><br>
+			<input type="text" placeholder="Enter Username" name="userName" value="" required><br>
 		
 			<label><b>Password</b></label>
 			<input type="password" placeholder="Enter Password" name="pw" required><br>
 		
 			<button type="submit">Login</button>
 			<label>
-				<input type="checkbox" name="checked"> Remember me
+				<input type="checkbox" name="checker"> Remember me
 			</label>
 			<button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn">Cancel</button>
 			<span class="psw"><a href="#">Forgot password?</a></span>
@@ -216,11 +217,12 @@
 Cookie[] cookies = request.getCookies();
 if(cookies != null && cookies.length > 0) {
 	for(int i = 0; i < cookies.length; i++) {
-		if(cookies[i].getName().equals("id")) {
+		if(cookies[i].getName().equals("userName")) {
 %>
 <script>
-			userName.value = "<%=cookies[i].getValue()%>";
-</script>					
+			document.getElementsByName("userName")[0].value = "<%=URLDecoder.decode(cookies[i].getValue(), "utf-8")%>";
+		    document.getElementsByName("checker")[0].checked = true;
+</script>
 <%
 		} // cookies에서 필요한 쿠키를 찾는 if문 끝.
 	} // for문 끝.
