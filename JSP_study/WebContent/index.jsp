@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title>HAVEN</title>
 <style>
-	input[type=text], input[type=password] { /* text타입과 password타입의 input태그에 적용된다. */
+	input[type=text], input[type=password] { /* Applies to the "text" & "password" type input tags */
 		width: 100%;
 		padding: 12px 20px;
 		margin: 8px;
@@ -17,7 +17,7 @@
 		box-sizing: border-box;
 	}
 
-	button { /* 모든 버튼의 style 설정 */
+	button { /* Applies to all buttons  */
 		background-color: #4CAF50;
 		color: white;
 		padding: 14px 20px;
@@ -27,34 +27,34 @@
 		width: 100%
 	}
 	
-	button:hover { /* button 위에 마우스를 올리면 반투명해진다. */
+	button:hover { /* Buttons become semi-transparent when the cursor hovers */
 		opacity: 0.7;
 	}
 
-	.cancelbtn { /* cancel 버튼만 추가 설정 */
+	.cancelbtn { /* Only applies to the cancel button  */
 		width: auto;
 		padding: 10px 18px;
 		background-color: #F44336;
 	}
 	
-	.imgcontainer { /* img태그를 포함하는 태그의 위치 설정 */
+	.imgcontainer { /* Sets the location of the imgcontainer, which contains img tags */
 		text-align: center;
 		margin: 30px 0px 15px 0px;
 		position: relative;
 	}
 	
-	img.avatar { /* img 태그 중 avatar 클래스의 크기를 조정하고 동그랗게 만든다. */
+	img.avatar { /* Applies to the "avatar" class in an img tag, reducing size and rounding it */
 		width: 40%;
 		height: 40%;
 		border-radius: 50%;
-		/* border-radius는 모서리가 동그랗게 만드는 것 -> 그런데 width & height이 같으니까 사실 원형이 된다. */
+		/* border-radius is the attribute making something rounder -> width and height are the same, so becomes circular */
 	}
 	
 	.container {
 		padding: 16px;
 	}
 
-	span.psw { /* "forgot password?" 부분에게만 적용된다. */
+	span.psw { /* Only applies to the "forgot password?" part */
 		float: right;
   		padding-top: 16px;
 	}
@@ -144,7 +144,6 @@
 
 </head>
 <body>
-
 <div id="main">
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
@@ -167,7 +166,7 @@
 
 <!-- Modal login form -->
 <div id="login" class="modal">
-	<form class="modal-content animate" action="/LoginAction04_DB_cookies">
+	<form class="modal-content animate" action="/LoginAction06_hidden">
 		<div class="imgcontainer">
 			<span onclick="document.getElementById('login').style.display='none'" class="close" title="close">
 				&times;
@@ -211,7 +210,7 @@
   <a href="#">Contact</a>
 </div>
 
-<!-- id="main" 태그 닫기 -->
+<!-- Close the tag with the id="main" -->
 </div>
 
 <%
