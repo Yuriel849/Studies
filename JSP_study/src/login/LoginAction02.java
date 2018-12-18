@@ -1,4 +1,4 @@
-package cookies;
+package login;
 
 import java.io.*;
 import java.net.URLEncoder;

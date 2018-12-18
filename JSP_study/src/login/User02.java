@@ -1,4 +1,4 @@
-package cookies;
+package login;
 
 public class User02 {
 	private String userId;

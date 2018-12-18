@@ -1,4 +1,4 @@
-package cookies;
+package login;
 
 import java.io.*;
 import java.net.URLEncoder;
@@ -14,8 +14,8 @@ import javax.servlet.http.HttpSession;
 
 // LoginAction03_DB_connect.java servlet & DB를 연동하기
 
-@WebServlet("/LoginAction05_parameter")
-public class LoginAction05_parameter extends HttpServlet { // HttpServlet 상속
+@WebServlet("/LoginAction03_DB_connect")
+public class LoginAction03_DB_connect extends HttpServlet { // HttpServlet 상속
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,16 +28,11 @@ public class LoginAction05_parameter extends HttpServlet { // HttpServlet 상속
 //		String pw = "22";
 		
 		// id & pw가 null이 될 수 없다 -> loginForm에서 "required" 속성을 지녔기에
-		String id = request.getParameter("userName");
+		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		String chk = request.getParameter("checker");
+		String chk = request.getParameter("checked");
 		String compareId = "";
 		String comparePwd = "";
-		
-		String param = request.getParameter("uri");
-		if(null == param)
-			param = "/Haven";
-		System.out.println("param in loginAction: " + param);
 
 		// request로 값이 제대로 넘어왔는지 확인하는 코드
 //		System.out.println(id);
@@ -55,43 +50,33 @@ public class LoginAction05_parameter extends HttpServlet { // HttpServlet 상속
 //      System.out.println(user);
 //      System.out.println(compareId);
 //      System.out.println(comparePwd);
-	
+        
+        // user가 null인지 체크 -> null이라면 다시 id와 일치하는 user_id가 DB에 없는 것 -> 다시 loginForm으로 돌아가기
+        // user가 null이 아니라면 id & compareId, pw & comparePwd를 비교해서
+        	// 일치하지 않으면 다시 loginForm으로 돌아가기
+        	// 일치하면 index.jsp로 넘어가기
+        
+		
 		if(user!=null && id.equals(compareId) && pw.equals(comparePwd)) {
 			// DB에서 정보를 가져왔고, 해당 정보와 id & pw가 일치하는 경우
-			session.setAttribute("id", id);
-			// 제대로 id 속성이 session에 추가되었는지 확인하는 용도
-//			System.out.println(session.getAttribute("id"));
-
-			// 만약 index.jsp에서 "board" 버튼을 눌러서 loginForm으로 넘어간 것이라면, loginFrom 쿠키가 있을 것이다
-				// loginFrom 쿠키가 있으면 board.jsp로 가도록 한다.
-			Cookie[] cookies = request.getCookies();
-			if(cookies != null && cookies.length > 0) {
-				for(int i = 0; i < cookies.length; i++) {
-					if(cookies[i].getName().equals("msg") || cookies[i].getName().equals("userName")) {
-						cookies[i].setMaxAge(0);
-						response.addCookie(cookies[i]);
-					}
-				}
-			}
-			response.sendRedirect(param);
+			session.removeAttribute("loginFailure");
+			response.sendRedirect("/");
 		} else { // DB에서 정보를 가져오지 못했거나 (user==null) DB에서 정보를 가져왔으나 해당 정보와 id & pw가 일치하지 않을 경우
 //			request.setAttribute("msg", "아이디 또는 비밀번호가 틀립니다."); // request 객체에 메시지를 저장
 			if(chk!=null && chk.equals("on")) {
-				Cookie cookie = new Cookie("userName", URLEncoder.encode(id, "utf-8"));
-				System.out.println("making cookies");
+				Cookie cookie = new Cookie("id", URLEncoder.encode(id, "utf-8"));
 				response.addCookie(cookie);
 			} else {
-				Cookie cookie = new Cookie("userName", "");
+				Cookie cookie = new Cookie("id", "");
 				cookie.setMaxAge(0);
 				response.addCookie(cookie);
 			}
 		
-		Cookie cookie = new Cookie("msg", URLEncoder.encode("<script>alert(\"아이디 또는 비밀번호를 잘못 입력했습니다.\");</script>", "utf-8"));
-		response.addCookie(cookie);
+		session.setAttribute("loginFailure", "아이디 또는 비밀번호를 잘못 입력했습니다.");
 
-		response.sendRedirect("/loginForm05_parameter.jsp?uri=" + param);
+		response.sendRedirect("/loginForm03_DB_connect.jsp");
 		// forward로는 cookie가 보내지지만 자동으로 로딩되지 않는다 (내가 새로고침해야 된다) -> redirect 사용할 것!
-//		RequestDispatcher reqDis = request.getRequestDispatcher("/Haven/loginForm_DB_connect.jsp");
+//		RequestDispatcher reqDis = request.getRequestDispatcher("/loginForm03_DB_connect.jsp");
 //		reqDis.forward(request, response);
 		}
 	} // doGet() 끝.
