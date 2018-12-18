@@ -14,8 +14,8 @@ import javax.servlet.http.HttpSession;
 
 // LoginAction03_DB_connect.java servlet & DB를 연동하기
 
-@WebServlet("/LoginAction04_DB_cookies")
-public class LoginAction04_DB_cookies extends HttpServlet { // HttpServlet 상속
+@WebServlet("/LoginAction04_cookies")
+public class LoginAction04_cookies extends HttpServlet { // HttpServlet 상속
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -81,7 +81,7 @@ public class LoginAction04_DB_cookies extends HttpServlet { // HttpServlet 상�
 		Cookie cookie = new Cookie("msg", URLEncoder.encode("<script>alert(\"아이디 또는 비밀번호를 잘못 입력했습니다.\");</script>", "utf-8"));
 		response.addCookie(cookie);
 
-		response.sendRedirect("/loginForm04_DB_cookies.jsp");
+		response.sendRedirect("/loginForm04_cookies.jsp");
 		// forward로는 cookie가 보내지지만 자동으로 로딩되지 않는다 (내가 새로고침해야 된다) -> redirect 사용할 것!
 //		RequestDispatcher reqDis = request.getRequestDispatcher("/Haven/loginForm_DB_connect.jsp");
 //		reqDis.forward(request, response);

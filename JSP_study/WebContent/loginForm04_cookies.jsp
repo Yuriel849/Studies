@@ -62,7 +62,7 @@
 <body>
 <h2>Login</h2>
 
-<form action="/LoginAction04_DB_cookies" method="post">
+<form action="/LoginAction04_cookies" method="post">
 <%
 	// 메시지 출력하기
 	String value = "";
