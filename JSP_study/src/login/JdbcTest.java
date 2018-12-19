@@ -11,7 +11,7 @@ public class JdbcTest {
     	String DB_URL = "jdbc:mysql://localhost:3306/book_ex?useUnicode=true&characterEncoding=utf8"; // DB이름인 book_ex를 적절히 변경해서 사용 
     	String DB_USER = "root";  // DB의 user id & pw를 알맞게 변경해서 사용
     	String DB_PASSWORD = "Sapph1r3"; 
-     
+
     	Connection conn = null;
     	Statement stmt = null;
     	ResultSet rs = null;
