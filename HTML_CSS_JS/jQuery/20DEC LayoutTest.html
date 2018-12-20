@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+/*
+        div {
+            width: 400px;
+            height: 300px;
+            background-color: silver;
+            border: 2px solid red;
+            margin: 50px;
+            padding: 90px;
+        }
+*/
+        div {
+            width: 100px;
+            border: 1px solid silver;
+            float: left;
+            margin-top: 4px;
+            margin-left: 30px;
+            padding: 30px; /* Padding is used to position the content area within the border as you desire
+                              (ex) you don't want your text sticking to a corner, you want it nicely centered) */
+            text-align: center;
+            background-color: darkblue;
+            color: white;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div>Hello</div>
+    <div>Hello2</div>
+    <div>Hello3</div>
+    
+    <script>
+        // 버튼을 클릭하면 background-color & (font) color를 반전하게 이벤트 처리
+        window.onload = function() {
+            var _div = document.getElementsByTagName('div');
+            var flag = false;
+            for(var i=0; i < _div.length; i++) {
+                _div[i].onclick = function() {
+                    if(flag == false) {
+                        console.log('aaa');
+                        this.style.backgroundColor = 'white';
+                        this.style.color = 'darkblue';ti
+                        flag = true;
+                    } else {
+                        console.log('bbb');
+                        this.style.backgroundColor = 'darkblue';
+                        this.style.color = 'white';
+                        flag = false;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
