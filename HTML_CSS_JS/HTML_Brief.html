@@ -1,4 +1,12 @@
 <!--
+    HTML is used to create the structure, the skeleton of a web page
+    CSS is used to add static (unchanging) meat to the bones (ex) the background color or the company logo at the top of the page doesn't change)
+    JavaScript & jQuery is used to add moving meat to the bones (ex) move to another page when the user clicks on a button)
+
+    First complete the HTML structure, then fill in the CSS, then add the JavaScript or jQuery (HTML >> CSS >> JS / jQuery)
+-->
+
+<!--
 Useful Websites
     html5test.com
     gs.statcounter.com
@@ -11,7 +19,7 @@ Useful Websites
 
 <!--
 Useful Shortcuts
-    "!"" + tab
+    "!" + tab OR "html:5" + tab
         자동으로 기본적인 DTD 태그, html 태그, head 태그, body 태그를 출력한다.
     "h1*8" + enter
         자동으로 h1 태그 8개를 생성한다.
@@ -80,7 +88,8 @@ Comments (주석)
     
     <style> /* style 태그
                -> CSS를 이용해서 웹페이지를 꾸며주는 내용이 들어가는 태그이다.
-               -> Style 태그 안에서는 주석 처리 방식이 다르다. */ 
+               -> Style 태그 안에서는 주석 처리 방식이 다르다.
+            */ 
     </style>
     
     <link rel="stylesheet" href=""> <!-- link 태그
@@ -133,12 +142,12 @@ Comments (주석)
 
     <br> <!-- br 태그 -> 줄바꿈 태그다. -->
 
-    <!--"&nbsp;" -> 태그가 아니고 줄바꿈을 적용할 수 없는 공백 한 칸을 찍는다; 연속해서 사용하면 공백 여러 칸을 표시할 수 있다. -->
+    <!--"&nbsp;" -> Non-Breaking SPace; 태그가 아니고 줄바꿈을 적용할 수 없는 공백 한 칸을 찍는다; 연속해서 사용하면 공백 여러 칸을 표시할 수 있다. -->
     <p>This is&nbsp; a para&nbsp;&nbsp;graph.</p>
 
     <pre> <!-- pre 태그
                -> HTML의 body 태그 속에서는 &nbsp;가 아닌 일반 빈 칸이나 줄바꿈은 여러번 중복해서 사용해도 한 칸과 한번의 줄바꿈으로 표시된다.
-               -> BUT pre 태그를 사용하면 작성자가 작성한 내용이 그 형태 그대로 브라우저에서 표시된다. -->
+               -> BUT pre 태그를 사용하면 그 사이 내용은 작성자가 작성한 그 형태 그대로 브라우저에서 표시된다. -->
     var myArray = [];
         console.log(MyArray.length);
 
@@ -263,7 +272,7 @@ Comments (주석)
             checked 속성 -> 사용하면 해당 항목이 기본으로 체크되어 있다. 물론, 다시 uncheck할 수도 있다.
         -->
         <ul>
-            <li><input type="checkbox" name="lang" value="java" checked>java</li> <!-- "checked"를 포함하면 기본으로 체크되어 있다. 물론, 다시 uncheck할 수도 있다. -->
+            <li><input type="checkbox" name="lang" value="java" checked>java</li>
             <li><input type="checkbox" name="lang" value="C#">C#</li>
             <li><input type="checkbox" name="lang" value="python">python</li>
         </ul>
