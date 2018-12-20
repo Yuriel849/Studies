@@ -6,7 +6,7 @@ public class JdbcTest {
 	public static void main(String[] args) {
 		test_jdbc_connect();
     } // main() 끝.
-   
+	
     static void test_jdbc_connect() {
     	String DB_URL = "jdbc:mysql://localhost:3306/book_ex?useUnicode=true&characterEncoding=utf8"; // DB이름인 book_ex를 적절히 변경해서 사용 
     	String DB_USER = "root";  // DB의 user id & pw를 알맞게 변경해서 사용
@@ -39,4 +39,4 @@ public class JdbcTest {
     		} catch ( SQLException e ) {}
     	}
     }
-}
+} // 클래스 끝.
