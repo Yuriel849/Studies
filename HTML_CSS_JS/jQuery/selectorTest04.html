@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+//            $('#d1> div:eq(0)').css('border', '1px solid silver');
+//            /* id="d1" 태그 속에 있는 div 태그들 중, 첫번째 div 태그에 적용한다. */
+//            $('#d1> :eq(-1)').css('border', '1px solid blue');
+//            /* id="d1" 태그 속에 있는 모든 태그들 중, 뒤에서 첫번째 태그에 적용한다. */
+            
+            console.log($('#d1> :first'));
+            /* id="d1" 태그 속 자식들 중, 첫번째를 선택해서 배열로 반환한다. */
+            console.log($('#d1> :last'));
+            /* id="d1" 태그 속 자식들 중, 마지막을 선택해서 배열로 반환한다. */
+            console.log($('#d1> :gt(1)'));
+            /* "gt" is "greater than" -> id="d1" 태그 속 자식들 중, index값이 1보다 큰 모든 요소(3번째 요소부터 모두)를 선택해서 배열로 반환한다. */
+            console.log($('#d1> :lt(1)'));
+            /* "lt" is "lesser than" -> id="d1" 태그 속 자식들 중, index값이 1보다 작은 모든 요소(여기서는 1번째 요소만)를 선택해서 배열로 반환한다. */
+            var d = $('#d1> :not(div)').css('backgroundColor', 'yellow');
+            console.log(d);
+            /* id="d1" 태그 속 자식들 중, div태그를 제외한 모든 요소에 적용한다. */
+            /* console.log($('#d1> :not(div)').css('backgroundColor', 'yellow')); -> 변수를 만들지 않고 바로 적용할 수도 있다 */
+        });
+    </script>
+</head>
+<body>
+    <div id="d1">
+        <p>p1</p>
+        <div>div1</div>
+        <p>p2</p>
+        <div>div2</div>
+        <p>p3</p>
+        <div>div3</div>
+        <p>p4</p>
+    </div>
+</body>
+</html>

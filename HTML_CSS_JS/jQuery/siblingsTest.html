@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var d = $("#result> div:eq(0)").css('backgroundColor', 'deepskyblue').siblings();
+            console.log(d);
+            /* .siblings()는 이웃을 조작할 때 사용
+                -> id="result" 태그의 자식 중 첫번째 div의 siblings는 태그 자기자신을 제외한 나머지 모두를 배열로 반환한다. */
+            var e = $("#result> div:eq(0)").css('backgroundColor', 'deepskyblue')
+                                           .siblings('p')
+                                           .css('border', '2px solid red')
+                                           .end()
+                                           .siblings('div')
+                                           .css('border', '2px solid blue');
+            console.log(e);
+            /* id="result" 태그의 자식 중 첫번째 div의 siblings 중 p태그인 것들만 선택해서 배열로 반환한다.
+               .end() -> 찾아서 작업하던 태그(tag)나 노드(node)로부터 다시 원래 것으로 찾아간다. */
+        });
+    </script>
+</head>
+<body>
+    <div id="result">
+        <p>p1</p>
+        <div>div1</div>
+        <p>p2</p>
+        <p>p3</p>
+        <div>div2</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+        .redcolor {
+            color: red;
+        }
+        .bgsilver {
+            background-color: silver;
+        }
+        .bggold {
+            background-color: gold;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $('table').css('border', '3px solid blue');
+            
+//            $('tr:eq(1)>td:eq(1)').css('color', '#dfdf');
+//            $('tr:last').css('color', '#BE81F7');
+            
+            $(':header').css({'backgroundColor':'skyblue'});
+            $("td:contains('홍길동')").siblings().addClass('redcolor');
+            $("td:contains('경기도')").siblings().addClass('bgsilver');
+            $("td:contains('경기도')").siblings().parent().find('td:eq(1)').addClass('bggold');
+            $('tr:nth-child(3n+1)').css('backgroundColor', 'red');
+        });
+    </script>
+</head>
+<body>
+    <h1> 성적 테이블</h1>
+    <table>
+        <thead>
+            <tr><th>이름</th><th>주소</th></tr>
+        </thead>
+        <tbody>
+            <tr class="bgsilver"><td>홍길동</td><td>서울</td></tr>
+            <tr class="bggold"><td>김하나</td><td>경기도</td></tr>
+            <tr class="bgsilver"><td>김지은</td><td>강원도</td></tr>
+            <tr class="bggold"><td>김지훈</td><td>부산</td></tr>
+        </tbody>
+    </table>
+</body>
+</html>

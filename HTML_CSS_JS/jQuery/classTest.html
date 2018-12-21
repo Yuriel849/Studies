@@ -1,0 +1,48 @@
+<!-- USING .addClass() & .removeClass() & .toggleClass() -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid blue;
+        }
+        .a1 {
+            background-color: silver;   
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('div').click(function() {
+                console.log(this)
+/*              this는 JavaScript 객체! -> .css는 jQuery 메서드, 당연히 사용할 수 없다! -> JavaScript 객체를 jQuery 객체로 변환해야!
+                this.css('backgroundColor', 'yellow');*/
+/*              아래 코드와 같다
+                this.style.backgroundColor = 'yellow';*/
+//                $(this).css('backgroundColor', 'yellow');
+                
+/*                if($(this).hasClass("a1"))
+                     .removeClass( [properties] )
+                        []가 있다는 것은 여기다 properties를 써도 되고 안써도 된다는 의미다.
+                        .removeClass()하면 모든 태그의 모든 클래스를 삭제한다.
+                    
+                    $(this).removeClass("a1")
+                else
+                    $(this).addClass("a1");*/
+                $(this).toggleClass("a1"); // .addClass() & .removeClass() 번갈아 사용하는 것과 동일하다.
+            })
+        })
+    </script>
+</head>
+<body>
+    <div>a1</div>
+    <div>a2</div>
+    <div>a1</div>
+    <div>a2</div>
+</body>
+</html>

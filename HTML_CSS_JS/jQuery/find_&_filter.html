@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        /* .filter() & .find() ARE NOT THE SAME!!! */
+        $(document).ready(function() {
+            var d = $('#menu>li').css('border', '1px solid turquoise')
+                                 .filter(':not(.t)').css('backgroundColor', 'aquamarine')
+            /* $('ul>li') 사용하면 안쪽 ul에게까지 적용된다 -> 바깥 ul에만 적용하기 위해서 아예 id를 줘서 구분한다. */
+            console.log(d);
+            /* "filter('.t')"를 사용해서, filter로 찾은 일부 요소에게만 filter 이후의 코드를 적용한다.
+                filter 이전까지는 "$('#menu>li')"로 찾은 모든 요소에게 적용된다.
+                
+                $('ul>li').filter('.t') == $('ul>li.t')
+                    BUT filter 사용하면 중간에 다른 코드를 끼워넣을 수 있다.
+                    BUT 조심해야 한다, 모든 것을 filter에 넣을 수 있는 것은 아니다!
+                        $('div').filter('span') == $('divspan') -> divspan을 selector로 쓰는 것은 말이 안된다! */
+            
+            /* .find()는 자손 중 조건에 일치하는 요소를 모두 찾는다 */
+            $('div').css('border', '2px dotted red').find('.p1').css('backgroundColor', 'darkseagreen');
+            
+            /* IMPORTANT!!!!!
+            $('div .p1') == .find()   -> div의 모든 자손 중 class="p1"인 요소를 모두 찾는다.
+            $('div.p1')  == .filter() -> div 중 class="p1"인 요소를 모두 찾는다.
+            $('div>.p1')              -> div의 직접 자손 (자식) 중 class="p1"인 요소를 모두 찾는다.
+            */
+        });
+    </script>
+
+</head>
+<body>
+    <ul id="menu">
+        <li>a-1</li>
+        <li class="t">a-2</li>
+        <li>a-3
+            <ul>
+                <li>b-1</li>
+                <li>b-2</li>
+                <li>b-3</li>
+            </ul>
+        </li>
+        <li>a-4</li>
+    </ul>
+    
+    <div>
+        <p>t1<span class="p1">sub1</span></p>
+        <p class="p1">t2</p>
+        <span class="p1">sub2</span>
+        <p>t3</p>
+    </div>
+</body>
+</html>

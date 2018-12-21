@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div, p {
+            width: 100px;
+            height: 100px;
+            float: left;
+            border: 1px solid purple;
+            margin-right: 5px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        jQuery(document).ready(function() {
+            // id 기준으로 찾기
+            $('#d1').css('color', 'red');
+            // class 기준으로 찾기
+            $('.c1').css('backgroundColor', 'yellow');
+            // tagName 기준으로 찾기
+            $('div, p').css('border', '2px solid blue');
+            // div 태그 & class="c1"인 것에만 적용
+            $('div.c1').css('color', 'magenta');
+        });
+    </script>
+</head>
+<body>
+    <div class="c1">aaa1</div>
+    <div id="d1">aaa2</div>
+    <p class="c1">bbb1</p>
+    <p>bbb2</p>
+    <div>aaa3</div>
+    <div>aaa4</div>
+    <div class="c1">aaa5</div>
+    <div>aaa6</div>
+</body>
+</html>
