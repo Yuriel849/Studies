@@ -2,11 +2,34 @@
 *           {margin: 0; list-style-type: none;}
 a           {text-decoration: none;}
 
-header     {background-color: aquamarine;}
-.top       { width: 1365px; height:123px; background-color: red;  margin:0 auto;}
-.top_wrap   {width: 940px; height: 50px; margin: 0 auto; background-color: blue;}
-.main       {background-color: coral;}
-.main_wrap       {width: 1365px; height:505px; background-color: chocolate; margin: 0 auto;}
+header     {background-color: gainsboro;}
+.top       { width: 1365px; background-color: blue;  margin:0 auto;}
+.top_wrap  {width: 940px; height: 80px; margin: 0 auto; background-color: white; border: 1px solid yellow; display: block;}
+#welcome {width: 289.95px; height: 20px; font-size: 14px; display: inline-block; vertical-align: middle; border: 1px solid black; margin-top: -60px;}
+#container {width: 110px; height: 40px; background:url(/pics/nyc_transparent.png) no-repeat center center; background-color: blue; display: inline-block; margin: 20px 120px;}
+#hLinks {width: 284px; height: 20px; font-size: 14px; vertical-align: middle; border: 1px solid black; margin-top: 35px; float: right;}
+.hLinkElement {height: 15px; display: inline-block;}
+#gif {margin-bottom: -3px;}
+
+.nav       { width: 1365px; background-color: magenta;  margin:0 auto;}
+.nav_bar   {width: 940px; height: 45px; margin: 0px auto; background-color: white; border: 1px solid yellow; display:block;}
+.nav_bar>a {border: 1px solid black; display: inline; padding: 10px; vertical-align:middle; margin: 10px 10px 0px; text-align: right;}
+#home {vertical-align:sub}
+#navForm {display: inline;}
+#search {width: 112px; height: 25px; padding-right: -50px; margin-right: -30px; margin-bottom: 20px; border: 0.5px solid gray; border-radius: 5%;}
+#magnifier {padding-top: 12px; margin-bottom: -5px;width: 20px; height: 20px;}
+
+.carousel       {background-color: darkblue;}
+.main       {width: 1365px; background-color: chocolate; margin: 0 auto;}
+.main_wrap {width: 940px; height: 507px; margin: 0 auto; background-color: blue; border: 1px solid yellow;}
+.main_content {width: 822px; height: 460px; display: inline-block; border: 1px solid lawngreen; margin: 20px 0px 30px -5px}
+.side_nav {width: 103px; height: 460px; display: inline-block; border: 1px solid lawngreen; margin: 20px 10px 30px 0px}
+
+
+
+
+
+
 
 .content        {background-color: crimson;}
 .fir_content    {width: 1365px;; height: 1462px; background-color: darkblue; margin: 0 auto;}

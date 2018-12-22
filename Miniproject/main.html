@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css"/>
     <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 </head>
 <body>
     <!-- 명준이  -->
@@ -13,27 +15,68 @@
         <div class="top">
             <div class="top_wrap">
                 <!-- span on left ("The Official Website of the City of New York") -->
+                <span id="welcome">The Official Website of the City of New York</span>
                 <!-- div in center containing a tag to homepage and img of colored "NYC" -->
+                <div id="container">
+                    <a href="/"></a>
+                </div>
                 <!-- div on right for header links -->
                     <!-- div class with img of languages gif -->
                     <!-- div class with language selector linking to google translator ("Translate" + arrow) -->
                     <!-- a tag ("Text Size") -->
+                <div id="hLinks">
+                    <img class="hLinkElement" id="gif" src="/pics/language.gif" alt="language.gif">
+                    <div class="hLinkElement" id="langSelect">
+                        <img src="https://www.google.com/images/cleardot.gif" class="goog-te-gadget-icon" alt="" style="background-image: url(&quot;https://translate.googleapis.com/translate_static/img/te_ctrl3.gif&quot;); background-position: -65px 0px;">
+                        <span>Translate</span>
+                        <span style="border-left: 1px solid gray"></span>
+                        <span style="margin-left: 5px; margin-right: 5px">▼</span>
+                    </div>
+                    <a href="#" class="hLinkElement">Text Size</a>
+                </div>
 
             </div>
         </div>
         <!-- navigation bar 명준이  -->
-        <nav>
-                <div class="nav_bar"></div>
+        <nav class="nav"> <!-- div class=top에 해당-->
+                <div class="nav_bar"> <!--div class="top_wrap에 해당-->
+                   <!--home icon with a tag to homepage-->
+                   <a href="/">
+                       <i class="material-icons" id="home">home</i>
+                   </a>
+                   <!--a tag ("NYC Resources")-->
+                    <a href="#">NYC Resources</a>
+                   <!--a tag ("NYC311")-->
+                   <a href="#">NYC311</a>
+                   <!--a tag ("Office of the Mayor")-->
+                   <a href="#">Office of the Mayor</a>
+                   <!--a tag ("Events")-->
+                   <a href="#">Events</a>
+                   <!--a tag ("Connect")-->
+                   <a href="#">Connect</a>
+                   <!--a tag ("Jobs")-->
+                   <a href="#">Jobs</a>
+                   <form id="navForm" action="#" method="post">
+                       <!--input type="text" tag as search bar-->
+                       <input type="text" id="search" name="search" placeholder="Search">
+                       <!--right next to input, input type="image"-->
+                       <input type="image" id="magnifier" src="/pics/magnifierpng.png" alt="search">
+                   </form>
+                </div>
         </nav>
     </header>
     
     <!-- 색깔변하는 페이지 명준이   -->
-    <div class="main">
-        <div class="main_wrap">
-            <section class="main_content"></section>
-            <nav class="side_nav"></nav>
+    <div class="carousel">
+        <div class="main"> <!-- div class=top에 해당-->
+            <div class="main_wrap"> <!--div class="top_wrap에 해당-->
+                <nav class="side_nav"></nav> <!-- carousel 왼쪽에 있는 side_nav_bar 영역-->
+                                
+                <section class="main_content">
+                    
+                </section> <!--실제 carousel 영역-->
+            </div>
         </div>
     </div>
-   
 </body>
 </html>
