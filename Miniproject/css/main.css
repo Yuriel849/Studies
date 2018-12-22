@@ -19,13 +19,33 @@ header     {background-color: gainsboro;}
 #search {width: 112px; height: 25px; padding-right: -50px; margin-right: -30px; margin-bottom: 20px; border: 0.5px solid gray; border-radius: 5%;}
 #magnifier {padding-top: 12px; margin-bottom: -5px;width: 20px; height: 20px;}
 
-.carousel       {background-color: darkblue;}
+.carousel       {background-color: darkblue; box-sizing: border-box;}
 .main       {width: 1365px; background-color: chocolate; margin: 0 auto;}
 .main_wrap {width: 940px; height: 507px; margin: 0 auto; background-color: blue; border: 1px solid yellow;}
-.main_content {width: 822px; height: 460px; display: inline-block; border: 1px solid lawngreen; margin: 20px 0px 30px -5px}
-.side_nav {width: 103px; height: 460px; display: inline-block; border: 1px solid lawngreen; margin: 20px 10px 30px 0px}
-
-
+.main_content {width: 820px; height: 460px; display: inline-block; border: 1px solid lawngreen; margin: 20px 0px 30px 0px; padding: 0px; vertical-align: top; background-color: black; position: relative;}
+.mainImg {width: 600px; height: 400.5px; border: 1px solid yellow; opacity: 0.8;}
+.mainText {width: 600px; height: 210px; border: 1px solid white; position: absolute; margin-top: -158px;}
+.mainText>* {color: white; padding: 0px;}
+.mainH2 {padding: 20px;}
+.mainBtn {color: white; background-color: transparent; font-size: 36px; line-height: 38px; background-image: url(/pics/link_arrow2.png); background-position: 100% 60%; background-repeat: no-repeat; padding-right: 20px; font-weight: bold;}
+.mainText>p {color: white; margin-bottom: 10px; font-size: 16px;}
+.sideText {width: 220px; height: 450px; display: inline-block;border: 1px solid crimson; position: absolute; margin-bottom: 20px !important; margin-top: 10px !important}
+.sideText>span {position: absolute; width: 200px; height: 32px; top: -2.3px; right: -1px; border: 1px solid green; color: white; padding-left: 38px; line-height: 30px; background: url(/pics/big_arrow.png) no-repeat; font-size: 13px; font-weight: 500;}
+.sideText>div {border: 1px solid blue; margin: 30px 15px;}
+.sideText>div>a {color: white; font-size 16px; line-height: 22px}
+.side_nav {width: 100px; height: 460px; display: inline-block; border: 1px solid lawngreen; background-color: ghostwhite; margin: 20px 10px 30px 0px; padding: 0px; vertical-align: top;}
+.side_nav>span {display:block; border: 1px solid black; text-align: center;}
+.iconText {font-size: 10px;}
+.more {vertical-align: middle; border: 1px solid black; margin: 10px;}
+.moreBtn {display: block; width: 70px; height: 27px; background-color: black; padding: 10px 10px 0px 0px; text-align: center; vertical-align: middle; border-radius: 5px; color: white; font-weight: bold; font-size: 10px; background-image: url(/pics/link_arrow.png); background-position: right 45%;background-repeat: no-repeat;}
+/*
+.moreBtn { width: 20px; height: 20px;
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    background-image: url(/assets/home/images/global/link-arrow-white-withoffset13.png);
+    background-position: right 45%;
+    color: blue;}
+*/
 
 
 
