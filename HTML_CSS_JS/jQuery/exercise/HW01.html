@@ -1,0 +1,67 @@
+<!--
+    과제 (with JavaScript)
+        input용 textbox with a submit button next to it
+        below, a text area to send the textbox input to upon clicking the submit button... should appear as 1. XXXXX <br> 2. XXXXX <br> .....
+        text in the text area on double click (ondblclick) should become a button with the text written on it
+        SUBMIT BY EMAIL TO INSTRUCTOR (dreamctwow@naver.com) UNTIL 18.00 ON SUNDAY
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+        <input type="text" id="input" name="input">
+        <input type="button" id="submit" name="submit" value="Submit"><br>
+<!-- DO NOT USE SUBMIT!
+    The type="submit" input tag and the button tag are used to pack data into a request and send said request to a server;
+        use the type="button" input tag with event!
+       
+    The type="image" input tag IS ALSO A SUBMIT FUNCTION (i.e. it is NOT A BUTTON) -->
+        <ol id="main"></ol>
+    
+    <script>
+        var submit = document.getElementById("submit");
+        // submit에 클릭하면...
+        submit.onclick = function() {
+            // li 태그를 만들고...
+            var listTag = document.createElement("li");
+            // input 태그에 사용자가 입력한 값을 받아서...
+            var getInput = document.getElementById("input").value;
+            // 사용자 입력을 내용으로 하는 textNode를 만들어서...
+            var mkNode = document.createTextNode(getInput);
+            // li 태그에 붙인다.
+            listTag.appendChild(mkNode);
+            
+            // 그리고 ol 태그를 찾아...
+            var tArea = document.getElementById("main");
+            // ol 태그에 새로만든 li 태그를 더한다.
+            tArea.appendChild(listTag);
+            // 마지막으로 input의 값을 지워서 사용자가 새로 입력할 수 있게 준비한다.
+            document.getElementById("input").value = "";
+            
+            // ol의 li 태그들을 모두 찾아...
+            var list = document.getElementsByTagName("li");
+            // 반복문으로 이벤트 연결을 한다.
+            for(var x in list) {
+                list[x].onclick = function() {
+                    // input 태그를 만들어...
+                    var btn = document.createElement("input");
+                    // type을 button으로 하고...
+                    btn.type = "button";
+                    // 값으로 li 태그의 값을 넣어서...
+                    btn.value = this.textContent;
+                    // li 태그의 값을 지우며...
+                    this.textContent = "";
+                    // 그 자리에 새로만든 input type="button" 태그를 더한다.
+                    this.appendChild(btn);
+                    // 새로 만든 버튼이 아무일도 안하도록 onclick 이벤트를 제거한다.
+                    this.onclick = null;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
