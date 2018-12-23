@@ -57,6 +57,8 @@
     <!-- 색깔변하는 페이지 명준이   -->
     <div class="slider">
         <div class="main"> <!-- div class=top에 해당-->
+            <input id="rArrow" type="image" src="pics/blu-arrow-right.png" alt="Right Arrow">
+            <input id="lArrow" type="image" src="pics/blu-arrow-left.png" alt="Left Arrow">
             <div class="main_wrap"> <!--div class="top_wrap에 해당-->
                 <nav class="side_nav">
                     <span>Today</span>
@@ -78,14 +80,12 @@
                         <div><b>NOT IN SESSION</b></div>
                     </span>
                     <div class="more"><a href="#" id="moreBtn">MORE</a></div>
-                        <div id='next'> Next</div>
-
                 </nav> <!-- carousel 왼쪽에 있는 side_nav_bar 영역-->
                                 
                 <section class="main_content">
                     <ul id="slides">
                         <!-- Blue Image -->
-                        <li class="slide center">
+                        <li class="slide center" id="blue">
                             <img id="mainImg" src="/pics/blue_img.jpeg" alt="Blue Image">
                             <div class="main_text">
                                 <h2 id="mainH2">
@@ -101,23 +101,23 @@
                             </div>
                         </li>
                         <!-- Orange Image -->
-                        <li class="slide right">
+                        <li class="slide right" id="orange">
                             <img id="mainImg" src="/pics/orange_img.jpeg" alt="Orange Image">
                             <div class="main_text">
                                 <h2 id="mainH2">
                                     <a href="#" class="main_btn">Vision Zero: Mayor de Blasio Announces New York City Added Over  Twenty Miles of Protected Bicycle Lands in 2018</a>
                                 </h2>
-                                <p><a href="#" style="color: white; font-size: 12px;">DEC 19, 2018-Mayor Bill de Blasio today announced that DOT had this year constructed over 20 miles of new on-street protected bike lanes</a></p>
+                                <p><a href="#" style="line-height: 22px;">DEC 19, 2018-Mayor Bill de Blasio today announced that DOT had this year constructed over 20 miles of new on-street protected bike lanes</a></p>
                             </div>
                             <div class="side_text">
                                 <span>RELATED LINKS:</span><br>
                                 <div>
-                                    <a href="#">New bike lanes include major additions to 1,200-mile bicycle network; As 2018 ends with record-low cyclist fatalities, protected bike lanes have helped make streets safer for all users.</a>
+                                    <a href="#">New bike lanes include major additions to 1,200-mile bicycle network; As 2018 ends with record-low cyclist fatalities, protected bike lanes have helped make&nbsp; streets safer for all users.</a>
                                 </div>
                             </div>
                         </li>
                         <!-- Green Image -->
-                        <li class="slide right">
+                        <li class="slide right" id="green">
                             <img id="mainImg" src="/pics/green_img.jpeg" alt="Green Image">
                             <div class="main_text">
                                 <h2 id="mainH2">
@@ -132,8 +132,8 @@
                             </div>
                         </li>
                         <!-- Sap Image -->
-                        <li class="slide right">
-                            <img id="mainImg" src="/pics/sap_img.jpeg" alt="Sapphire Image">
+                        <li class="slide right" id="sap">
+                            <video width="820px" height="460px" src="#" poster="pics/sap_img.jpeg"></video>
                             <div class="main_text">
                                 <h2 id="mainH2">
                                     <a href="#" class="main_btn">Mayor de Blasio Holds Media Availability on the Federal Government Shutdown</a>
@@ -141,11 +141,11 @@
                             </div>
                         </li>                        
                         <!-- Tur Image -->
-                        <li class="slide right">
+                        <li class="slide right" id="tur">
                             <img id="mainImg" src="/pics/tur_img.jpeg" alt="Turqoise Image">
                             <div class="main_text">
                                 <h2 id="mainH2">
-                                    <a href="#" class="main_btn">De Blasio Announces $52 Million Planned Capital Investment for NYC Health + Hospitals/Metropolitan</a>
+                                    <a href="#" class="main_btn">De Blasio Announces $52 Million Planned Capital Investment for<br> NYC Health +<br> Hospitals/Metropolitan</a>
                                 </h2>
                                 <p><strong>DEC 21, 2018-</strong>Investment will address infrastructure upgrades&nbsp;<a href="#" style="color: white; font-size: 12px; font-weight: bold">READ MORE</a></p>
                             </div>
@@ -157,34 +157,34 @@
                             </div>
                         </li>
                         <!-- Bright Green Image -->
-                        <li class="slide right">
+                        <li class="slide right" id="briGreen">
                             <img id="mainImg" src="/pics/brightgreen_img.jpeg" alt="Bright Green Image">
                             <div class="main_text">
                                 <h2 id="mainH2">
                                     <a href="#" class="main_btn">De Blasio Administration Deploys Nation's Largest Network of Solar-Powered Electric Vehicle Chargers</a>
                                 </h2>
-                                <p><a href="#" style="color: white; font-size: 12px; font">DEC 21, 2018-The de Blasio Administration announced today the deployment of 50 solar-powered charging stations across the five boroughs...</a></p>
+                                <p><a href="#" style="color: white; line-height: 22px; letter-spacing: -0.5px; font-weight: 500">DEC 21, 2018-The de Blasio Administration announced today the deployment of 50 solar-powered charging stations across the five boroughs...</a></p>
                             </div>
                             <div class="side_text">
                                 <span>RELATED LINKS:</span><br>
                                 <div>
-                                    <a href="#">50 new charging stations will power city government fleet vehicles using sunlight</a>
+                                    <a href="#">50 new charging stations will power city government fleet&nbsp; vehicles using sunlight</a>
                                 </div>
                             </div>
                         </li>
                         <!-- Sky Blue Image -->
-                        <li class="slide right">
+                        <li class="slide right" id="skyBlue">
                             <img id="mainImg" src="/pics/sky_blue_img.jpeg" alt="Sky Blue Image">
                             <div class="main_text">
                                 <h2 id="mainH2">
-                                    <a href="#" class="main_btn">Mayor de Blasio Calls for Faire Cannabis Legalization That Promotes Equity and Opportunity for All</a>
+                                    <a href="#" class="main_btn">Mayor de Blasio Calls for Fair Cannabis Legalization That Promotes Equity and Opportunity for All</a>
                                 </h2>
-                                <p><strong>DEC 20, 2018-</strong>Mayor de Blasio today endorsed the safe and fair legalization of cannabis in New York.&nbsp;<a href="#" style="color: white; font-size: 12px; font-weight: bold">READ MORE</a></p>
+                                <p style="line-height: 22px; letter-spacing: normal"><strong>DEC 20, 2018-</strong>Mayor de Blasio today endorsed the safe and fair legalization of cannabis in New York.&nbsp;<a href="#" style="color: white; font-size: 12px; font-weight: bold">READ MORE</a></p>
                             </div>
                             <div class="side_text">
                                 <span>RELATED LINKS:</span><br>
                                 <div>
-                                    <a href="#">Report promotes small business development, redressing impacts of past criminalization and driving economic opportunity to historically marginalized communities</a>
+                                    <a href="#">Report promotes small business development, redressing impacts of past criminalization and driving economic opportunity to historically<br>marginalized communities</a>
                                 </div>
                             </div>
                         </li>
@@ -197,8 +197,8 @@
     <script>
         var s = document.querySelectorAll(".slide");
         var cnt = 0;
-        var next = document.getElementById("next");
-        next.onclick = function() {
+        var rArrow = document.getElementById("rArrow");
+        rArrow.onclick = function() {
             if(cnt==0 && s[6].className == "slide center") {
                 s[6].className = "slide left"
                 s[cnt].className = "slide center";
@@ -219,6 +219,7 @@
                 }
             }
         }
+        /* left Arrow 구현 필요! */
     </script>
 </body>
 </html>

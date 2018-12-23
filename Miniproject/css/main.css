@@ -31,22 +31,35 @@ header         {background-color: gainsboro;}
 #moreBtn {display: block; width: 70px; height: 27px; background-color: black; padding: 10px 10px 0px 0px; text-align: center; vertical-align: middle; border-radius: 5px; color: white; font-weight: bold; font-size: 10px; background-image: url(/pics/link_arrow.png); background-position: right 45%;background-repeat: no-repeat;}
 .main_content {width: 820px; height: 460px; display: inline-block; border: 1px solid lawngreen; margin: 20px 0px 30px 0px; padding: 0px; vertical-align: top; background-color: black; position: relative; overflow: hidden;}
 #mainImg {width: 600px; height: 400.5px; border: 1px solid yellow; opacity: 0.8;}
-.main_text {width: 600px; height: 210px; border: 1px solid white; position: absolute; margin-top: -158px; offset}
+.main_text {width: 600px; height: 210px; border: 1px solid white; position: absolute; margin-top: -158px; padding-left: 20px; offset}
 .main_text>a, p {color: white; padding: 0px;}
-#mainH2 {padding: 20px;}
+#mainH2 {padding: 10px 0px;}
 .main_btn {color: white; background-color: transparent; font-size: 36px; line-height: 38px; background-image: url(/pics/link_arrow2.png); background-position: 100% 60%; background-repeat: no-repeat; padding-right: 20px; font-weight: bold;}
 .main_text>p {color: white; margin-bottom: 10px; font-size: 16px;}
-.side_text {width: 220px; height: 450px; display: inline-block;border: 1px solid crimson; position: absolute; margin-bottom: 20px !important; margin-top: 10px !important}
+.main_text>p>a {color: white; margin-bottom: 10px; font-size: 16px;}
+.side_text {width: 220px; height: 450px; display: inline-block; border: 1px solid crimson; position: absolute; margin-bottom: 20px !important; margin-top: 10px !important;}
 .side_text>span {position: absolute; width: 200px; height: 32px; top: -2.3px; right: -1px; border: 1px solid green; color: white; padding-left: 38px; line-height: 30px; background: url(/pics/big_arrow.png) no-repeat; font-size: 13px; font-weight: 500;}
 .side_text>div {border: 1px solid blue; margin: 30px 15px;}
-.side_text>div>a {color: white; font-size 16px; line-height: 22px}
+.side_text>div>a {color: white; font-size 16px; line-height: 22px; font-weight: 400;}
+#blue>div.main_text {padding-top: 10px;}
+#orange>#mainImg {height: 460px;}
+#orange>div.main_text {margin-top: -250px;}
+#green>div.main_text {margin-top: -30px;}
+#sap>#mainImg {width: 820px; height: 460px;}
+#sap>.main_text {width: 820px; margin-top: -130px;}
+#tur>.main_text {letter-spacing: -1px; margin-top: -165px; padding-bottom: 10px;}
+#briGreen>#mainImg {height: 460px;}
+#briGreen>.main_text {width: 60%; margin-top: -240px;}
+#skyBlue>.main_text {width: 60%; margin-top: -186px; letter-spacing: -1px;}
+#skyBlue>.side_text>div {margin-right: 13px; letter-spacing: 0px; }
+#rArrow {width: 31px; height: 31px; position: absolute; left: 1250px; top: 350px; padding: 10px; border: 1px solid transparent; border-radius: 100%; background: rgba(0,0,0,0.05);}
+#lArrow {width: 31px; height: 31px; position: absolute; left: 230px; top: 350px; padding: 10px; border: 1px solid transparent; border-radius: 100%; background: rgba(0,0,0,0.05);}
 
 /* CSS FOR SLIDE EFFECT */
-#next {background-color: #1BAA95; color: white; cursor: pointer; padding: 5px; width: 100%;}
 #slides {position: relative; list-style-type: none; margin-left: -48px;}
-.left {position: absolute; top: -15px; background-color: #164656; color: white; cursor: pointer; padding: 10px; margin: 5px 0; margin-left: -100%; min-width: 100%; transition: all 0.5s;}
-.center {position: absolute; top: -15px; background-color: #164656; color: white; cursor: pointer; padding: 10px; margin: 5px 0; margin-left: 0%; min-width: 100%; transition: all 0.5s;}
-.right {position: absolute; top: -15px; background-color: #164656; color: white; cursor: pointer; padding: 10px; margin: 5px 0; margin-left: 100%; min-width: 100%; transition: all; }
+.left {position: absolute; top: -15px; background-color: transparent; color: white; cursor: pointer; padding: 10px; margin: 5px 0; margin-left: -100%; min-width: 100%; transition: all 0.5s;}
+.center {position: absolute; top: -15px; background-color: transparent; color: white; cursor: pointer; padding: 10px; margin: 5px 0; margin-left: 0%; min-width: 100%; transition: all 0.5s;}
+.right {position: absolute; top: -15px; background-color: transparent; color: white; cursor: pointer; padding: 10px; margin: 5px 0; margin-left: 100%; min-width: 100%; transition: all; }
 
 
 .content        {background-color: crimson;}
