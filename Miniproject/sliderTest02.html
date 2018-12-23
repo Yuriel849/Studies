@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+        body {
+            overflow: hidden;
+            width: 100vw;
+            font-family: verdana;
+        }
+        #next {
+            background-color: #1BAA95;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+            width: 100%;
+        }
+        #slides {
+            position: relative;
+            list-style-type: none;  
+        }
+        
+        .left {
+            position: absolute;
+            background-color: #164656;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            margin: 5px 0;
+            margin-left: -100%;
+            min-width: 100%;
+            transition: all 0.5s;
+        }
+        .center {
+            position: absolute;
+            background-color: #164656;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            margin: 5px 0;
+            margin-left: 0%;
+            min-width: 100%;
+            transition: all 0.5s;
+            z-index: 10;
+        }
+        .right {
+            position: absolute;
+            background-color: #164656;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            margin: 5px 0;
+            margin-left: 100%;
+            min-width: 100%;
+            transition: all;
+        }
+    </style>
+</head>
+<body>
+    <div id='next'> Next</div>
+    <div style="opacity: 0.5">
+    <ul id="slides">
+        <li class="slide center" style="background: red">Slide 1</li>
+        <li class="slide right" style="background: blue">Slide 2</li>
+        <li class="slide right" style="background: green">Slide 3</li>
+        <li class="slide right" style="background: yellow">Slide 4</li>
+        <li class="slide right" style="background: gray">Slide 5</li>
+        <li class="slide right" style="background: orange">Slide 6</li>
+        <li class="slide right" style="background: aqua">Slide 7</li>
+        <li class="slide right" style="background: magenta">Slide 8</li>
+        <li class="slide right" style="background: alicewhite">Slide 9</li>
+        <li class="slide right" style="background: darkblue">Slide10</li>
+    </ul>
+    </div>
+    
+    <script>
+        var s = document.querySelectorAll(".slide");
+        var cnt = 0;
+        var next = document.getElementById("next");
+        next.onclick = function() {
+            if(cnt==0 && s[9].className == "slide center") {
+                s[9].className = "slide left"
+                s[cnt].className = "slide center";
+            } else {
+                s[cnt].className = "slide left";
+                s[++cnt].className = "slide center";
+            }
+            
+            if(cnt != 0 && cnt != 9 && s[9].className == "slide left") {
+                s[8].className = "slide right";
+                s[9].className = "slide right";
+            }
+            
+            if(cnt==9) {
+                cnt = 0;
+                for(var i = 0; i < s.length-2; i++) {
+                    s[i].className = 'slide right';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

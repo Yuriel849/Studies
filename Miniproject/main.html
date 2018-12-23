@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/main.css"/>
     <title>Document</title>
+    <!-- Getting icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+    <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
     <!-- 명준이  -->
@@ -15,59 +15,47 @@
         <div class="top">
             <div class="top_wrap">
                 <!-- span on left ("The Official Website of the City of New York") -->
-                <span id="welcome">The Official Website of the City of New York</span>
+                <span class="top_welcome">The Official Website of the City of New York</span>
                 <!-- div in center containing a tag to homepage and img of colored "NYC" -->
-                <div id="container">
-                    <a href="/"></a>
-                </div>
+                <div class="top_container"><a href="/"></a></div>
                 <!-- div on right for header links -->
+                <div class="top_links">
                     <!-- div class with img of languages gif -->
+                    <img class="top_element" id="gif01" src="/pics/language.gif" alt="language.gif">
                     <!-- div class with language selector linking to google translator ("Translate" + arrow) -->
-                    <!-- a tag ("Text Size") -->
-                <div id="hLinks">
-                    <img class="hLinkElement" id="gif" src="/pics/language.gif" alt="language.gif">
-                    <div class="hLinkElement" id="langSelect">
+                    <div class="top_element" id="langSelect">
                         <img src="https://www.google.com/images/cleardot.gif" class="goog-te-gadget-icon" alt="" style="background-image: url(&quot;https://translate.googleapis.com/translate_static/img/te_ctrl3.gif&quot;); background-position: -65px 0px;">
                         <span>Translate</span>
                         <span style="border-left: 1px solid gray"></span>
                         <span style="margin-left: 5px; margin-right: 5px">▼</span>
                     </div>
-                    <a href="#" class="hLinkElement">Text Size</a>
+                    <!-- a tag ("Text Size") -->
+                    <a href="#" class="top_element">Text Size</a>
                 </div>
-
             </div>
-        </div>
-        <!-- navigation bar 명준이  -->
+        </div> <!-- END OF CLASS="TOP"-->
         <nav class="nav"> <!-- div class=top에 해당-->
-                <div class="nav_bar"> <!--div class="top_wrap에 해당-->
-                   <!--home icon with a tag to homepage-->
-                   <a href="/">
-                       <i class="material-icons" id="home">home</i>
-                   </a>
-                   <!--a tag ("NYC Resources")-->
-                    <a href="#">NYC Resources</a>
-                   <!--a tag ("NYC311")-->
-                   <a href="#">NYC311</a>
-                   <!--a tag ("Office of the Mayor")-->
-                   <a href="#">Office of the Mayor</a>
-                   <!--a tag ("Events")-->
-                   <a href="#">Events</a>
-                   <!--a tag ("Connect")-->
-                   <a href="#">Connect</a>
-                   <!--a tag ("Jobs")-->
-                   <a href="#">Jobs</a>
-                   <form id="navForm" action="#" method="post">
-                       <!--input type="text" tag as search bar-->
-                       <input type="text" id="search" name="search" placeholder="Search">
-                       <!--right next to input, input type="image"-->
-                       <input type="image" id="magnifier" src="/pics/magnifierpng.png" alt="search">
-                   </form>
-                </div>
-        </nav>
-    </header>
+            <div class="nav_bar"> <!--div class="top_wrap에 해당-->
+                <!--home icon with a tag to homepage-->
+                <a href="/" class="home"><i class="material-icons">home</i></a>
+                <a href="#">NYC Resources</a>
+                <a href="#">NYC311</a>
+                <a href="#">Office of the Mayor</a>
+                <a href="#">Events</a>
+                <a href="#">Connect</a>
+                <a href="#">Jobs</a>
+                <form class="nav_search" action="#" method="post">
+                    <!--input type="text" tag as search bar-->
+                    <input type="text" id="search_bar" name="search" placeholder="Search">
+                    <!--right next to input, input type="image"-->
+                    <input type="image" id="magnifier" src="/pics/magnifierpng.png" alt="search">
+                </form>
+            </div>
+        </nav> <!-- END OF CLASS="NAV" -->
+    </header> <!-- END OF HEADER -->
     
     <!-- 색깔변하는 페이지 명준이   -->
-    <div class="carousel">
+    <div class="slider">
         <div class="main"> <!-- div class=top에 해당-->
             <div class="main_wrap"> <!--div class="top_wrap에 해당-->
                 <nav class="side_nav">
@@ -89,30 +77,148 @@
                         <div class="iconText">Schools</div>
                         <div><b>NOT IN SESSION</b></div>
                     </span>
-                    <div class="more">
-                        <a href="#" class="moreBtn">MORE</a>
-                    </div>
+                    <div class="more"><a href="#" id="moreBtn">MORE</a></div>
+                        <div id='next'> Next</div>
+
                 </nav> <!-- carousel 왼쪽에 있는 side_nav_bar 영역-->
                                 
                 <section class="main_content">
-                    <img class="mainImg" src="/pics/blue_img.jpeg" alt="Blue Image">
-                    <div class="mainText">
-                        <h2 class="mainH2">
-                            <a href="#" class="mainBtn">
-                                Mayor de Blasio Announces Dr. Oxiris Barbot As City's Health Commissioner
-                            </a>
-                        </h2>
-                        <p><strong>DEC 19, 2018-</strong>Mayor de Blasio Announces Dr. Oxiris Barbot As City's Health Commissioner&nbsp;<a href="#" style="color: white; font-size: 12px; font-weight: bold">READ MORE</a></p>
-                    </div>
-                    <div class="sideText">
-                        <span>RELATED LINKS:</span><br>
-                        <div>
-                            <a href="#">Mayor Bill de Blasio announced today the appointment of Dr. Oxiris Barbot as Commissioner of the City's Department of Health and Mental Hygiene.</a>
-                        </div>
-                    </div>
+                    <ul id="slides">
+                        <!-- Blue Image -->
+                        <li class="slide center">
+                            <img id="mainImg" src="/pics/blue_img.jpeg" alt="Blue Image">
+                            <div class="main_text">
+                                <h2 id="mainH2">
+                                    <a href="#" class="main_btn">Mayor de Blasio Announces Dr. Oxiris Barbot As City's Health Commissioner</a>
+                                </h2>
+                                <p><strong>DEC 19, 2018-</strong>Mayor de Blasio Announces Dr. Oxiris Barbot As City's Health Commissioner&nbsp;<a href="#" style="color: white; font-size: 12px; font-weight: bold">READ MORE</a></p>
+                            </div>
+                            <div class="side_text">
+                                <span>RELATED LINKS:</span><br>
+                                <div>
+                                    <a href="#">Mayor Bill de Blasio announced today the appointment of Dr. Oxiris Barbot as Commissioner of the City's Department of Health and Mental Hygiene.</a>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Orange Image -->
+                        <li class="slide right">
+                            <img id="mainImg" src="/pics/orange_img.jpeg" alt="Orange Image">
+                            <div class="main_text">
+                                <h2 id="mainH2">
+                                    <a href="#" class="main_btn">Vision Zero: Mayor de Blasio Announces New York City Added Over  Twenty Miles of Protected Bicycle Lands in 2018</a>
+                                </h2>
+                                <p><a href="#" style="color: white; font-size: 12px;">DEC 19, 2018-Mayor Bill de Blasio today announced that DOT had this year constructed over 20 miles of new on-street protected bike lanes</a></p>
+                            </div>
+                            <div class="side_text">
+                                <span>RELATED LINKS:</span><br>
+                                <div>
+                                    <a href="#">New bike lanes include major additions to 1,200-mile bicycle network; As 2018 ends with record-low cyclist fatalities, protected bike lanes have helped make streets safer for all users.</a>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Green Image -->
+                        <li class="slide right">
+                            <img id="mainImg" src="/pics/green_img.jpeg" alt="Green Image">
+                            <div class="main_text">
+                                <h2 id="mainH2">
+                                    <a href="#" class="main_btn">Stay in Touch with City Hall</a>
+                                </h2>
+                            </div>
+                            <div class="side_text">
+                                <span>RELATED LINKS:</span><br>
+                                <div>
+                                    <a href="#">Sign up for news from City Hall to keep in touch with everything that is going on in City government.</a>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Sap Image -->
+                        <li class="slide right">
+                            <img id="mainImg" src="/pics/sap_img.jpeg" alt="Sapphire Image">
+                            <div class="main_text">
+                                <h2 id="mainH2">
+                                    <a href="#" class="main_btn">Mayor de Blasio Holds Media Availability on the Federal Government Shutdown</a>
+                                </h2>
+                            </div>
+                        </li>                        
+                        <!-- Tur Image -->
+                        <li class="slide right">
+                            <img id="mainImg" src="/pics/tur_img.jpeg" alt="Turqoise Image">
+                            <div class="main_text">
+                                <h2 id="mainH2">
+                                    <a href="#" class="main_btn">De Blasio Announces $52 Million Planned Capital Investment for NYC Health + Hospitals/Metropolitan</a>
+                                </h2>
+                                <p><strong>DEC 21, 2018-</strong>Investment will address infrastructure upgrades&nbsp;<a href="#" style="color: white; font-size: 12px; font-weight: bold">READ MORE</a></p>
+                            </div>
+                            <div class="side_text">
+                                <span>RELATED LINKS:</span><br>
+                                <div>
+                                    <a href="#">Investment will address infrastructure upgrades.</a>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Bright Green Image -->
+                        <li class="slide right">
+                            <img id="mainImg" src="/pics/brightgreen_img.jpeg" alt="Bright Green Image">
+                            <div class="main_text">
+                                <h2 id="mainH2">
+                                    <a href="#" class="main_btn">De Blasio Administration Deploys Nation's Largest Network of Solar-Powered Electric Vehicle Chargers</a>
+                                </h2>
+                                <p><a href="#" style="color: white; font-size: 12px; font">DEC 21, 2018-The de Blasio Administration announced today the deployment of 50 solar-powered charging stations across the five boroughs...</a></p>
+                            </div>
+                            <div class="side_text">
+                                <span>RELATED LINKS:</span><br>
+                                <div>
+                                    <a href="#">50 new charging stations will power city government fleet vehicles using sunlight</a>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Sky Blue Image -->
+                        <li class="slide right">
+                            <img id="mainImg" src="/pics/sky_blue_img.jpeg" alt="Sky Blue Image">
+                            <div class="main_text">
+                                <h2 id="mainH2">
+                                    <a href="#" class="main_btn">Mayor de Blasio Calls for Faire Cannabis Legalization That Promotes Equity and Opportunity for All</a>
+                                </h2>
+                                <p><strong>DEC 20, 2018-</strong>Mayor de Blasio today endorsed the safe and fair legalization of cannabis in New York.&nbsp;<a href="#" style="color: white; font-size: 12px; font-weight: bold">READ MORE</a></p>
+                            </div>
+                            <div class="side_text">
+                                <span>RELATED LINKS:</span><br>
+                                <div>
+                                    <a href="#">Report promotes small business development, redressing impacts of past criminalization and driving economic opportunity to historically marginalized communities</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </section> <!--실제 carousel 영역-->
             </div>
         </div>
-    </div>
+    </div> <!-- END OF CLASS="SLIDER" -->
+    
+    <script>
+        var s = document.querySelectorAll(".slide");
+        var cnt = 0;
+        var next = document.getElementById("next");
+        next.onclick = function() {
+            if(cnt==0 && s[6].className == "slide center") {
+                s[6].className = "slide left"
+                s[cnt].className = "slide center";
+            } else {
+                s[cnt].className = "slide left";
+                s[++cnt].className = "slide center";
+            }
+            
+            if(cnt != 0 && cnt != 6 && s[6].className == "slide left") {
+                s[5].className = "slide right";
+                s[6].className = "slide right";
+            }
+            
+            if(cnt==6) {
+                cnt = 0;
+                for(var i = 0; i < s.length-2; i++) {
+                    s[i].className = 'slide right';
+                }
+            }
+        }
+    </script>
 </body>
 </html>
