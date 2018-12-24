@@ -7,8 +7,10 @@
     <script>
         $(document).ready(function() {
             $('#btn').on('click', function() {
+                $('<p>after</p>').css('border', '1px solid silver').insertAfter('div');
+                $('<p>before</p>').css('border', '1px solid blue').insertBefore('div');
 //                $('div').after('<p>after</p>');
-                $('div').before("<p>before</p>");
+//                $('div').before("<p>before</p>");
             });
         });
     </script>
