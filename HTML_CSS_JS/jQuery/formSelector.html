@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        ul li {
+            list-style: none;
+            padding: 5px 0px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#name").val('hong gil dong');
+            $("#send").click(function() {
+                var txtval = $("#name").val();
+                /*
+                    .val()      -> getter
+                    .val(value) -> setter
+                */
+                
+                var g = $("input[type='radio']:checked").val(); /* radio에 대한 val()는 배열 반환 -> checked한 것을 출력하도록 ":checked" 붙인것! */
+                     /* $("input[name='gender']").val(); */
+                var addr = $("#addr").val();
+                
+                console.log(txtval);
+                console.log(g);
+                console.log(addr);
+                
+                /* input type="checkbox"는 그냥 .val() 사용하면 안된다!!! ->  */
+                var fav = $('input[type="checkbox"]:checked');
+                for(var i = 0; i < fav.length; i++) {
+                    console.log(fav[i].value);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <ul>
+            <li>
+                <label>이름</label>
+                <input type="text" name="name" id="name">    
+            </li>
+            <li>
+                <label>성별</label>
+                <label for="m">남</label>
+                <input type="radio" name="gender" value="1" id="m">
+                <label for="f">여</label>
+                <input type="radio" name="gender" value="2" id="f">
+            </li>
+            <li>
+                <label for="addr">주소</label>
+                <select name="addr" id="addr" size="0" multiple>
+                    <option value="02">서울</option>
+                    <option value="031">경기</option>
+                    <option value="032">인천</option>
+                </select>
+            </li>
+            <li>
+                <label>좋아하는 분식</label>
+                <label for="f1">떡뽁이</label>
+                <input type="checkbox" value="f1" name="fav" id="f1">
+                <label for="f2">순대</label>
+                <input type="checkbox" value="f2" name="fav" id="f2">
+            </li>
+            <li>
+                <input type="button" id="send" value="전송">
+            </li>
+        </ul>
+    </form>
+</body>
+</html>

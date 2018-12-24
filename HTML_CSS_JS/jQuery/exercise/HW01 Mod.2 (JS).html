@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var txt = ""; /* 처음에 페이지 로딩 직후 초기화하고 나서 다시는 초기화되지 않는다! */
+            document.getElementById("btn").onclick = function() {
+                var txtname = document.getElementById("txtname").value;
+                txt += "<li>" + txtname + "</li>";
+                document.getElementById("result").innerHTML = txt;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <label for="txtname">input data</label>
+        <input type="text" name="txtname" id="txtname"><br>
+        <input type="button" id="btn" value="추가">
+    </form>
+    <ol id="result"></ol>
+</body>
+</html>

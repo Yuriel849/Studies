@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>    
+    <script>
+        /*
+        .remove() -> completely deletes the entire element
+        .empty() -> deletes only the contents of the element, the element itself can be reused
+            You should carefully consider which one to use, and WHICH element to use it on
+                ex) $('#result').remove() -> completely deletes the element with the id="result"
+                    $('#result>li').remove() -> completely deletes the li elements within the element with id="result"
+        */
+        
+        $(document).ready(function() {
+            $('#btn').click(function() {
+                $('#result').remove();
+                $('#result').empty();
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="click" id="btn">
+    <ol id="result">
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+    </ol>
+</body>
+</html>

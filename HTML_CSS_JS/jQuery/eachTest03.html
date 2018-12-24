@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btn").click(function() {
+                var arr2 = [{'name':'hong', 'age':'20'}
+                            , {'name':'park', 'age':'10'}
+                            , {'name':'lee', 'age':'30'}];
+                var str = "";
+                $.each(arr2, function(wolf, puppy) {
+                    str += "<tr><td>" + puppy.name + "</td><td>" + puppy['age'] + "</td></tr>";
+                });
+                var goal = $('#result>tbody'); /* selector 조건에 부합하는 모든 요소를 찾아서 배열로 반환한다! -> "goal" IS AN ARRAY! */
+                $(goal).html(str);
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="결과보기">
+    <table id="result">
+        <thead><tr><th>이름</th><th>나이</th></tr></thead>
+        <tbody></tbody>
+    </table>
+</body>
+</html>

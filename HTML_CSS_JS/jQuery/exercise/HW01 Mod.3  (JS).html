@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            document.getElementById("btn").onclick = function() {
+                var txt = document.getElementById("txtname");
+                var eletxt = txt.value;
+                var eleli = document.createElement('li');
+                var txtnode = document.createTextNode(eletxt);
+                eleli.appendChild(txtnode);
+                
+                document.getElementById("result").appendChild(eleli);
+                txt.value = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <label for="txtname">input data</label>
+        <input type="text" name="txtname" id="txtname"><br>
+        <input type="button" id="btn" value="추가">
+    </form>
+    <ol id="result"></ol>
+</body>
+</html>
