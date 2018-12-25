@@ -2,44 +2,49 @@
 a           {text-decoration: none;}
 
 /* CSS FOR CLASS="TOP" */
-header         {background-color: gainsboro;}
-.top           {width: 1365px; background-color: blue;  margin:0 auto;}
-.top_wrap      {width: 940px; height: 80px; margin: 0 auto; background-color: white; border: 1px solid yellow; display: block;}
-.top_welcome   {width: 289.95px; height: 20px; font-size: 14px; border: 1px solid black; margin-top: 35px; float: left;}
-.top_container {width: 110px; height: 40px; display: inline-block; margin: 20px 120px; background:url(/pics/nyc_transparent.png) no-repeat center center; background-color: darkblue;}
-.top_links     {width: 284px; height: 20px; font-size: 14px; border: 1px solid black; margin-top: 35px; float: right;}
-.top_element   {height: 15px; display: inline-block;}
+header         {background-color: #fefefe;}
+.top           {width: 100%; margin:0 auto; border-bottom: 1px solid #d5d5d5;}
+.top_wrap      {width: 940px; height: 80px; margin: 0 auto; background-color: white; display: block;}
+.top_welcome   {width: 289.95px; height: 20px; color: #666; font-size: 15px; font-weight: 400; font-family: Arial, sans-serif; margin-top: 35px; float: left;}
+.top_container {width: 110px; height: 40px; display: inline-block; margin: 20px 120px; background:url(/pics/nyc_transparent.png) no-repeat center center; background-color: rgb(10, 87, 150);}
+.top_links     {width: 284px; height: 20px; color: #666; font-size: 14px; font-weight: bold; font-family: Arial, sans-serif; margin-top: 35px; float: right;}
+.top_element   {height: 15px; display: inline-block; color: #666;}
 #gif01         {margin-bottom: -3px;}
 
 /* CSS FOR CLASS="NAV" */
-.nav        {width: 1365px; background-color: magenta;  margin:0 auto; box-sizing: border-box}
-.nav_bar    {width: 940px; height: 45px; border: 1px solid yellow; margin: 0px auto; background-color: white;}
-.nav_bar>a  {font-size: 16px; font-weight: 700 !important; font-family: Arial, sans-serif; color: #333; border-right: 1px solid #d5d5d5; display: inline-block; padding: 13.5px 20px 13.5px 14px; vertical-align: middle;}
-.nav_bar>a.home {width: 20px; padding: 10px 20px 5px 17px; text-align: center}
+.nav        {width: 100%; background-color: #fefefe; margin:0 auto; box-sizing: border-box;  background-image: linear-gradient(#fefefe, #ededed)}
+.nav_bar    {width: 940px; height: 45px; margin: 0px auto;}
+.nav_bar>a  {font-size: 16px; font-weight: 700 !important; font-family: Arial, sans-serif; color: #333; border-right: 1px solid #d5d5d5; display: inline-block; margin-top: -1px; padding: 14.5px 20px 13px 14px; vertical-align: top;}
+.nav_bar>a.home {width: 20px; padding: 12px 20px 6.3px 17px; text-align: center; border-left: 1px solid #d5d5d5;}
 .nav_search {display: inline;}
 #search_bar {position: relative; width: 152px; height: 25px; background-color: white; font-size: 14px; font-family: sans-serif; font-weight: 700 !important; margin: 10px -30px 0px 2px; padding-left: 8px; padding-right: -50px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;}
 #magnifier  {position: absolute; width: 20px; height: 20px; padding-top: 12px; margin-bottom: -5px;}
 
 /* CSS FOR CLASS="SLIDER" */
-.slider       {background-color: darkblue; box-sizing: border-box;}
-.main       {width: 1365px; background-color: chocolate; margin: 0 auto;}
-.main_wrap {width: 940px; height: 507px; margin: 0 auto; background-color: darkblue; border: 1px solid yellow;}
-.side_nav {width: 100px; height: 460px; display: inline-block; border: 1px solid lawngreen; background-color: ghostwhite; margin: 20px 10px 30px 0px; padding: 0px; vertical-align: top;}
-.side_nav>span {display:block; border: 1px solid black; text-align: center;}
+.slider       {box-sizing: border-box; background-color: rgb(10, 87, 150); }
+.main       {width: 1365px; background-color: transparent; margin: 0 auto;}
+.main_wrap {width: 940px; margin: 0 auto; background-color: transparent;}
+.side_nav {width: 100px; height: 460px; box-sizing: border-box; display: inline-block; background-color: #f7f7f7; margin: 20px 10px 30px 0px; padding: 0px; vertical-align: top; border-radius: 3px;}
+.side_nav>span {display:block; text-align: center;}
+.side_nav>#today {height: 25px; background-color: #e5e5e5; color: #666; font-size: 13px; font-weight: 700; border-top-left-radius: 3px; border-top-right-radius: 3px; vertical-align: bottom; padding-top: 5px;}
+.side_nav>.date {border-bottom: 1px solid #e5e5e5;}
+.side_nav>.date>#month {text-align: center; display: block; line-height: 34px; font-size: 14px; font-weight: bold;}
+.side_nav>.date>#day {text-align: center; display: block; letter-spacing: -1px; line-height: 50px; margin-top: -15px; font-size: 40px; font-weight: normal;}
+.side_nav>#icon {height: 100px; margin-top: 5px; color: #666; font-size: 12px; line-height: 16px; border-bottom: 1px solid #e5e5e5;}
 .iconText {font-size: 10px;}
-.more {vertical-align: middle; border: 1px solid black; margin: 10px;}
-#moreBtn {display: block; width: 70px; height: 27px; background-color: black; padding: 10px 10px 0px 0px; text-align: center; vertical-align: middle; border-radius: 5px; color: white; font-weight: bold; font-size: 10px; background-image: url(/pics/link_arrow.png); background-position: right 45%;background-repeat: no-repeat;}
-.main_content {width: 820px; height: 460px; display: inline-block; border: 1px solid lawngreen; margin: 20px 0px 30px 0px; padding: 0px; vertical-align: top; background-color: black; position: relative; overflow: hidden;}
-#mainImg {width: 600px; height: 400.5px; border: 1px solid yellow; opacity: 0.8;}
-.main_text {width: 600px; height: 210px; border: 1px solid white; position: absolute; margin-top: -158px; padding-left: 20px; offset}
+.more {vertical-align: middle; margin: 10px;}
+#moreBtn {display: inline-block; width: 60px; height: 17px; background-color: black; padding: 5px 8px 5px 3px; margin: 0px 5px; text-align: center; vertical-align: middle; border-radius: 5px; color: white; font-weight: 700; font-size: 12px; background-image: url(/pics/link_arrow.png); background-position: right 50%; background-repeat: no-repeat;}
+.main_content {width: 820px; height: 460px; display: inline-block; margin: 20px 0px 30px 0px; padding: 0px; vertical-align: top; background-color: black; position: relative; overflow: hidden;}
+#mainImg {width: 600px; height: 400.5px; opacity: 0.8;}
+.main_text {width: 600px; height: 210px; position: absolute; margin-top: -158px; padding-left: 20px; offset}
 .main_text>a, p {color: white; padding: 0px;}
 #mainH2 {padding: 10px 0px;}
 .main_btn {color: white; background-color: transparent; font-size: 36px; line-height: 38px; background-image: url(/pics/link_arrow2.png); background-position: 100% 60%; background-repeat: no-repeat; padding-right: 20px; font-weight: bold;}
 .main_text>p {color: white; margin-bottom: 10px; font-size: 16px;}
 .main_text>p>a {color: white; margin-bottom: 10px; font-size: 16px;}
-.side_text {width: 220px; height: 450px; display: inline-block; border: 1px solid crimson; position: absolute; margin-bottom: 20px !important; margin-top: 10px !important;}
-.side_text>span {position: absolute; width: 200px; height: 32px; top: -2.3px; right: -1px; border: 1px solid green; color: white; padding-left: 38px; line-height: 30px; background: url(/pics/big_arrow.png) no-repeat; font-size: 13px; font-weight: 500;}
-.side_text>div {border: 1px solid blue; margin: 30px 15px;}
+.side_text {width: 220px; height: 450px; display: inline-block; position: absolute; margin-bottom: 20px !important; margin-top: 10px !important;}
+.side_text>span {position: absolute; width: 200px; height: 32px; top: -2.3px; right: -1px; color: white; padding-left: 38px; line-height: 30px; background: url(/pics/big_arrow.png) no-repeat; font-size: 13px; font-weight: 500;}
+.side_text>div {margin: 30px 15px;}
 .side_text>div>a {color: white; font-size 16px; line-height: 22px; font-weight: 400;}
 #blue>div.main_text {padding-top: 10px;}
 #orange>#mainImg {height: 460px;}
@@ -52,15 +57,12 @@ header         {background-color: gainsboro;}
 #briGreen>.main_text {width: 60%; margin-top: -240px;}
 #skyBlue>.main_text {width: 60%; margin-top: -186px; letter-spacing: -1px;}
 #skyBlue>.side_text>div {margin-right: 13px; letter-spacing: 0px; }
-#rArrow {width: 31px; height: 31px; position: absolute; left: 1250px; top: 350px; padding: 10px; border: 1px solid transparent; border-radius: 100%; background: rgba(0,0,0,0.05);}
-#lArrow {width: 31px; height: 31px; position: absolute; left: 230px; top: 350px; padding: 10px; border: 1px solid transparent; border-radius: 100%; background: rgba(0,0,0,0.05);}
+#rArrow {width: 31px; height: 31px; position: fixed; left: 1245px; top: 345px; padding: 10px; border: 1px solid transparent; border-radius: 100%; background: rgba(0,0,0,0.1);}
+#lArrow {width: 31px; height: 31px; position: fixed; left: 233px; top: 345px; padding: 10px; border: 1px solid transparent; border-radius: 100%; background: rgba(0,0,0,0.1);}
 
 /* CSS FOR SLIDE EFFECT */
 #slides {position: relative; list-style-type: none; margin-left: -48px;}
-.left {position: absolute; top: -15px; background-color: transparent; color: white; cursor: pointer; padding: 10px; margin: 5px 0; margin-left: -100%; min-width: 100%; transition: all 0.5s;}
-.center {position: absolute; top: -15px; background-color: transparent; color: white; cursor: pointer; padding: 10px; margin: 5px 0; margin-left: 0%; min-width: 100%; transition: all 0.5s;}
-.right {position: absolute; top: -15px; background-color: transparent; color: white; cursor: pointer; padding: 10px; margin: 5px 0; margin-left: 100%; min-width: 100%; transition: all; }
-
+.slide {position: absolute; top: -15px; background-color: transparent; color: white; cursor: pointer; padding: 10px; margin: 5px 0; margin-left: 868px; min-width: 100%; }
 
 .content        {background-color: crimson;}
 .fir_content    {width: 1365px;; height: 1462px; background-color: darkblue; margin: 0 auto;}
