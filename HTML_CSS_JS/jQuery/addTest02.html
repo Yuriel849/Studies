@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>    
+</head>
+<body>
+    <p>hello</p>
+    <input type="button" value="추가" id="append">
+    <script>
+        $('#append').click(function() {
+            var t = $('p').clone().add('<span>span area</span>');
+                /*
+                    .clone() 사용하지 않으면 원래 p태그가 이동된다.
+                    .clone() 사용하면 원래 p태그를 복제해서 append한다.
+                */
+            console.log(t);
+            $(t).appendTo(document.body); /* OR ...appendTo($('body')); */
+        });
+    </script>
+</body>
+</html>
