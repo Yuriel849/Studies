@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>    
+    <script>
+        $(document).ready(function() {
+            /* Using .is()
+                -> 현재 요소에 괄호 속 내용이 있는지 확인하여, 있다면 true 없다면 false */
+            var is = $('p').is($('.t'));
+                /* p 태그(들) 중 class="t"인 태그가 있는지 확인한다. */
+            console.log(is);
+            
+            /* Using .has()
+                -> 현재 요소의 자손 중에 괄호 속 내용이 있는지 확인한다 */
+            var has = $('div').has($('.t')).css('border', '5px solid crimson');
+                /* div 태그(들)의 자손(들) 중 class="t"인 태그가 있는지 확인한다. */
+            console.log(has);
+            var childIs = $('div').children().is($('.t'));
+                /* .has() == .children().is()
+                    -> 하지만 완전히 같지는 않다!
+                        >> .children().is()는 boolean 값 (true / false) 반환
+                        >> .has()는 jQuery object 반환 (추가 작업이 가능하다)
+                */
+            console.log(childIs);
+            
+            $('.t').parent().css('background-color', 'darkblue').css('color', 'white');
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <p>hello11</p>
+        <p>hello12</p>
+        <p class="t">hello13</p>
+        <p>hello14</p>
+        <p>hello15</p>
+    </div>
+    <div>
+        <p>hello21</p>
+        <p>hello22</p>
+        <p>hello23</p>
+        <p>hello24</p>
+        <p>hello25</p>
+    </div>
+    
+</body>
+</html>

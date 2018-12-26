@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+            margin-right: 20px;
+            float: left;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>    
+    <script>
+        $(document).ready(function() {
+            $('div').slice(2,4).css('border', '1px solid blue').css('backgroundColor', 'aqua');
+        });
+    </script>
+</head>
+<body>
+    <div>hello1</div>
+    <div>hello2</div>
+    <div>hello3</div>
+    <div>hello4</div>
+    <div>hello5</div>
+    <div>hello6</div>
+</body>
+</html>

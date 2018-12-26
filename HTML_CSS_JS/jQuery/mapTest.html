@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>    
+    <script>
+        /* jQuery.map() */
+        /* .map() */
+        $(document).ready(function() {
+            /* .map()
+               -> 특정 데이터를 넘겨받아서, 해당 데이터로 조작한 후, 조작 결과를 반환한다.
+            */
+            /* ck는 배열이 대입된다. */
+            var ck = $(':checkbox').map(function(idx) {
+                console.log(idx);
+                return $(this).val() +"~ ";
+            });
+            console.log(ck);
+            $('div').append(ck.get().join(' / ')); /* .join() -> JavaScript */
+        });
+    </script>
+</head>
+<body>
+    <input type="checkbox" name="ck1" value="Strike Eagle">
+    <input type="checkbox" name="ck1" value="Falcon">
+    <input type="checkbox" name="ck1" value="Super Hornet">
+    <input type="checkbox" name="ck1" value="Raptor">
+    <input type="checkbox" name="ck1" value="Lightning II">
+    <div></div>
+</body>
+</html>
