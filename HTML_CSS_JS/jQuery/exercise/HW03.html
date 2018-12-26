@@ -4,19 +4,29 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="../style/HW03.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('a').on('mouseover', function() {
+                $(this).css('background-color', 'yellow');
+            }).on('mouseout', function() {
+                $(this).css('background-color', '');
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="wrap">
         <header class="head">header 부분입니다.</header>
         <nav class="top_nav">
-            메인 nav1
-            메인 nav2
-            메인 nav3
+            <a href="#">메인 nav1</a>
+            <a href="#">메인 nav2</a>
+            <a href="#">메인 nav3</a>
         </nav>
         <aside class="side_nav">
-            aside nav1
-            aside nav2
-            aside nav3
+            <a href="#">aside nav1</a>
+            <a href="#">aside nav2</a>
+            <a href="#">aside nav3</a>
         </aside>
         <div class="main">
             <h1>HTML5와 CSS3을 이용한 웹 사이트 개발</h1>
