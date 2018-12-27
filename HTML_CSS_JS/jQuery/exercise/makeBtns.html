@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .mkBtn {
+            display: block;
+            width: 819.2px;
+            height: 29.6px;
+            border: 3px double blue;
+            margin: 16px 0px;
+            text-align: left;
+            font-size: 16px;
+            padding: 0px !important;
+        }
+        .mkP {
+            width: 813.2px;
+            height: 23.6px;
+            border: 3px double blue;
+            font-size: 16px;
+            padding: 0px !important;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btn").on('click', function() {
+                $("<p>").append($("#input").val()).addClass('mkP').appendTo("#result");
+                $("#input").val("");
+            });
+            
+            /* mouseover, mouseout 이벤트는 #btn click 이벤트와 관련이 없기에 밖에다가 별도로 작성했다. */
+            $("#result").on('mouseover', 'p', function() {
+                var mkBtn = $('<button>').text($(this).text()).addClass('mkBtn');
+                $(this).replaceWith(mkBtn);
+            }).on('mouseout', 'button', function() {
+                var mkP = $('<p>').text($(this).text()).addClass('mkP');
+                $(this).replaceWith(mkP);
+            });        
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <label for="input">입력값 :</label>
+        <input type="text" id="input" name="input">
+        <input type="button" id="btn" name="btn" value="추가">
+    </form>
+    <div id="result"></div>
+</body>
+</html>
