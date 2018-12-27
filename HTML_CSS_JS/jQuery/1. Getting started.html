@@ -1,0 +1,114 @@
+<!-- jQuery is a client JavaScript library
+
+Java VS JavaScript
+    -> 기본적인 사용법, 문접은 동일하다.
+    -> 중요한 차이 중 하나는 JS에서는 참조변수를 그냥 "var"라고 통일한다는 것!
+        -> (Java) Date n = new Date();
+        -> (JS) var n = new Date();
+
+JavaScript VS jQuery
+    -> jQuery 소스 파일을 열어보면 내부적으로 JavaScript로 작성되어 있다! BUT 사용자 편이성을 위해서 더 간편하게 재작성된 것이다.
+    -> 성능(속도)은 JS가 빠를 수 밖에 없다 -> jQuery 코드를 작성하면 내부적으로 JS로 변환한 후에 실행한다
+        -> BUT 코딩 속도는 jQuery가 빠르다
+            -> 성능이 중요한 부분은 JS로 작성, 가독성이 좋고 싶으면 jQuery로 작성
+
+Functions
+    -> Handler -> A type of function, 이벤트 처리 관련 작업을 하는 함수를 의미한다.
+    -> Callback -> A type of function, 무엇인가 값을 반환하는 함수를 의미한다.
+   
+To neatly arrange data
+    -> ul & li 속에 데이터를 넣으면 깔끔하고 간편하게 위치 잡잡을 수 있다
+    -> table은 절대 사용하지 말것! table은 정말로 table을 그릴 때 사용!
+    
+<br>
+    -> 정말로 텍스트 줄 넘어갈 때만 사용할 것!
+    -> 위치조정용이 아니다!
+
+Deprecated
+    -> jQuery에서는 메서드를 deprecated처리하면 나중에는 아예 없애버린다!
+        (CONTRAST 자바는 과거 호환성을 위해 경고를 하지만 계속 사용할 수 있다)
+    ex) toggle() -> deprecated in version 1.8, removed entirely in version 1.9
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            border: 1px solid silver;
+            float: left;
+            margin-top: 4px;
+            margin-left: 30px;
+            padding: 30px; /* Padding is used to position the content area within the border as you desire
+                              (ex) you don't want your text sticking to a corner, you want it nicely centered) */
+            text-align: center;
+            background-color: darkblue;
+            color: white;
+            font-weight: 500;
+        }
+    </style>
+<!-- script 태그로 외부 파일과 연결하면, script 태그에 다른 내용은 들어갈 수 없다 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- .min.js VS .js
+         -> .js is uncompressed (줄바꿈과 공백을 사용, 가독성이 좋지만 메모리를 더 사용한다)
+         -> .min.js is compressed (메모리 사용량 줄이려고 공백, 줄바끔을 삭제한 것) -->
+
+    <!-- 아래 script 태그는 Google CDN 사용
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <!-- CDN (Content Delivery Network)
+             -> jQuery를 내 컴퓨터에 설치해서 사용하는 것이 아니라, Google 서버에 제공되는 것을 네트워크를 통해서 받아다가 사용한다.
+             -> BUT 회사에서는 실제 개발 시 인터넷 연결을 끊고 독립적인 시스템에서 개발하기에 CDN을 사용하지 못한다.    
+    
+    <!-- script 태그가 HTML 파일 중간에 위치하기에 페이지 로딩 끝난 후, DOM 구성을 다 한 후 실행하라는 명령으로서
+             window.onload OR $(document).ready를 사용한다! -->
+    <script>
+        // 아래 코드는 jQuery 3.X 버전용으로 추가된 표현 (jQuery 2.X까지는 "$.ready(function() {});"만 사용할 수 있다)
+            // $(document).ready(handler) == $().ready(handler) == $(handler) == (jQuery 3.X 버전 전용) $.when($.ready).then(handler)
+            // If there's a "jQuery" OR "$" in front, that means it's jQuery code!
+        $.when($.ready).then(function() {
+            // $('div') -> 내부적으로 반복문 이용해서 'div'라는 이름을 가진 요소를 모두 찾아서 하나씩 작업한다!
+            $('div').css('border', '1px solid silver')
+                    .css('backgroundColor', 'darkblue')
+                    .css('color', 'red');
+            // 이렇게 여러 css 명령을 가지고 chain 만들 때 semi-colon은 가장 마지막에 한번만 사용!
+                    /*
+                        .css( propertyName )                                       -> getter
+                        .css( propertyName, value) == .setAttribute( name, value ) -> setter
+                    */
+        });
+    </script>
+</head>
+<body>
+    <div>Hello</div>
+    <div>Hello2</div>
+    <div>Hello3</div>
+    
+    <!-- script 태그가 body 끝에 위치하기에 반드시 페이지 로딩 끝나고 DOM을 구성한 후에 실행된다
+         -> window.onload OR $(document).ready를 사용하지 않아도 된다! -->
+    <script>
+        // 버튼을 클릭하면 background-color & (font) color를 반전하게 이벤트 처리
+        window.onload = function() {
+            var _div = document.getElementsByTagName('div');
+            var flag = false;
+            for(var i=0; i < _div.length; i++) {
+                _div[i].onclick = function() {
+                    if(flag == false) {
+                        console.log('aaa');
+                        this.style.backgroundColor = 'white';
+                        this.style.color = 'darkblue';
+                        flag = true;
+                    } else {
+                        console.log('bbb');
+                        this.style.backgroundColor = 'darkblue';
+                        this.style.color = 'white';
+                        flag = false;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
