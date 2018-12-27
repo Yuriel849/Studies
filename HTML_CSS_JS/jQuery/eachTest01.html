@@ -6,14 +6,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
         $(document).ready(function() {
-            /* var d = $('p');
-            console.log(d);
-            */
-            
             $('p').each(function(index, element) {
                 /*
-                    console.log(index); -> 모든 p태그들을 배열로 만든 후 그 index값이 여기의 index
-                    console.log(element); -> 각 index에 해당하는 요소 (p태그 하나하나)
+                    index   -> 모든 p태그를 모아서 배열로 만든 후 그 index값이 여기의 index
+                    element -> 각 index에 해당하는 요소 (p태그 하나하나)
                 */
                 var txt = $(element).text();
                 console.log(txt);

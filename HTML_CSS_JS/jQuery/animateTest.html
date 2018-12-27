@@ -7,42 +7,32 @@
     <title>반복</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>
-       
-        div     {width:100px; height: 100px; background-color: red; position: absolute;}
-        
+        div {width:100px; height: 100px; background-color: red; position: absolute;}
     </style>
     
 </head>
 <body>
-        
-        <div class=""></div>
-
-        <script>
-            $('div').on('click',function loop(){//클릭했을때 function 이 돔
-
-                $(this).animate({
-                    'left':'500px'
-                    ,'border-radius':'25px'
-                },50)
-                .animate({
-                    'top':'500px'
-                    ,'border-radius':'50px'
-                },1000)
-                .animate({
-                    'left':'0px'
-                    ,'border-radius':'25px'
-                },1000)
-                .animate({
-                    'top':'0px'
-                    ,'border-radius':'0px'
-                },1000,loop)//끝나고 다시 실행
-
-                
-            })
-          
-        
-        </script>
-               
+    <div class=""></div>
     
+    <script>
+        $('div').on('click', function wolf(){ /* 클릭했을때 function이 실행된다 */
+            $(this).animate({
+                'left':'500px'
+                ,'border-radius':'25px'
+            },1000) /* 1초에 걸쳐서 작동한다 */
+            .animate({
+                'top':'500px'
+                ,'border-radius':'50px'
+            },1000)
+            .animate({
+                'left':'0px'
+                ,'border-radius':'25px'
+            },1000)
+            .animate({
+                'top':'0px'
+                ,'border-radius':'0px'
+            },1000,wolf) /* wolf -> wolf 함수를 재귀호출 -> 무한반복 */
+        })
+    </script>
 </body>
 </html>

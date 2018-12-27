@@ -16,11 +16,8 @@
                 var name = $("#name").val();
                 var age = $("#age").val();
                 
-                var gender = "";
-                $("input[name='gender']:checked").each(function(wolf, puppy) {
-                    gender = $(this).prop("value");
-                });
-                var gender = $("input[type='radio']:checked").val();
+                var gender = $("input[name='gender']:checked").prop("value");
+          /* OR var gender = $("input[type='radio']:checked").val(); */
                 
                 var fav = "";
                 $('input[name="fav"]:checked').each(function(wolf, puppy) {

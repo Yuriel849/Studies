@@ -9,11 +9,14 @@
             var input = "";
             $("#btn").click(function() {
                 var inputVal = $("#txtname").val();
-                /* == (in JS) txtval = document.getElementById("txtname").value; */
+                
+                /* Using .html() */
+//                /* == (in JS) txtval = document.getElementById("txtname").value; */
 //                input += "<li>" + inputVal;
 //                /* .html()이 추가하는 과정에서 "</li>"를 자동으로 추가해준다! */
 //                $("#result").html(input);
 //                /* == (in JS) document.getElementById('result').innerHTML = result; */
+                
                 /* Using .append() instead of .html() */
                 $('#result').append("<li>" + inputVal);
                 $("#txtname").val('');

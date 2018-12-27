@@ -22,12 +22,17 @@
             // tagName 기준으로 찾기
             $('div, p').css('border', '2px solid blue');
             // div 태그 & class="c1"인 것에만 적용
-            $('div.c1').css('color', 'magenta');
+            $('div.c1').css('background-color', 'magenta');
         });
+        /*
+        Selector 이용해서 찾을 때 검색 속도가 빠른 순서
+            id > class > tag name OR attribute
+            BUT id 남발하는 것도 안 좋으니까 큰 범위 태그에 id 주고 하위 태그는 class로 검색하는 것 추천!
+        */
     </script>
 </head>
 <body>
-    <div class="c1">aaa1</div>
+    <header class="c1">aaa1</header>
     <div id="d1">aaa2</div>
     <p class="c1">bbb1</p>
     <p>bbb2</p>

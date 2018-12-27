@@ -30,7 +30,7 @@
                 $("#input").val("");
             });
             
-            /* mouseover, mouseout 이벤트는 #btn click 이벤트와 관련이 없기에 밖에다가 별도로 작성했다. */
+            /* mouseover, mouseout 이벤트는 click 이벤트와 관련이 없기에 밖에다가 별도로 작성했다. */
             $("#result").on('mouseover', 'p', function() {
                 var mkBtn = $('<button>').text($(this).text()).addClass('mkBtn');
                 $(this).replaceWith(mkBtn);

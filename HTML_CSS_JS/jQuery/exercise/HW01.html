@@ -1,11 +1,3 @@
-<!--
-    과제 (with JavaScript)
-        input용 textbox with a submit button next to it
-        below, a text area to send the textbox input to upon clicking the submit button... should appear as 1. XXXXX <br> 2. XXXXX <br> .....
-        text in the text area on double click (ondblclick) should become a button with the text written on it
-        SUBMIT BY EMAIL TO INSTRUCTOR (dreamctwow@naver.com) UNTIL 18.00 ON SUNDAY
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,13 +5,13 @@
     <title>Document</title>
 </head>
 <body>
-        <input type="text" id="input" name="input">
-        <input type="button" id="submit" name="submit" value="Submit"><br>
 <!-- DO NOT USE SUBMIT!
-    The type="submit" input tag and the button tag are used to pack data into a request and send said request to a server;
-        use the type="button" input tag with event!
+    The type="submit" input tag and the button tag are used to pack data into a request and send said request to a server; use the type="button" input tag with event!
        
     The type="image" input tag IS ALSO A SUBMIT FUNCTION (i.e. it is NOT A BUTTON) -->
+        <input type="text" id="input" name="input">
+        <input type="button" id="submit" name="submit" value="Submit"><br>
+        
         <ol id="main"></ol>
     
     <script>
@@ -34,6 +26,16 @@
             var mkNode = document.createTextNode(getInput);
             // li 태그에 붙인다.
             listTag.appendChild(mkNode);
+            
+         /* Using "<element>.appendChild()"
+                When creating the DOM, even the text content (innerHTML) becomes the child node of the element it is part of
+                Thus, by appending a text node to an element as its child, that text node becomes the text content of the element (the parent node)
+                    This entire process is easier (i.e. less lines of code) with jQuery
+            
+            Using innerHTML to add data is a bad idea because that data is read by the browser as HTML code, meaning commands to be executed.
+                In contrast, using textContent or createElement is safe because the data is read as text and not HTML code
+         */
+            
             
             // 그리고 ol 태그를 찾아...
             var tArea = document.getElementById("main");

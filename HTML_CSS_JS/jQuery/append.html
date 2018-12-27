@@ -11,14 +11,17 @@
         */
         
         $(document).ready(function() {
-//            $('#result').append('<li>hello</li>');  
+            $('#result').append('<li>hello</li>');
+            $('#result').prepend('<li>wolf</li>');
+            
             $('div').append("<span>123</span>");
             $('div').prepend("<span>098</span>").css('border', '1px solid darkblue');
         });
     </script>
 </head>
 <body>
-<!--    <ol id="result"></ol>-->
+    <ol id="result"></ol>
+    
     <div>aaa</div>
 </body>
 </html>

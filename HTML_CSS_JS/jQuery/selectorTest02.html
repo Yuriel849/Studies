@@ -6,8 +6,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('div span').css('color', 'red');
-            $('div>span').css('border', '2px solid blue');
+            $('div span').css('color', 'red'); // div 태그 속 span 태그 모두 선택
+            $('div>span').css('border', '2px solid blue'); // div 태그 자식 중 span 태그 선택
             /* 아래 코드는 아무일도 안일어난다 -> "divspan"을 하나의 selector로 인식하는데, 이런건 없으니까 */
             $('divspan').css('backgroundColor', 'yellow');
         /*

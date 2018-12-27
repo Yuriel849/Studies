@@ -8,7 +8,7 @@
         /* .filter() & .find() ARE NOT THE SAME!!! */
         $(document).ready(function() {
             var d = $('#menu>li').css('border', '1px solid turquoise')
-                                 .filter(':not(.t)').css('backgroundColor', 'aquamarine')
+                                 .filter(':not(.t)').css('backgroundColor', 'aquamarine');
             /* $('ul>li') 사용하면 안쪽 ul에게까지 적용된다 -> 바깥 ul에만 적용하기 위해서 아예 id를 줘서 구분한다. */
             console.log(d);
             /* "filter('.t')"를 사용해서, filter로 찾은 일부 요소에게만 filter 이후의 코드를 적용한다.
@@ -29,7 +29,6 @@
             */
         });
     </script>
-
 </head>
 <body>
     <ul id="menu">

@@ -22,29 +22,25 @@
 <body>
  
 <p>Click me!</p>
- 
 <span></span>
- 
-<script>
-    /* .bind() -> 현재 존재하는 객체에게만 이벤트 연결
-               -> .on(event, handler)로 대체되었다! */
-    $('p').bind('click', function() {
-        $(this).after('<p>Another paragraph!</p>');
-    });
-//    $('p').on('click', function() {
-//        $(this).after('<p>Another paragraph!</p>');
-//    });
+    <script>
+        /* .bind() -> 현재 존재하는 객체에게만 이벤트 연결
+                   -> .on(event, handler)로 대체되었다! */
+        $('span').bind('click', function() {
+            $(this).after('<p>Another paragraph!</p>');
+        });
+//        $('p').on('click', function() {
+//            $(this).after('<p>Another paragraph!</p>');
+//        });
     
-    /* .delegate() -> 현재 존재하는 객체 & 앞으로 (미래에) 생겨날 객체 모두에게 이벤트 연결
-                   -> .on(event, selector, handler)로 대체되었다! */
-    $('body').delegate('p', 'click', function() {
-        $(this).after('<p>Another paragraph!</p>');
-    });
-//    $('body').on('click', 'p', function() {
-//        $(this).after('<p>Another paragraph!</p>');
-//    });
-    
-</script>
- 
+        /* .delegate() -> 현재 존재하는 객체 & 앞으로 (미래에) 생겨날 객체 모두에게 이벤트 연결
+                       -> .on(event, selector, handler)로 대체되었다! */
+        $('body').delegate('p', 'click', function() {
+            $(this).after('<p>Another paragraph!</p>');
+        });
+//        $('body').on('click', 'p', function() {
+//            $(this).after('<p>Another paragraph!</p>');
+//        });
+    </script>
 </body>
 </html>

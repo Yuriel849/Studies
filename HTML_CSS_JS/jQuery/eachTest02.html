@@ -7,16 +7,17 @@
     <script>
         /*
         Using jQuery.each
-            "$jQuery.each()" is the same as "$.each()"
+            "jQuery.each()" == "$.each()" != "$(selector).each()"
+            
+            The jQuery.each() can be used with any collection, be it object or array, including jQuery objects
+            The $(selector).each() is used exclusively with jQuery objects
         */
         
         $(document).ready(function() {
+/*          $('p').each(function(index, element) {
+                selector를 앞에 두는 대신 each 뒤에 위치하는 방법 */
             var d = $('p');
             $.each(d, function(index, item) {
-            /*
-            $('p').each(function(index, element) {
-                selector를 앞에 두는 대신 each 뒤에 위치하는 방법
-            */
                 console.log(index);
                 console.log(item);
                 console.log('--------------------');

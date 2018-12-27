@@ -11,13 +11,13 @@
             /* .map()
                -> 특정 데이터를 넘겨받아서, 해당 데이터로 조작한 후, 조작 결과를 반환한다.
             */
-            /* ck는 배열이 대입된다. */
             var ck = $(':checkbox').map(function(idx) {
+            /* :checkbox -> 모든 type="checkbox" 요소를 선택한다 -> ck는 배열이 대입된다. */
                 console.log(idx);
                 return $(this).val() +"~ ";
             });
             console.log(ck);
-            $('div').append(ck.get().join(' / ')); /* .join() -> JavaScript */
+            $('div').append(ck.get().join(' / '));
         });
     </script>
 </head>

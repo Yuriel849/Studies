@@ -7,17 +7,18 @@
     <script>
         jQuery.noConflict();
         jQuery(document).ready(function($) { /* function의 괄호 속에 "$"를 추가!
-                                             -> function 안에서는 예전처럼 "$"를 사용하여 작성할 수 있다. */
+                                                -> function 안에서는 예전처럼 "$"를 사용하여 jQuery 코드를 작성할 수 있다. */
             $('div:eq(0)').css('border', '10px dashed blue');
             $('div:eq(1)').css('background-color', 'green');
         });
     </script>
 </head>
 <body>
-   <!-- "$" 표시는 jQuery만 사용하는게 아니다!
+    <!-- "$" 표시는 jQuery만 사용하는게 아니다!
             ex) JSP의 EL에서도 ${X}로 표현한다 -> 그러면 "$"를 쓸 때 jQuery인가 JSP EL인가?
          -> 그래서 .noConflict()를 사용한다.
-         -> jQuery.noConflict 사용 후에는 "$" 대신 "jQuery"라고 작성해야 한다! -->
+         -> jQuery.noConflict 사용 후에는 "$" 대신 "jQuery"라고 작성해야 한다!
+         -> 함수를 작성할 때 function($)로 쓰면 함수 정의 속 코드에서는 "$"를 사용할 수 있다! -->
     <div>aaa-1</div>
     <div>aaa-2</div>
 </body>

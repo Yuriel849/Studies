@@ -22,8 +22,8 @@
                 /* .prevtAll()는 siblings 중 '나' 이전의 모든 요소를 선택한다. */
             console.log(d4);
             
-            var d5 = $('ul li:eq(0)').nextUntil($('ul li:eq(3)')).css('border', '5px spotted magenta');
-                /* .nextAll()는 siblings 중 '나' 후의 모든 요소를 선택한다. */
+            var d5 = $('ul li:eq(0)').nextUntil($('ul li:eq(3)')).css('border', '5px dashed magenta');
+                /* A.nextUntil(B)는 A의 siblings 중 A와 B 사이의 모든 요소를 선택한다. (A와 B는 포함되지 않는다!) */
             console.log(d5);
         });
     </script>

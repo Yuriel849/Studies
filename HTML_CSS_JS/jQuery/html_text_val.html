@@ -12,8 +12,8 @@
             .val() is used when there is a value attribute, such as with input tags
                 (if there is no value attribute, you can't use .val() and have to use .text() or .html())
         
-        .html()      -> getter
-        .html(value) -> setter
+        .html()           -> getter; gets the HTML contents of the first element in the set of matched elements
+        .html(htmlString) -> setter; sets the HTML contents of the first element in the set of matched elements
         */
         $(document).ready(function() {
             $('div:eq(0)').text('<span>hello</span>');

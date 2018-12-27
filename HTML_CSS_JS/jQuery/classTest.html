@@ -20,17 +20,16 @@
         $(document).ready(function() {
             $('div').click(function() {
                 console.log(this)
-/*              this는 JavaScript 객체! -> .css는 jQuery 메서드, 당연히 사용할 수 없다! -> JavaScript 객체를 jQuery 객체로 변환해야!
-                this.css('backgroundColor', 'yellow');*/
-/*              아래 코드와 같다
-                this.style.backgroundColor = 'yellow';*/
-//                $(this).css('backgroundColor', 'yellow');
-                
-/*                if($(this).hasClass("a1"))
-                     .removeClass( [properties] )
-                        []가 있다는 것은 여기다 properties를 써도 되고 안써도 된다는 의미다.
-                        .removeClass()하면 모든 태그의 모든 클래스를 삭제한다.
+/*              this.css('backgroundColor', 'yellow'); -> 에러!!!
+                this는 JavaScript 객체! -> .css는 jQuery 메서드, 당연히 같이 사용할 수 없다!
+                    -> JavaScript 객체를 jQuery 객체로 변환해야! -> $(this)
                     
+                    -> (JS) this.style.backgroundColor = 'yellow'; == (jQuery) $(this).css('backgroundColor', 'yellow'); */
+
+/*              원형 -> .removeClass( [properties] )
+                    []가 있다는 것은 여기다 properties를 써도 되고 안써도 된다는 의미다.
+                    .removeClass()하면 모든 태그의 모든 클래스를 삭제한다. */
+/*              if($(this).hasClass("a1"))    
                     $(this).removeClass("a1")
                 else
                     $(this).addClass("a1");*/

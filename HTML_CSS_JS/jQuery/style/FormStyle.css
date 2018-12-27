@@ -1,23 +1,16 @@
 div {
     width: 550px;
 
-    /*
-    border -> Can set (with this one line) all attributes for "border"
-    border-style, etc. -> Can set only that one attribute for "border"
-    */
-/*    border: 1px solid silver;*/
-/* The following 3 lines (lines 10 ~ 12) are identical to the above single line (line 8)! */
+/*  border: 1px solid silver;
+    -> the following 3 lines (lines 6 ~ 9) are identical to the above single line (line 4)! */
     border-width: 1px 0px 10px; /* top has 1px border, right has 0px border (i.e. nothing at all), bottom has 10px border,
                                    there's nothing written for left, so left copies right */
     border-style: solid;
     border-color: silver;
 }
 
-/* Affects only "li" tags that are direct children of "ol" tags */
+ /* Affects only "li" tags that are direct children of "ol" tags
+    (CONTRAST) ol li { } -> Affects all "li" tags within any and all "ol" tags */
 ol>li {
     list-style: none;
 }
-
-/*
-ol li { } -> Affects all "li" tags within "ol" tags
-*/

@@ -5,22 +5,24 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
+        /*
+        After / Before VS Prepend / Append
+            After / Before -> Adds data after / before the selected elements (Adds to the outside of the elements)
+            Prepend / Append -> Adds data after / before the contents of the selected elements (Adds to the insides of the elements)
+        */
+        
         $(document).ready(function() {
             $('#btn').on('click', function() {
-                /* using "insertAfter" & "insertBefore"
-                    A.insertAfter(B) -> inserts A after B
-                */
                 $('<p>after</p>').css('border', '1px solid silver').insertAfter('div');
                 $('<p>before</p>').css('border', '1px solid blue').insertBefore('div');
-//                $('div').after('<p>after</p>');
-//                $('div').before("<p>before</p>");
+//                $('div').css('border', '1px solid silver').after('<p>after</p>');
+//                $('div').css('border', '1px solid blue').before("<p>before</p>");
             });
         });
     </script>
 </head>
 <body>
     <input type="button" id="btn" value="send">
-    <div>hello</div>
-    
+    <div>hello</div>    
 </body>
 </html>

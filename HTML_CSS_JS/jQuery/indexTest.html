@@ -9,8 +9,14 @@
             var d = $('div').eq(2).css('border', '1px solid green');
             console.log(d);
             var d2 = $('div').index($('.t'));
+            /* .index() searches for a given element from among the matched elements
+                    (may accept selector in which to search, or element to search for)
+                    here, the search is for the div tag with the class of ".t" */
             console.log(d2);
             var d3 = $('div').index($('div:eq(0)'));
+            /* .eq(idx) uses the idx value to search for the target
+                    .eq(idx) == $(<selector>:eq(idx)) -> EXCEPT .eq(idx) is a method
+                    here, the search is for the first div tag among all the div tags */
             console.log(d3);
             
         });
