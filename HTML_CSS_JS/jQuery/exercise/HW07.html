@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .menu {background-color: silver; margin: 0px;}
+        ul>li {width: 120px; height: 40px; display: inline-block; line-height: 40px; text-align: center; border: 1px solid black; margin-right: 60px;}
+        .col {width: 100%; height: 100%;}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var cnt = 1;
+            $('li').click(function() {
+                console.log($('.c' +cnt));
+                cnt++;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <li>CONTENT 1</li>
+            <li>CONTENT 2</li>
+            <li>CONTENT 3</li>
+            <li>CONTENT 4</li>
+        </ul>
+    </div>
+    <div class="c1"></div>
+    <div class="c2"></div>
+    <div class="c3"></div>
+    <div class="c4"></div>
+</body>
+</html>

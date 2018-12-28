@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 200px;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid silver;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr><th>이름</th><th>주소</th></tr>
+        </thead>
+        <tbody>
+            <tr class="bgsilver"><td>홍길동</td><td>서울</td></tr>
+            <tr class="bggold"><td>김하나</td><td>경기도</td></tr>
+            <tr class="bgsilver"><td>김지은</td><td>강원도</td></tr>
+            <tr class="bggold"><td>김지훈</td><td>부산</td></tr>
+        </tbody>
+    </table>
+    
+    <script>
+        $('thead>tr').css('backgroundColor', 'cornflowerblue');
+        $('tbody>tr:odd').css('backgroundColor', 'aquamarine');
+    </script>
+</body>
+</html>

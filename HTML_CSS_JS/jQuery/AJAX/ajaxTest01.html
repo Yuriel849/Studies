@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $.ajax({
+            type:'GET'
+            ,url:'js/ajax01.js'
+            ,dataType:'script'
+            ,success:function(data) // 요청이 성공할 경우 수행할 내용
+            {   // data -> 외부 파일 OR 서버로부터 받아온 데이터를 의미
+                hello('hong gil dong'); // ajax01.js에 있는 함수 hello(param) 호출
+                console.log(data);
+            }
+            ,error:function(data) // 요청이 실패할 경우 수행할 내용
+            {
+                console.log('error');
+                console.log(data);
+            }
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

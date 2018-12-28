@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #wrap{
+            width:280px;
+        }
+        .m1{
+            margin-bottom: 20px;
+        }
+        #selleft{
+            width: 100px;
+            float:left;
+            margin-right:30px;            
+        }
+        .m2{
+            float:left;
+        }
+        .m2>input{
+            display: block;
+        }
+        #selright{
+            width:100px;
+            float:right;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        console.log('tttttt');
+        $('#app').click(function(){
+            console.log('tt');
+             var $name=document.getElementById('name');
+            $('<option>').prop('value',$name.value).text($name.value).appendTo('#selleft');
+        });
+        $('#mleft').on('click', function(){
+             var d=$('#selleft>option:selected');
+             $('#selright').append(d);  
+   
+        });    
+       $('#mright').on('click', function(){
+             var d=$('#selright>option:selected');
+             $('#selleft').append(d);
+        });     
+        $('#selleft').on('dblclick','option', function(){
+              $(this).remove();
+        }); 
+        
+    });
+    
+    </script>     
+</head>
+
+    <body>
+  <div id="wrap">
+     <div class="m1">
+       <input type="text" name="name" id="name">
+       <input type="button" id="app" value="append">
+     </div>
+  
+     <select name="selleft" id="selleft" size="5" multiple></select>
+     <div class="m2">  
+       <input type="button" id="mleft" value="->">    
+       <input type="button" id="mright" value="<-">
+     </div>
+      <select name="selright" id="selright" size="5" multiple></select>       
+  </div>    
+         
+  
+</body>
+</html>
