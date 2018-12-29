@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
-        .menu {background-color: silver; margin: 0px;}
-        ul>li {width: 120px; height: 40px; display: inline-block; line-height: 40px; text-align: center; border: 1px solid black; margin-right: 60px;}
-        .col {width: 100%; height: 100%;}
+        body {margin: 0px;}
+        .menu {width: 100%; background-color: silver; position: fixed;}
+        ul>li {width: 120px; height: 40px; display: inline-block; line-height: 40px; text-align: center; margin-right: 60px; border-radius: 50px;}
+        .main {display: block;}
+        .view {width: 100%; height: 755px; display: block; text-align: center; line-height: 755px; font-size: 150px; font-family: Times New Roman, Arial;}
     </style>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
         $(document).ready(function() {
-            var cnt = 1;
-            $('li').click(function() {
-                console.log($('.c' +cnt));
-                cnt++;
+            var cnt = 0;
+            $('li').each(function(index, item) {
+                $(this).val(cnt++);
+            });
+            
+            $('li').on('click', function() {
+                var value = $(this).val() * 755;
+                $('li:not(this)').css('backgroundColor', 'transparent');
+                $(this).css('backgroundColor', 'yellow');
+                $(window).scrollTop(value);
             });
         });
     </script>
@@ -28,9 +36,12 @@
             <li>CONTENT 4</li>
         </ul>
     </div>
-    <div class="c1"></div>
-    <div class="c2"></div>
-    <div class="c3"></div>
-    <div class="c4"></div>
+
+    <div class="main">
+        <div class="view" style="background-color: darkturquoise">CONTENT 1</div>
+        <div class="view" style="background-color: lightgreen">CONTENT 2</div>
+        <div class="view" style="background-color: indianred">CONTENT 3</div>
+        <div class="view" style="background-color: darkorchid">CONTENT 4</div>
+    </div>
 </body>
 </html>
