@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>슬라이딩 배너 만들기</title>
+    <link href="../style/sliderExercise.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="../js/rollingBanner.js"></script>
+</head>
+<body>
+	<div id="wrap">
+		<h1>아이콕스 신간소개</h1>
+		<div id="banner">
+			<div class="vis_frame">
+				<ul>
+					<li>
+					    <a href="#"><img src="pics/book1.jpg" alt="안드로이드로용돈벌기" /></a>
+					</li>
+					<li>
+					    <a href="#"><img src="pics/book2.jpg" alt="아이폰으로용돈벌기" /></a>
+					</li>
+					<li>
+					    <a href="#"><img src="pics/book3.jpg" alt="실전프로젝트반응형웹퍼블리싱" /></a>
+				    </li>
+					<li>
+					    <a href="#"><img src="pics/book4.jpg" alt="웹표준퍼블리싱바이블" /></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="b_control">
+			<a href="#play" class="play"><img src="pics/play.gif" width="11" height="11" alt="재생" />
+			</a>
+			<a href="#stop" class="stop"><img src="pics/stop.gif" width="11" height="11" alt="멈춤" />
+			</a>
+		</div>
+		<div id="b_bt">
+			<a href="#left" class="left">
+			<img src="pics/left.gif" alt="이전 배너이미지" />
+			</a>
+			<a href="#right" class="right">
+			<img src="pics/right.gif" alt="다음 배너이미지" />
+			</a>
+		</div>
+	</div>
+</body>
+</html>
