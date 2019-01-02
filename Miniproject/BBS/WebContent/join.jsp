@@ -69,7 +69,7 @@
                     <input type="email" class="form-control" placeholder="이메일" name="userEmail" maxlength="50">
                 		<!-- type="email"하면 "@"이 들어가는 email 형식을 지켜야만 submit이 가능하다. -->
                 </div>
-                                <input type="submit" class="btn btn-primary form-control" value="회원가입">
+                <input type="submit" class="btn btn-primary form-control" value="회원가입">
             </form>
         </div>
     </div>
