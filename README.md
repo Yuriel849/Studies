@@ -4,6 +4,8 @@
 
 ###   >>   Updated to include SQL
 
-###   >>   Updated to include HTML5, CSS3, and JavaScript (ECMA 5th)
+###   >>   Updated to include HTML5, CSS3, and JavaScript (ECMA 5th) and jQuery
 
 ###   >>   Updated to include Servlet and JSP, using a MySQL DB
+
+###   >>   Updated to include team miniprojects (Bulletin Board System)
