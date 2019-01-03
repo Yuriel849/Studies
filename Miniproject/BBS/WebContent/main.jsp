@@ -9,6 +9,12 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/customStyle.css">
 <title>JSP 게시판 웹 사이트</title>
+<style>
+	img {
+		width: 1200px;
+		height: 600px;
+	}
+</style>
 </head>
 <body>
 	<%
@@ -86,13 +92,13 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="item active">
-					<img src="images/1.jpg">
+					<img src="images/01.JPG">
 				</div>
 				<div class="item">
-					<img src="images/2.jpg">
+					<img src="images/02.JPG">
 				</div>
 				<div class="item">
-					<img src="images/1.jpg">
+					<img src="images/03.JPG">
 				</div>
 			</div>
 			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
