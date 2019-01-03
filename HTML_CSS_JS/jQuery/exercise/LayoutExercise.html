@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            border: 10px solid gray;
+            padding: 20px;
+            margin: 0px;
+        }
+        header {
+            padding: 0px 80px;
+        }
+        header>h1 {
+            margin-bottom: 0px;
+        }
+        header>h4 {
+            margin-top: 0px;
+            font-weight: 400;
+        }
+        nav {
+            border-top: 2px solid lightgray;
+            border-bottom: 2px solid lightgray;
+        }
+        ul {
+            list-style: none;
+        }
+        nav>ul {
+            margin-left: -20px;
+        }
+        nav>ul>li {
+            display: inline-block;
+            margin: auto 35px;           
+        }
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        nav>form {
+            float: right;
+            margin-top: -40px;
+        }
+        nav>form>input[type="search"] {
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            border: 1px solid lightgray;
+            height: 25px;
+            position: absolute;
+            left: 1260px;
+        }
+        nav>form>input[type="submit"] {
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            border: 1px solid lightgray;
+            height: 25px;
+            position: absolute;
+            left: 1420px;
+        }
+        section {
+            margin: 30px 0px 0px 20px;
+            width: 80%;
+/*            border: 1px solid black;*/
+            display: inline-block;
+        }
+        section>h2 {
+            margin-bottom: 0px;
+        }
+        section>h4 {
+            margin-top: 0px;
+            font-weight: 300;
+            letter-spacing: normal;
+        }
+        section>img {
+            width: 70%;
+            height: 500px;
+        }
+        section>p {
+            width: 90%;
+        }
+        section>hr {
+            width: 95%;
+            margin-left: 0px;
+        }
+        aside {
+            display: inline-block;
+/*            border: 1px solid blue;*/
+            width: 16%;
+            float: right;
+            margin-left: 10px;
+            margin-top: 30px;
+        }
+        footer {
+            padding: 0px 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HTML5 Example Preview</h1>
+        <h4>HTML5 / CSS / JS / JQUERY STUDIES</h4>
+    </header>
+    
+    <nav>
+        <ul>
+            <li>
+                <a href="#">HTML5</a>
+            </li>
+            <li>
+                <a href="#">CSS3</a>
+            </li>
+            <li>
+                <a href="#">JavaScript</a>
+            </li>
+        </ul>
+        <form action="#" method="post">
+            <input type="search">
+            <input type="submit" value="검색">
+        </form>
+    </nav>
+    
+    <section>
+        <h2>HTML5 개요와 활용</h2>
+        <h4>2019년 1월 3일</h4>
+        <img src="./pics/01.JPG" alt="PRAGUE">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim nulla nec nulla pretium dictum. Sed lobortis metus et arcu ullamcorper auctor. Nullam vestibulum elementum facilisis. Mauris dictum lobortis egestas. In hendrerit bibendum mauris et ullamcorper. In blandit sit amet ex et condimentum. Proin at viverra nisl. Nunc pulvinar, eros eget pretium consectetur, mi dui gravida dolor, a sagittis sapien lacus id neque. Sed quis dictum metus. Morbi vel dolor felis. Nam at justo metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim nulla nec nulla pretium dictum. Sed lobortis metus et arcu ullamcorper auctor. Nullam vestibulum elementum facilisis. Mauris dictum lobortis egestas. In hendrerit bibendum mauris et ullamcorper. In blandit sit amet ex et condimentum. Proin at viverra nisl. Nunc pulvinar, eros eget pretium consectetur, mi dui gravida dolor, a sagittis sapien lacus id neque. Sed quis dictum metus. Morbi vel dolor felis. Nam at justo metus.</p>
+        <hr>
+        <h2>HTML5 응용과 실습</h2>
+        <h4>2019년 1월 3일</h4>
+        <img src="./pics/02.JPG" alt="MUENCHEN">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim nulla nec nulla pretium dictum. Sed lobortis metus et arcu ullamcorper auctor. Nullam vestibulum elementum facilisis. Mauris dictum lobortis egestas. In hendrerit bibendum mauris et ullamcorper. In blandit sit amet ex et condimentum. Proin at viverra nisl. Nunc pulvinar, eros eget pretium consectetur, mi dui gravida dolor, a sagittis sapien lacus id neque. Sed quis dictum metus. Morbi vel dolor felis. Nam at justo metus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim nulla nec nulla pretium dictum. Sed lobortis metus et arcu ullamcorper auctor. Nullam vestibulum elementum facilisis. Mauris dictum lobortis egestas. In hendrerit bibendum mauris et ullamcorper. In blandit sit amet ex et condimentum. Proin at viverra nisl. Nunc pulvinar, eros eget pretium consectetur, mi dui gravida dolor, a sagittis sapien lacus id neque. Sed quis dictum metus. Morbi vel dolor felis. Nam at justo metus.</p>
+        <hr>
+    </section>
+    
+    <aside>
+        <h4>카테고리</h4>
+        <ul>
+            <li>데이터1</li>
+            <li>데이터2</li>
+            <li>데이터3</li>
+            <li>데이터4</li>
+            <li>데이터5</li>
+        </ul>
+        <h4>최근 글</h4>
+        <ul>
+            <li>데이터1</li>
+            <li>데이터2</li>
+            <li>데이터3</li>
+            <li>데이터4</li>
+        </ul>
+    </aside>
+    
+    <footer>
+        <a href="#">Created By Yuriel (exercise)</a>
+    </footer>
+</body>
+</html>
