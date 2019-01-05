@@ -13,6 +13,7 @@
     background-color: blanchedalmond;
     display: inline-block; border-radius: 5px;
     padding: 0px 10px;
+    border: 1px solid blue;
 }
 .main>p {font-size: 17px;}
 .main>section {position: fixed; top: 400px; left: 170px; width: 320px;
