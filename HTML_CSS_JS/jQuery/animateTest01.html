@@ -2,37 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animate test 01</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>
-        ul {margin-left: 20px; color: blue;}
-        li {cursor: pointer;}
-        span {color: red;}
+        div {width:100px; height: 100px; background-color: red; position: absolute;}
     </style>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
 </head>
 <body>
-    <ul>
-        <li>Milk</li>
-        <li>Bread</li>
-        <li class="fade">Chips</li>
-        <li class="fade">Socks</li>
-    </ul>
+    <div class=""></div>
     
     <script>
-        $("li").hover( // 원형 .hover(handlerIn, handlerOut)
-                          // one event for when the mouse pointer enters the elements
-                          // one event for when the mouse pointer leaves the elements
-            function() {
-                $(this).append($("<span> ***</span>"));
-            },
-            function() {
-                $(this).find("span:last").remove(); // mouseout할 때 append한 span태그 삭제하도록!
-            }
-        );
-        $("li.fade").hover(function() {
-            $(this).fadeOut(100);
-            $(this).fadeIn(500);
-        });
+        $('div').on('click', function wolf(){ /* 클릭했을때 function이 실행된다 */
+            $(this).animate({
+                'left':'500px'
+                ,'border-radius':'25px'
+            },1000) /* 1초에 걸쳐서 작동한다 */
+            .animate({
+                'top':'500px'
+                ,'border-radius':'50px'
+            },1000)
+            .animate({
+                'left':'0px'
+                ,'border-radius':'25px'
+            },1000)
+            .animate({
+                'top':'0px'
+                ,'border-radius':'0px'
+            },1000,wolf) /* wolf -> wolf 함수를 재귀호출 -> 무한반복 */
+        })
     </script>
 </body>
 </html>

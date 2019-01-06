@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>offset test</title>
     <style>
         body {margin: 5px;}
         div {padding: 20px; background-color: #ffff00;}
@@ -13,12 +13,12 @@
 <body>
     <div><p>hello</p></div>
     <script>
-        var $p = $('p:eq(0)');
-        console.log("offset : " + $p.offset().left);
-            // 실행하면 "offset : 55" -> p의 왼쪽에는 p margin 30px + div padding 20px + body margin 5px = 55px
-        console.log("offset : " + $p.offset().top);
-            // 실행하면 "offset : 25" -> p의 위에는 p margin 0px + div padding 20px + body margin 5px = 25px
         /* .offset()은 좌표 찍을 떄 사용한다! */
+        var $p = $('p:eq(0)');
+        console.log("offset-left : " + $p.offset().left);
+            // 실행하면 "offset : 55" -> p의 왼쪽에는 p margin 30px + div padding 20px + body margin 5px = 55px
+        console.log("offset-top  : " + $p.offset().top);
+            // 실행하면 "offset : 25" -> p의 위에는 p margin 0px + div padding 20px + body margin 5px = 25px
         
         /*
         .position()

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>add test 02</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>    
 </head>
 <body>
@@ -10,6 +10,7 @@
     <input type="button" value="추가" id="append">
     <script>
         $('#append').click(function() {
+            /* 모든 p 태그를 찾아서 복제하고, 그 뒤에 span 태그를 붙인 후 body 태그에 append한다. */
             var t = $('p').clone().add('<span>span area</span>');
                 /*
                     .clone() 사용하지 않으면 원래 p태그가 이동된다.

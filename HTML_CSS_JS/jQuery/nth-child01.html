@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>nth-child test 01</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
         /* The index of the nth-child selector starts with 1 (NOT ZERO!)
-            This means that :nth-child(1) == :eq(0)
+                -> This means that :nth-child(1) == :eq(0)
            
            The nth-child selector counts the index of the child TO ITS PARTICULAR PARENT!
-            So the nth-child selector counts anew from index=1 for the children of different parents!
-            */
+                -> So the nth-child selector counts anew from index=1 for the children of different parents!
+        */
         $(document).ready(function() {
             $('div:nth-child(3n+1)').css('width', '90px')
             /* When calculating (3n+1), n starts from 0;
@@ -18,7 +18,7 @@
                                     .css({
                                         'height':'30px'
                                         ,'border':'5px double darkblue'
-                                        ,'font-size':'16px'
+                                        ,'font-size':'24px'
             });
         });
     </script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate test 02</title>
+    <style>
+        ul {margin-left: 20px; color: blue;}
+        li {cursor: pointer;}
+        span {color: red;}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <ul>
+        <li>Milk</li>
+        <li>Bread</li>
+        <li class="fade">Chips</li>
+        <li class="fade">Socks</li>
+    </ul>
+    
+    <script>
+        $("li").hover( // 원형 .hover(handlerIn, handlerOut)
+                          // first event for when the mouse pointer enters the elements
+                          // second event for when the mouse pointer leaves the elements
+            function() {
+                $(this).append($("<span> ***</span>"));
+            },
+            function() {
+                $(this).find("span:last").remove(); // mouseout할 때 append한 span태그 삭제하도록!
+            }
+        );
+        $("li.fade").hover(function() {
+            $(this).fadeOut(100);
+            $(this).fadeIn(500);
+        });
+    </script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>tab test</title>
     <style>
         .tab {
             margin: 0 auto;
@@ -70,10 +70,11 @@
                 $(this).css('backgroundColor', 'red').next().show().css('backgroundColor', 'lightgray');
             });
             
-            $('.tab>li>h2>a').on('focus', function() {
-                $('.tab>li').find('div').hide().end().find('h2').css('backgroundColor', 'cornflowerblue');
-                $(this).parent().css('backgroundColor', 'red').next().show();
-            });
+            /* $('.tab>li>h2')에 작업하는 것과 같다! */
+//          $('.tab>li>h2>a').on('focus', function() {
+//              $('.tab>li').find('div').hide().end().find('h2').css('backgroundColor', 'cornflowerblue');
+//              $(this).parent().css('backgroundColor', 'red').next().show().css('backgroundColor', 'lightgray');
+//          });
         });
     </script>
 </body>

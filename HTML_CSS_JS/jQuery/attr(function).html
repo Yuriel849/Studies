@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>attr(function)</title>
     <style>
         div img {
             width: 450px;
@@ -13,8 +13,8 @@
     <script>
         $(document).ready(function() {
             $('div a').on('click focusin', function() {
-                $(this).find('img').attr('alt', function() {
-                    return $(this).attr("src");    
+                $(this).find('img').attr('alt', function() { /* a 태그에 클릭하거나 포거스하면 img 태그의 alt 속성값을 바꾼다. */
+                    return $(this).attr("src");
                 });
             });
         });

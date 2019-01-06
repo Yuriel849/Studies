@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>splice()</title>
     <style>
         div {
             width: 50px;
@@ -16,6 +16,7 @@
     <script>
         $(document).ready(function() {
             $('div').slice(2,4).css('border', '1px solid blue').css('backgroundColor', 'aqua');
+            /* $('div').splice(2,4) -> 모든 div 태그들 중 3번째(index=2)부터 4번째(index=3) 태그들 선택 */
         });
     </script>
 </head>

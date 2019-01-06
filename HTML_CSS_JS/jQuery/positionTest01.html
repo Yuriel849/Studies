@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>position test 01</title>
     <style>
         * {margin: 0px;padding: 0px;}
         p {
@@ -15,8 +15,8 @@
             left: 20px;
 */
         }
-        .t {position: relative; left: 10px;}
-        div {
+        .t {position: relative; left: 10px;} /* class="t"인 요소가 원래 있어야할 곳에서 오른쪽으로 10px 거리만큼 이동한다. */
+        div { /* 부모요소가 body 태그니까 왼쪽에는 50px의 거리를 두고 위쪽에서는 바짝 붙는다. */
             width: 400px;
             height: 200px;
             border: 1px solid red;
@@ -24,7 +24,7 @@
             left: 50px;
             top: 0px;
         }
-        div .t2 {position: absolute; left: 0px; }
+        div .t2 {position: absolute; left: 0px; } /* 부모요소 div 안에서 top-left 모서리에 바짝 붙는다. */
     </style>
 </head>
 <body>

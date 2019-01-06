@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>html(), text(), val()</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>    
     <script>
         /*
@@ -15,6 +15,7 @@
         .html()           -> getter; gets the HTML contents of the first element in the set of matched elements
         .html(htmlString) -> setter; sets the HTML contents of the first element in the set of matched elements
         */
+        
         $(document).ready(function() {
             $('div:eq(0)').text('<span>hello</span>');
             $('div:eq(1)').html('<span>hello</span>');

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>scroll test</title>
     <style>
         div.demo {
             border: 3px solid blue;
@@ -29,8 +29,8 @@
         <p>hello content</p>
     </div>
     <script>
-        $('div.demo').scrollTop(300) // 이것 ($('div.demo')) 위로 300px 위치시키기 (i.e. 이것은 아래로 300px만큼 스크롤이 내려간다)
-                     .scrollLeft(500); // 이것 ($('div.demo')) 왼쪽으로 500px 위치시키기 (i.e. 이것은 오른쪽으로 500px만큼 스크롤이 이동한다)
+        $('div.demo').scrollTop(300) // 이것 ($('div.demo')) 위에서 300px만큼 아래로 이동시키기 (i.e. 이것은 아래로 300px만큼 스크롤이 내려간다)
+                     .scrollLeft(500); // 이것 ($('div.demo')) 왼쪽에서 500px만큼 오른쪽으로 이동시키기 (i.e. 이것은 오른쪽으로 500px만큼 스크롤이 이동한다)
         console.log($('div.demo').scrollTop());
         console.log($('div.demo').scrollLeft());
     </script>

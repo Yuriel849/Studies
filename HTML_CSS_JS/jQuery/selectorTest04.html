@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>selector test 04</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -20,8 +20,8 @@
             console.log($('#d1> :lt(1)'));
             /* "lt" is "lesser than" -> id="d1" 태그 속 자식들 중, index값이 1보다 작은 모든 요소(여기서는 1번째 요소만)를 선택해서 배열로 반환한다. */
             var d = $('#d1> :not(div)').css('backgroundColor', 'yellow');
-            console.log(d);
             /* id="d1" 태그 속 자식들 중, div태그를 제외한 모든 요소에 적용한다. */
+            console.log(d);
             /* console.log($('#d1> :not(div)').css('backgroundColor', 'yellow')); -> 변수를 만들지 않고 바로 적용할 수도 있다 */
         });
     </script>

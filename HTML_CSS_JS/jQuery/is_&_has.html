@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>is & has</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>    
     <script>
         $(document).ready(function() {
@@ -15,8 +15,9 @@
             /* Using .has()
                 -> 현재 요소의 자손 중에 괄호 속 내용이 있는지 확인한다 */
             var has = $('div').has($('.t')).css('border', '5px solid crimson');
-                /* div 태그(들)의 자손(들) 중 class="t"인 태그가 있는지 확인한다. */
+                /* div 태그(들)의 자손(들) 중 class="t"인 태그가 있는지 확인하고, 있다면 해당 div 태그에 테두리를 더한다. */
             console.log(has);
+            
             var childIs = $('div').children().is($('.t'));
                 /* .has() == .children().is()
                     -> 하지만 완전히 같지는 않다!
