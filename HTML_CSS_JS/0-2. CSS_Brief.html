@@ -1,0 +1,353 @@
+<!--
+CSS?
+    HTML 문서에 디자인(스타일)을 입히는데 사용하는 언어
+    원래는 HTML으로 내용과 디자인을 둘 다 처리했으나, 이제는 각각 담당 영역이 생겼다.
+-->
+
+<!--
+Useful Websites
+    w3schools.com css3_browsersupport -> CSS property별 지원현황목록
+    caniuse.com -> CSS property 이름으로 검색 가능
+-->
+
+<!--
+CSS를 HTML에 적용하는 방법
+    1. 외부 CSS 파일을 HTML 문서에 포함시키는 방법
+    2. HTML 문서 head 태그의 style 태그 안에 스타일을 정의하는 방법
+    3. body 태그의 해당 태그 속에 스타일을 정의하는 방법
+    4. 웹브라우저 옵션에서 CSS 파일을 지정하는 방법 (Internet Explorer 전용)
+각 방법의 우선순위
+    상위에 있는 태그의 CSS 설정의 영향을 받지만, 중복 적용될 경우 가장 마지막에 실행되는 코드의 우선순위가 높다.
+가장 좋은 것은 1번 (head 태그에서 link 태그로 외부 CSS 파일을 포함시키는 방법)
+    1번 방법의 장점
+        1. 자주 바뀌는 내용을 직접 HTML 페이지에서 처리하기 보다는 외부의 CSS 파일에서 수정하는 것이 쉽기 때문이다!
+        2. 똑같은 CSS를 다른 HTML 페이지에서 똑같이 사용하고 싶으면, 간단하게 link 태그만 추가하면 되기에 편리하다!
+Style의 상속
+    inherit -> 자손 태그는 조상 태그의 속성을 물려받는다.
+    initial -> 속성 값으로 지정하면 속성의 기본값(default value)이 적용된다.
+        기본값은 w3schools.com css_default_values에서 확인!
+CSS의 단위
+    숫자를 값으로 갖는 속성에 사용될 수 있는 단위
+    값과 단위 사이에는 공백이 올 수 없다 ("10 px" 사용 불가! -> "10px")
+
+    em -> 해당 글꼴의 대문자 M의 폭(width) 기준의 크기 (ex) 2em은 M의 2배 크기)
+    ex -> 소문자 x의 높이를 기준으로 하는 크기
+    % -> percent (부모 요소의 속성 값에 의해 결정되는 상대적인 속성 값을 지정하는데 사용)
+    cm -> centimeters
+    rmm -> millimeters
+    in -> inches (1in = 2.54cm = 96px)
+    px -> pixels (1px = 1/96in; 폰트 크기에 사용)
+    pt -> points (1pt = 1/72in)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        /*
+        CSS Backgrounds
+                -> 일부 요소는 생략 가능하지만, 사용하려면 순서가 중요하다!
+            background-color -> 배경색
+            backgroudn-image -> 배경에 사용할 이미지 (여러개 지정 가능)
+            background-repeat -> 배경 이미지 반복 (repeat-x == x축으로만 이미지 반복, repeat-y == y축으로만 이미지 반복, no-repeat)
+            background-attachment -> 배경 이미지 이동 여부 (fixed, scroll)
+            background-position -> 배경 이미지 위치
+            background-size -> 배경 이미지 크기 (auto,cover, contain)
+        */
+        #p1 { /* red with opacity */
+            background-color: rgba(255,0,0,0.3);
+        }
+        #p2 { /* light green */
+            background-color: hsl(120,100%,75%);
+                /* hsl == Hue, Saturation, Lightness*/
+        }
+        #p3 { /* dark green with opacity */
+            background-color: hsla(120,100%,25%,0.3);
+        }
+        #p4 { /* red with opacity (color & opacity 분리) */
+            background-color: rgb(255, 0,0);
+            opacity: 0.6;
+        }
+
+        /*
+        CSS Box Model
+            (From developer.mozilla.org)
+                "When laying out a document, the browser's rendering engine represents each element as a rectangular box according
+                    to the standard CSS basic box model. CSS determines the size, position, and properties (color, background, border
+                    size, etc.) of these boxes. Every box is composed of four parts (or areas), defined by their respective edges:
+                    the content edge, padding edge, border edge, and margin edge."
+            Content area
+                실제 요소의 콘텐츠(text, image, video, etc.)가 위치한 공간
+                폭과 높이를 지정하는 속성
+                    width -> 컨텐츠 영역의 폭 (100%이면 브라우저의 전체 폭을 차지)
+                    height -> 컨텐츠 영역의 높이
+                    max-width -> 컨텐츠 영역의 최대 폭 (브라우저를 늘려도 지정한 값 이상으로 커지지 않는다)
+                    max-height -> 컨텐츠 영역의 최대 높이
+                    min-width -> 컨텐츠 영역의 최소 폭 (브라우저를 지정한 값 이하로 줄이면 스크롤바가 생긴다)
+                    min-height -> 컨텐츠 영역의 최소 높이
+                (From developer.mozilla.org)
+                    "If the box-sizing property is set to content-box (default), the content area's size can be explicitly defined
+                        with the width, min-width, max-width, height, min-height, and max-height properties."
+            Padding area
+                Content area 주위를 둘러싼 영역
+                위(padding-top), 오른쪽(padding-right), 아래(padding-bottom), 왼쪽(padding-left) 경계에 개별적으로 적용 가능
+                    >> 명시적으로 어느 경계인지 지정하지 않으면, 위 순서대로 지정된다!!!
+                        ex) padding: 100px -> 4개 경계 모두에 적용
+                        ex) padding: 100px 150px -> 위 / 아래 경계는 100px, 오른쪽 / 왼쪽 경계는 150px 적용
+                                                 -> top border is 100px, right is 150px, then... what about bottom? bottom copies top
+                                                    then what about left? left copies right
+            Border area
+                Content / padding areas를 둘러싼 영역
+                위(border-top), 오른쪽(border-right), 아래(border-bottom), 왼쪽(border-left) 경계에 개별적으로 적용 가능
+                추가적인 속성
+                    border-style -> 경계선의 종류 (solid, dotted, double, etc.)
+                    border-width -> 경계선의 두께
+                    border-color -> 경계선의 색깔
+                    border-radius -> 경계선의 모서리 반경 (둥근 모서리)
+                        Outline (border의 바깥 테두리) -> 요소를 돋보이게 할 때 사용
+                    outline-width
+                    outline-style
+                    outline-color
+                (From developer.mozilla.org)
+                    "If the box-sizing property is set to border-box, the border area's size can be explicitly defined with
+                        the width, min-width, max-width, height, min-height, and max-height properties."
+            Margin area
+                Content / padding / border areas를 둘러싼 가장 바깥쪽 영역
+                위(margin-top), 오른쪽(margin-right), 아래(margin-bottom), 왼쪽(margin-left) 경계에 개별적으로 적용 가능
+                (From developer.mozilla.org)
+                    "The margin area, bounded by the margin edge, extends the border area to include an empty area used to
+                        separate the element from its neighbors."
+                Margin collapse
+                    브라우저에 의해 자동적으로 위아래로 인접한 요소 간의 bottom & top margins가 하나로 합쳐진다.
+                    좌우 margins는 합쳐지지 않는다!
+                    인접한 위아래 margins 중 큰 값으로 합쳐진다 (큰 값을 하나의 공동 margin으로 사용한다!)
+        */
+        #p5 {
+            width: 200px;
+            padding: 100px 150px 100px 150px;
+            border-style: solid;
+            border-color: red;
+            margin: 100px 150px 100px 150px;
+            /* p5의 width 800px = contents width 200px + padding 300px (양옆 150px씩)
+                                    + margin 300px (양옆 150px씩) */
+        }
+        #p6 {
+            padding: 100px 150px; /* padding: 100px 150px 100px 150px와 동일 */
+            border-style: solid;
+            border-color: red green blue yellow;
+            outline-width: 20px;
+            outline-color: green;
+            outline-style: dashed;
+            margin: 100px 150px; /* margin: 100px 150px 100px 150px와 동일 */
+        }
+        #p7 {
+            padding: 100px;
+            border-style: dotted;
+            border-width: 2px 10px 4px 20px;
+            outline: 50px groove orangered;
+                /* outline-width, outline-style, outline-color를 한 줄에 담은 것 */
+            margin: 100px /* 모든 margin이 동일 */
+        }
+        #p8 {
+            height: auto; /* height & width를 auto로하면 img가 원래 사이즈로 보인다. */
+            width: auto;
+        }
+        #p9 {
+            height: 200px; /* img가 지정된 사이즈로 보인다. */
+            width: 400px;
+        }
+
+        /*
+        CSS Text
+            color -> 텍스트 색깔
+            text-align -> 좌우정렬 (center, left, right, justify, etc.)
+            vertical-align -> 수직정렬 (기본값은 text-bottom)
+            text-decoration -> 텍스트에 줄긋기 (overline, line-through, underline, none, etc.)
+            text-transform -> 대소문자 적용 (uppercase, lowercase, capitalize(첫글자만 대문자로), etc.)
+            text-shadow -> 텍스트에 그림자 (offsetX, offsetY, color, etc.)
+            text-indent -> 텍스트 들여쓰기
+            letter-spacing -> 자간 (만약 음수를 지정하면, 글자가 겹친다.)
+            line-height -> 줄간 (ex) 0.8)
+            word-spacing -> 단어 간 간격
+            white-space -> nowrap (내용이 겹처도 줄바꿈하지 않는다.)
+            text-overflow -> 텍스트가 너무 많아 영역에서 넘칠 때 어떻게 처리할지를 지정
+                                (ex) ellipsis는 넘치는 내용을 "..."으로 처리)
+        
+        CSS Fonts
+            font-family -> 폰트 종류
+            font-weight -> normal, bold, etc.
+            font-style -> normal, italic, oblique, etc.
+            font-size -> 폰트 크기 (16px이 브라우저 기본 사이즈)
+            font-variant -> normal, small-caps, initial, inherit, etc.
+        
+        CSS Links
+            a:link -> 아직 방문하지 않은 (눌러본 적이 없는) 링크
+            a:visited -> 방문한적이 있는 (눌러본 적이 있는) 링크
+            a:hover -> 사용자가 마우스를 올려놓은 링크
+            a:active -> 클릭되었을 떄의 링크
+        */
+        a:link {
+            background-color: antiquewhite;
+            color: darkblue;
+            padding: 14px 25px;
+            text-align: center; /* 가운데 정렬 */
+            text-decoration: none; /* 링크 밑줄 제거 */
+            display: inline-block;
+        }
+        a:visited {
+            background-color: grey;
+            color: yellow;
+            padding: 14px 25px;
+            text-align: center; /* 가운데 정렬 */
+            display: inline-block;
+        }
+        a:hover {
+            background-color: green;
+        }
+        a:active {
+            background-color: red;
+        }
+
+        /*
+        CSS Lists
+            list-style-type -> 불릿의 타입을 지정 (circle, square, upper-roman, lower-alpha, etc.)
+                                    "none"을 지정하면 불릿도 없고 들여쓰기도 하지 않는다.
+            list-style-image -> 불릿으로 이미지를 사용할 수 있다.
+            list-style-position -> 들여쓰기 (inside), 내어쓰기 (outside)
+        */
+        ul {
+            list-style-type: lower-roman;
+            list-style-position: inside;
+        }
+
+        /*
+        CSS Tables
+
+        */
+
+        /*
+        CSS Layout --> "04. Layoud_Sort.html" 볼 것!
+            Block 요소 VS Inline 요소
+                display: block -> 항상 새로운 줄에서 시작, 폭 전체를 차지
+                    대표족으로 <div>, <h$>, <p>, <form>, <header> 등
+                display: inline -> 새로운 라인에서 시작하지 않고, 필요한 만큼의 영역만 차지하며 옆으로 나열할 수 있다.
+                    대표적으로 <span>, <a>, <img> 등
+                display: inline-blick -> 균일한 폭과 높이로 맞춰진다.
+            Display 속성 VS Visibility 속성
+                Display를 none으로 설정하면 화면에서 보이지 않고 영역도 유지하지 않는다. (원래 있던 공간이 비어버린다.)
+                Visibility를 hidden으로 하면 화면에서 보이지 않지만 영역은 유지한다. (원래 있던 곳에 빈공간이 생긴다.)
+            Position 속성의 4가지 값
+                static -> 고정위치; 위치 관련 속성의 영향을 받지 않는다. (HTML 요소의 기본값)
+                fixed -> 고정위치; 브라우저의 크기변경이나 스크롤에도 같은 위치를 유지한다.
+                absolute -> 가장 가깝게 위치한 static이 아닌 (non-static) 조상 요소로부터의 상대위치에 배치된다.
+                relative -> 상대위치; 위치 관련 속성으로 원래 위치에서 이동 가능하다.
+            Overflow 속성 (요소의 영역을 벗어나는 콘텐츠를 어떻게 처리할 것인가를 지정)
+                visible -> 넘치는 부분이 생겨도 잘리지 않고 요소의 영역을 벗어나며 표현된다.
+                hidden -> 넘치는 부분이 생기면 잘리고 보이지 않는다.
+                scroll -> 넘치는 부분이 생기면 잘리지만 수직과 수평 스크롤바가 둘 다 생긴다.
+                auto -> 넘치는 부분이 생기면 필요한 방향으로만 (수직 OR 수평) 스크롤바가 생긴다.
+                overflow-x / overflow-y -> x축과 y축의 overflow 속성을 따로따로 지정한다.
+            FLoat 속성 VS Clear 속성
+                float -> 요소가 떠다니게 할 것인가 아닌가를 지정한다.
+                clear -> 떠다니는 (floating) 요소를 다른 요소들이 감싸지 않도록 한다.
+            Box-sizing 속성
+                box-sizing: content-box
+                    -> contents, padding, border, margin 4종류나 되기 때문에 영역을 계산하기 어렵다.
+                    -> 기본값이다!!!
+                box-sizing: border-box
+                    -> contents, padding, border를 하나로 묶기 떄문에 크기 계산이 쉽다.
+                    -> border-box로 설정하면, 크기를 지정할 때 contents, padding, border 묶음의 크기를 지정하는 것이다.
+        */
+
+        /*
+        CSS Selectors
+            .<class> -> 지정된 클래스명을 가진 모든 요소를 선택
+            #<id> -> 지정된 id명을 가진 모든 요소를 선택
+            * -> 모든 요소를 선택
+            <요소> -> 지정된 요소들을 모두 선택
+            <요소1>,<요소2> -> 지정된 2개의 요소들을 모두 선택
+            <요소1> <요소2> -> 모든 요소1을 찾아, 각 요소1 안에 위치한 모든 요소2를 선택
+            <요소1>><요소2> -> 바로 위 부모 요소가 요소1인 요소2만 모두 선택
+            <요소1> ~<요소2> -> 요소1의 모든 형제 중 요소2를 모두 선택 (형제요소란 같은 부모를 가진 요소를 의미)
+            <요소1> +<요소2> -> 요소1의 바로 다음 형제가 요소2라면, 요소2를 선택
+
+        속성 설렉터
+            [속성] -> 지정한 '속성'일 때
+            [속성 = 값] -> 지정된 '값'이 일치할 때
+            [속성 ~= 값] -> 한 속성에 여러 값들 중 지정된 '값'이 포함되어 있을 때
+            [속성 |= 값] -> 여러 속성의 값 중 지정된 '값'이 포함되어 있을 때
+            [속성 ^= 값] -> 지정된 '값'으로 시작핼 때
+            [속성 $= 값] -> 지정된 '값'으로 끝날 때
+            [속성 *= 값] -> 지정된 '값'이 속성 값의 일부일 때
+        */
+
+        /*
+        Pseudo elements (의사 요소)
+                요소의 특정 부분에 스타일을 적용하기 위해서 사용되는 가짜 요소 (실존하는 요소가 아니다)
+                태그가 특별한 "상태"일 때 디자인을 어떻게 바꿀 것인가를 지정하는 것이다.
+                    ex) a:hover -> 마우스가 해당 a태그 위에 놓였을 때 어떻게 색깔이나 모양일 변할 것인가를 지정
+            <요소>::after -> 지정된 요소의 콘텐츠 다음에 내용을 넣는다.
+            <요소>::before -> 지정된 요소의 콘텐츠 이전에 내용을 넣는다.
+            <요소>::first-letter -> 지정된 요소의 콘텐츠의 첫번째 글자에 적용한다.
+            <요소>::first-line -> 지정된 요소의 콘텐츠의 첫번째 줄에 적용한다.
+            <요소>::selection -> 지정된 요소의 콘텐츠에서 사용자가 선택한 부분에 적용한다.
+        */
+        #p5::after {
+            content: " -Remember this";
+        }
+
+        #p6::before {
+            content: "How does this work again?...   "
+        }
+    </style>
+
+    <!-- Icons -> 사용하려면 다음과 같이 link 태그를 head 태그 안에 위치시켜야 한다. -->
+    <!-- Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Google Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <!-- CSS로 color 지정하는 방법 01 -->
+    <h2 style="background-color:red">NUMBER  1</h2>
+    <h2 style="background-color:#00ff00">NUMBER  2</h2> <!-- NUMBER2 & NUMBER3는 같다!-->
+    <h2 style="background-color:rgb(0, 255, 0)">NUMBER  3</h2> <!-- NUMBER2는 16진수로 표현, NUMBER3는 rgb(숫자)로 표현  -->
+
+    <!-- CSS로 color 지정하는 방법 02 -> head 태그의 style 태그 볼 것! -->
+    <h2 id="p1">NUMBER  4</h2>
+    <h2 id="p2">NUMBER  5</h2>
+    <h2 id="p3">NUMBER  6</h2>
+    <h2 id="p4">NUMBER  7</h2>
+
+    <!--
+        cursor 모양을 바꾸도록 설정했다. 이외에도 많은 cursor 모양들이 있다!
+            CSS 중 유일하게 cursor 모양은 태그 안에서 지정한다!!!
+    -->
+    <p id="p5" style="cursor:crosshair">NUMBER  8</p>
+    <p id="p6" style="cursor:nw-resize">NUMBER  9</p>
+    <p id="p7" style="cursor:progress">NUMBER 10</p>
+
+    <img id="p8" src="v3.jpg" alt="">
+    <img id="p9" src="v3.jpg" alt=""><br><br>
+    <i class="fa fa-cloud"></i> <!-- 구름 모양의 아이콘 출력하기 -->
+
+    <br><br>
+    <a href="https://www.google.com">This is a link to Google</a>
+    <br><br>
+
+    <ul>
+        <li>Coke</li>
+        <li>Pepsi</li>
+        <li>Red Bull</li>
+        <li>Slow Cow</li>
+    </ul>
+
+</body>
+</html>

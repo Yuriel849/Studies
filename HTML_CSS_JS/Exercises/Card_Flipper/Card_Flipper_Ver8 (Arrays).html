@@ -29,8 +29,8 @@
 
     <script>
         var cardArr = []; // 카드이름(문자열) 담을 배열
-        var path = "file:///C:/Users/5CLASS-184/Documents/HTML/yuri/07%20DEC/";
-        var back = "file:///C:/Users/5CLASS-184/Documents/HTML/yuri/07%20DEC/back.png";
+        var path = "./";
+        var back = "./back.png";
 
         window.onload=function() {
             initCardArr(); // cardArr를 초기화한다.
@@ -138,10 +138,12 @@
         function clickImgTag(e) {
             console.dir(e);
             var data = e.srcElement;
-            if(this.src !== back)
+            if(this.src !== "http://127.0.0.1:57803/Exercises/Card_Flipper/back.png") {
                 this.src = back;
-            else
+            }
+            else {
                 this.src = path + data.getAttribute("data-value") + ".png";
+            }
         }
     </script>
 </body>

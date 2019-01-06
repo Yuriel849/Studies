@@ -33,7 +33,7 @@
     </style>
 </head>
 <body>
-    <h1>Select Multiple Application Exercise (Ver. 2)</h1>
+    <h1>Select Multiple Application Exercise (Ver. 3)</h1>
     
     <!-- 왼쪽 select (처음에 4가지 선택지가 있다.) -->
     <select name="chooser" id="chooser" multiple size="10">
@@ -57,8 +57,8 @@
         function adder() {
             choosing = document.getElementById("chooser");
             for(i = 0; i < choosing.length; i++) {
-                console.log("MROW")
                 if(choosing[i].selected == true) {
+                        /* "selectedIndex" property returns or sets the index of the selected option tag in the select tag */
                     catcher.add(choosing[choosing.selectedIndex]);
                     i--;
                 }
@@ -68,7 +68,6 @@
         function remover() {
             catching = document.getElementById("catcher");
             for(i = 0; i < catching.length; i++) {
-                console.log("MROW")
                 if(catching[i].selected == true) {
                     chooser.add(catching[catching.selectedIndex]);
                     i--;

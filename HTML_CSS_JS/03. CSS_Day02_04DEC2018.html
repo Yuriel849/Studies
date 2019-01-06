@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="global.css"> <!-- global.css 파일에서 읽어와서 background-color, (글자) color를 적용한다. -->
     
     <style> /* CSS 주석 */
-        h1 { /* 모든 <h1> */
+        h1 { /* 모든 <h1>에게 적용 */
             background-color:rebeccapurple !important; /* "!important"를 추가하면 기존 우선순위를 무시하고 최고 우선순위를 부여한다. */
             color: rgba(60, 20, 241, 0.603); /* color는 글자 색깔을 의미 */
         }
@@ -36,7 +36,7 @@
             color:white;
             padding: 14px 25px;
             text-align: center;
-            text-decoration: none; /* 기본적으로 a태그는 밑줄이 쳐진다 (여기에 text-decoration: underline) */
+            text-decoration: none; /* 기본적으로 a태그는 밑줄이 쳐지는데 (text-decoration: underline) 그걸 없애는 것이다 */
             display: inline-block;
         }
 
@@ -54,7 +54,7 @@
             background-color: #f2f2f2;
         }
 
-        tr:hover {
+        tr:hover { /* tr 태그 위에 마우스가 위치할 때만 (only when hovering) 적용된다. */
             background-color: turquoise;
         }
 
@@ -92,9 +92,6 @@
     <h2>World</h2>
     <h2>World</h2>
     <h2>World</h2>
-
-    <!-- Set the max-width of an element. -->
-
 
     <!-- Using icons -->
     <p>Some Font Awesome icons:</p>

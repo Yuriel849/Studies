@@ -39,12 +39,13 @@
             table += "<tr>"
             for(j = 0; j < bingo[i].length; j++) {
                 table += "<td onclick=\"this.style.backgroundColor='yellow'\">" + bingo[i][j] + "</td>"
-                // CSS에서는 background-color지만 JS에서는 빼기 표시 (minus sign)으로 읽기에 없애고 대신 붙이면서 첫글자를 대문자로 한다.
+                // CSS에서는 background-color지만 JS에서는 빼기 표시(minus sign)으로 읽기 때문에 없애고 대신 붙이면서 첫글자를 대문자로 한다.
             }
             table += "</tr>"
         }
         table += "</table>"
         document.write(table)
+        document.write("<br>");
         
         // OR
         document.write("<table border = 2px>")

@@ -7,7 +7,7 @@
     <title>Studying... very swiftly</title>
     <style>
         body {
-            background-color:rebeccapurple;
+            background-color:lightgray;
             color: rgba(60, 20, 241, 0.603); /* color는 글자 색깔을 의미 */
         }
     </style>
@@ -25,9 +25,13 @@
     <p>Test&nbsp;sentence to&nbsp;&nbsp;check the color, as defined in the style tag in the head tag.</p>
 
     <p>Test sentence to check the color, as defined in the style tag in the head tag.</p>
-    <!-- 주석을 추가하려면 "c" + tab을 치면 되고, 그 줄 전체를 주석처리하려면 ctrl + "/" 치면 된다. 주석은 웹브라우저에서 표현되지 않지만, right click + "소스보기"를 찾으면 주석까지 볼 수 있다. -->
-    <input type="text" placeholder="Husky (dog)"/> <!-- 태그 속 내용 하나하나를 이름과 값으로 묶어서 속성(attribute)이라고 부른다 -> (요소 01) type="text", (요소 02) placeholder="Husky (dog)" -->
-                                                   <!-- 속성 간에 쉼표가 있어도 없더도 무관하나 일반적으로 쉼표를 넎는다-->
+    
+    <!-- 주석을 추가하려면 "c" + tab OR ctrl + shift + "/"을 치면 되고, 그 줄 전체를 주석처리하려면 ctrl + "/" 치면 된다.
+        주석은 웹브라우저에서 표현되지 않지만, right click + "소스보기"를 찾으면 주석까지 볼 수 있다. -->
+    
+    <input type="text" placeholder="Husky (dog)"/>
+            <!-- 태그 속 내용 하나하나를 이름과 값으로 묶어서 속성(attribute)이라고 부른다 -> (요소 01) type="text", (요소 02) placeholder="Husky (dog)" -->
+            <!-- 속성 간에 쉼표가 있어도 없더도 무관하나 일반적으로 쉼표를 넎는다-->
     <br>
     <input type="range" min="1" max="20"/>
     <br>
@@ -91,10 +95,10 @@
         <input type="password" name="password" required><br>
         <input type="date" name="date"><br>
         <input type="file" name="file"><br>
-        <!-- type="submit" & "rest"은 버튼 태그가 아니지만 버튼으로 표현되고 데이터 전송과 입력 삭제의 기능이 추가로 있다. -->
+        <!-- type="submit" & "reset"은 버튼 태그가 아니지만 버튼으로 표현되고 데이터 전송과 입력 삭제의 기능이 추가로 있다. -->
         <input type="submit" value="전송"><br>
         <input type="reset" value="취소"><br> <!-- 입력한 내용을 모두 지운다. -->
-        <button>전송버튼</button> <!-- type="submit" & "reset"과 달리 버튼일 뿐, 다른 기능은 개발자가 추가해줘야 한다. -->
+        <button>전송버튼</button>
     
         <!-- ul>(li>input[type=checkbox name=lang])*3 + tab을 치면 아래와 같이 type & name까지 자동 생성된다. -->
         <ul>
@@ -103,7 +107,6 @@
             <li><input type="checkbox" name="lang" value="python">python</li>
         </ul>
         
-        <!-- alt + shift + up/down 치면 라인 전체를 그대로 복사할 수 있다. 혹은 여러 줄을 highlight한 후 치면 전체를 복사한다. -->
         <ul>
             <li><input type="radio" class="input" name="lang" value="java" checked>java</li> <!-- "checked"를 포함하면 기본으로 체크되어 있다. 물론, 다시 uncheck할 수도 있다. -->
             <li><input type="radio" class="input" name="lang" value="C#">C#</li>

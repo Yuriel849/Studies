@@ -26,7 +26,7 @@
         }
 
         img {
-            display: block; /* margin을 block으로 하니까 옆에 빈 공간이 생긴다. */ 
+            display: block; /* margin을 block으로 하니까 사진이 브라우저 폭을 독차지하는데, 사진이 그만큼 넓이 않기에 옆에 빈 공간이 생긴다. */ 
             margin: auto;
             width: 40%;
         }
@@ -38,7 +38,7 @@
             text-align: center;
         }
 
-        .B3 p { /* B3라는 하나의 요소 안에 p태그를 더한 것이다. */
+        .B3 p { /* B3라는 하나의 요소 안의 모든 p태그를 찾는다. */
             line-height: 1.5; /* line-height을 기본값의 1.5배로 설정한 것. */
             display: inline-block;
             vertical-align: middle;
@@ -54,7 +54,7 @@
             content: "who?";
         }
 
-        /* p 태그가 h1 태그 속에 위치하기에, p태그 앞에 붙인다는 것이 h1 안에 같이 들어간다. */
+        /* p 태그가 h1 태그 속에 위치하기에, p태그 앞에 붙이면 것이 h1 안에 같이 위치한다. */
         p::before {
             content: "what?";
         }
