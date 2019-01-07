@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8"/>
+	<title>tab test 02</title>
+	<style type="text/css">
+		*				{ padding:0; margin:0; }
+		ul				{ list-style-type:none; }
+		.wrap			{ margin:50px auto; width:600px; }
+		.wrap2			{ margin:50px auto; width:600px; }
+		.tab			{ width:600px; height:40px; display:inline-block; }
+		.tab li			{ width:200px; float:left; }
+		.tab li a		{ display:block; height:40px; line-height:40px; text-align:center; font-size:14px; color:#333; border:1px solid #000; text-decoration:none; }
+		.tab li a.active			{ background:#000; color:#fff; }
+		.tabCon			{ width:600px; height:200px; display:none; }
+		.tabCon.con1	{ background:skyblue; display:block; }
+		.tabCon.con2	{ background:yellowgreen; }
+		.tabCon.con3	{ background:pink; }
+		.layer			{ width:300px; height:300px; background:red; position:fixed; top:50%; left:50%; margin:-150px 0 0 -150px; z-index:2; display:none; }
+		.dimm			{ position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); display:none; }
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="tab">
+			<li><a href="#" class="active">tab1</a></li>
+			<li><a href="#" class="">tab2</a></li>
+			<li><a href="#" class="">tab3</a></li>
+		</ul>
+		<div class="tabCon con1"></div>
+		<div class="tabCon con2"></div>
+		<div class="tabCon con3"></div>
+
+		<div class="layer"></div>
+		<!-- dimm, layerClose -->
+	</div>
+	<div class="wrap2">
+		<ul class="tab tab2">
+			<li><a href="#" class="active">tab1</a></li>
+			<li><a href="#" class="">tab2</a></li>
+			<li><a href="#" class="">tab3</a></li>
+		</ul>
+		<div class="tabCon con1"></div>
+		<div class="tabCon con2"></div>
+		<div class="tabCon con3"></div>
+
+		<div class="layer"></div>
+		<!-- dimm, layerClose -->
+	</div>
+
+	<a href="#" class="left">왼쪽</a>
+	<a href="#" class="right">오른쪽</a>
+
+	<script>
+		var wrap = document.getElementsByClassName('wrap')[0],
+			tab = wrap.getElementsByClassName('tab')[0],
+			bt = tab.getElementsByTagName('a'),
+			con = wrap.getElementsByClassName('tabCon'),
+			wrap2 = document.getElementsByClassName('wrap2')[0],
+			tab2 = wrap2.getElementsByClassName('tab')[0],
+			bt2 = tab2.getElementsByTagName('a'),
+			con2 = wrap2.getElementsByClassName('tabCon'),
+			layer = document.getElementsByClassName('layer')[0],
+			dimm = document.createElement('div'),
+			closeBt = document.createElement('a'),
+			closeTxt = document.createTextNode('닫기');
+
+			document.body.appendChild(dimm);
+			dimm.setAttribute('class','dimm');
+			closeBt.setAttribute('href','javascript:;');
+			closeBt.appendChild(closeTxt);
+
+		var left = document.getElementsByClassName('left')[0],
+			right = document.getElementsByClassName('right')[0];
+		var activeNum=1;
+
+		function reset(){
+			for (j=0;j<bt.length ;j++ ){
+				con[j].style.display = "none";
+				con2[j].style.display = "none";
+				bt[j].classList.remove('active');
+				bt2[j].classList.remove('active');
+			}
+		}
+
+		for (i=0;i<bt.length ;i++ ){
+			bt[i].num = i;
+			bt2[i].num = i;
+			bt[i].onclick = bt2[i].onclick = function(){
+				if (this.className == 'active'){
+					layer.style.display = 'block';
+					dimm.style.display = 'block';
+					layer.appendChild(closeBt);
+				}else{
+					reset();
+					con[this.num].style.display = "block";
+					con2[this.num].style.display = "block";
+					bt[this.num].className = 'active';
+					bt2[this.num].className = 'active';
+					activeNum = this.num+1;
+				}
+			}
+			
+			closeBt.onclick = function(){
+				layer.style.display = "none";
+				dimm.style.display = "none";
+			}
+
+			left.onclick = function(){
+				if (bt[0].className == 'active'){
+					reset();
+					con[bt.length-1].style.display = "block";
+					con2[bt.length-1].style.display = "block";
+					bt[bt.length-1].className = 'active';
+					bt2[bt.length-1].className = 'active';
+					activeNum = bt.length;
+				}else{
+					reset();
+					con[activeNum-2].style.display = "block";
+					con2[activeNum-2].style.display = "block";
+					bt[activeNum-2].className = 'active';
+					bt2[activeNum-2].className = 'active';
+					activeNum = activeNum-1;
+				}
+			}
+			right.onclick = function(){
+				if (bt[bt.length-1].className == 'active'){
+					reset();
+					con[0].style.display = "block";
+					con2[0].style.display = "block";
+					bt[0].className = 'active';
+					bt2[0].className = 'active';
+					activeNum = 1;
+				}else{
+					reset();
+					con[activeNum].style.display = "block";
+					con2[activeNum].style.display = "block";
+					bt[activeNum].className = 'active';
+					bt2[activeNum].className = 'active';
+					activeNum = activeNum+1;
+				}
+			}
+		}
+	</script>
+</body>
+</html>
