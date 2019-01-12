@@ -1,0 +1,3 @@
+﻿welcome to hell suckers!
+
+<!-- Tomcat은 WebContent의 내용을 실행한다 -> 이 상태에서 내가 알 수 있는 경로는 /file/notice/this.txt까지다. 또한 여기까지가 웹경로이다. getRealPath() 이용하면 절대 경로를 알아낼 수 있다. -->
