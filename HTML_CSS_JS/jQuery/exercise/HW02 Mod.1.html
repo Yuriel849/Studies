@@ -25,50 +25,48 @@
             width:100px;
             float:right;
         }
-
     </style>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
-    $(document).ready(function(){
-        console.log('tttttt');
-        $('#app').click(function(){
-            console.log('tt');
-             var $name=document.getElementById('name');
-            $('<option>').prop('value',$name.value).text($name.value).appendTo('#selleft');
+        $(document).ready(function(){
+            /* adds the user's input to the select tag on the left */
+            $('#app').click(function(){
+                var $name=document.getElementById('name');
+                $('<option>').prop('value',$name.value).text($name.value).appendTo('#selleft');
+            });
+            /* moves the highlighted option tag from the left select tag to the right */
+            $('#mright').on('click', function(){
+                var d=$('#selleft>option:selected');
+                $('#selright').append(d);
+            });
+            /* moves the highlighted option tag from the right select tag to the left */
+            $('#mleft').on('click', function(){
+                var d=$('#selright>option:selected');
+                $('#selleft').append(d);
+            });
+            /* applies only to the left select tag! upon double clicking an option tag, it is removed */
+            $('#selleft').on('dblclick','option', function(){
+                $(this).remove();
+            });
         });
-        $('#mleft').on('click', function(){
-             var d=$('#selleft>option:selected');
-             $('#selright').append(d);  
-   
-        });    
-       $('#mright').on('click', function(){
-             var d=$('#selright>option:selected');
-             $('#selleft').append(d);
-        });     
-        $('#selleft').on('dblclick','option', function(){
-              $(this).remove();
-        }); 
-        
-    });
-    
     </script>     
 </head>
-
-    <body>
-  <div id="wrap">
-     <div class="m1">
-       <input type="text" name="name" id="name">
-       <input type="button" id="app" value="append">
-     </div>
-  
-     <select name="selleft" id="selleft" size="5" multiple></select>
-     <div class="m2">  
-       <input type="button" id="mleft" value="->">    
-       <input type="button" id="mright" value="<-">
-     </div>
-      <select name="selright" id="selright" size="5" multiple></select>       
-  </div>    
-         
-  
+<body>
+    <!-- id="wrap" is a wrapper for all other elements -->
+    <div id="wrap">
+        <div class="m1">
+            <input type="text" name="name" id="name">
+            <input type="button" id="app" value="append">
+        </div>
+    
+        <select name="selleft" id="selleft" size="5" multiple></select>
+    
+        <div class="m2">  
+            <input type="button" id="mright" value="->">    
+            <input type="button" id="mleft" value="<-">
+        </div>
+    
+        <select name="selright" id="selright" size="5" multiple></select>       
+    </div>
 </body>
 </html>

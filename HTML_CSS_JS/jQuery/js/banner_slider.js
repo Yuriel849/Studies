@@ -102,5 +102,3 @@ function showBannerDotAt(nIndex){
 	this.$banner_dots.eq(this.nCurrentBannerIndex).removeClass("select");
 	this.$banner_dots.eq(nIndex).addClass("select");
 }
-
-

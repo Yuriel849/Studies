@@ -1,3 +1,7 @@
+<!-- Upon slicking "submit", the user's input is added to the select tag on the left,
+     and upon clicking on the buttons in the middle, the options within the select tags are moved from right to left and vice versa -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +18,13 @@
         <input type="button" id="submit" name="submit" value="추가">
     </form>
 
+    <!-- select on left -->
     <select class="selecter" name="chooser" id="chooser" multiple size="10"></select>
+    <!-- select on right -->
     <select class="selecter" name="catcher" id="catcher" multiple size="10"></select>
     
     <div class="btns">
+        <!-- moves option tags from one select tag to the other and vice versa -->
         <input type="button" class="bt" id="remover" name="remover" value="&lt;">
         <input type="button" class="bt" id="adder" name="adder" value="&gt;">
     </div>    
