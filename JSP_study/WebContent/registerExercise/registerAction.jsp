@@ -4,4 +4,4 @@
 
 <jsp:useBean id="memberInfo" class="study.MemberInfo" scope="request"/>
 <jsp:setProperty name="memberInfo" property="*" />
-<jsp:forward page="/registerView.jsp" />
+<jsp:forward page="/registerExercise/registerView.jsp" />

@@ -1,10 +1,12 @@
+<!-- Connects to src > login > LoginAction05_parameter.java -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "java.net.URLDecoder" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>login</title>
 <style>
 	form { /* form 태그 전체에 대한 border를 설정*/
 		border: 3px solid #f1f1f1
@@ -61,8 +63,13 @@
 </head>
 <body>
 <h2>Login</h2>
+<%
+	String param = request.getParameter("uri");
 
-<form action="/LoginAction04_cookies" method="post">
+	System.out.println("loginForm.request parameter :    " +  param);
+
+%>
+<form action="/LoginAction05_parameter" method="post">
 <%
 	// 메시지 출력하기
 	String value = "";
@@ -83,7 +90,7 @@
 %>
 <%=message%>
 	<div class="imgcontainer">
-		<img src="Pictures\loginPic.jpg" alt="Avatar" class="avatar"><br><br>
+		<img src="..\Pictures\loginPic.jpg" alt="Avatar" class="avatar"><br><br>
 	</div>
 	
 	<div class="container">
@@ -92,7 +99,6 @@
 		
 		<label><b>Password</b></label>
 		<input type="password" placeholder="Enter Password" name="pw" required><br>
-		
 		<button type="submit">Login</button>
 		<input type="checkbox" name="checker" <%=checked%>> Remember me<br><br>
 		<button type="button" class="cancelbtn">Cancel</button>

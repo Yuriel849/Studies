@@ -1,3 +1,5 @@
+<!-- The first simple jsp file, to show how jsp files work -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>

@@ -1,6 +1,8 @@
+/* The DTO for the LoginAction servlets to use */
+
 package login;
 
-public class User02 {
+public class User {
 	private String userId;
 	private String password;
 	private String name;
@@ -8,7 +10,7 @@ public class User02 {
 	private String in_date = "";
 	private String up_date = "";
 	
-	public User02(String userId, String password, String name, String email, String in_date, String up_date) {
+	public User(String userId, String password, String name, String email, String in_date, String up_date) {
 		super();
 		this.setUserId(userId);
 		this.setPassword(password);

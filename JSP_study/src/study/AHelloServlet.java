@@ -1,3 +1,6 @@
+/* The first simple servlet, to show how servlets work.
+ */
+
 package study;
 
 import java.io.*;
@@ -11,13 +14,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class HelloServlet
  */
 @WebServlet(name="/HelloServlet", urlPatterns= {"/hello", "*.do", "/login/*"})
-public class HelloServlet extends HttpServlet {
+public class AHelloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HelloServlet() {
+    public AHelloServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

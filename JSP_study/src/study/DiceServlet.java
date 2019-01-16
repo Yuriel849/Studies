@@ -1,3 +1,8 @@
+/* Uses the 6 pictures of dice in the WebContent > Pictures directory,
+ * 	   randomly picks 2 dice for player one and 2 dice for player two,
+ *     adding up the sides to show the points for each player and declaring the winner.
+ * */
+
 package study;
 
 import java.io.IOException;
@@ -43,7 +48,7 @@ public class DiceServlet extends HttpServlet {
 //		out.println("");
 //		out.println("        for(var i = 0; i < 2; i++) {");
 //		out.println("            var ran = Math.floor(Math.random() * 6) + 1;");
-//		out.println("            tmp += '<img src=\"Dice/dice' + ran + '.jpg\">';");
+//		out.println("            tmp += '<img src=\"Pictures/dice' + ran + '.jpg\">';");
 //		out.println("        }");
 //		out.println("            main.innerHTML = tmp;");
 //		out.println("    </script>");
@@ -70,7 +75,7 @@ public class DiceServlet extends HttpServlet {
 		sum[0] = num[0] + num[1];
 		sum[1] = num[2] + num[3];
 		for(int i = 0; i < 4; i++) {
-			out.println("<img src='Dice/dice" +num[i]+ ".jpg' class=\"dice\">");
+			out.println("<img src='Pictures/dice" +num[i]+ ".jpg' class=\"dice\">");
 			if(i==1 || i==3) {
 				out.println("<br>");
 				out.println("<h2>No." +(cnt+1)+ " player's score is... " +sum[cnt++]+ "</h2>");

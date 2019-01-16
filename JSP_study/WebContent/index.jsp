@@ -156,7 +156,7 @@
     		<a href="#login" onclick="document.getElementById('login').style.display='block'" class="w3-bar-item w3-button">Login</a>
     		<a href="/logout.jsp" class="w3-bar-item w3-button">Logout</a>
     		<a href="#projects" class="w3-bar-item w3-button">Projects</a>
-      		<a href="/boardList.jsp" class="w3-bar-item w3-button">Board</a>
+      		<a href="/loginExercise/bulletinBoard.jsp" class="w3-bar-item w3-button">Board</a>
       		<a href="#about" class="w3-bar-item w3-button">About</a>
       		<a href="#contact" class="w3-bar-item w3-button">Contact</a>
       		<a href="#menu" class="w3-bar-item w3-button" onclick="openNav()">Menu</a>

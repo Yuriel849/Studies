@@ -1,3 +1,5 @@
+/* Responsible for loading the JDBC driver and obtaining a connection to the MySQL DB */
+
 package join;
 
 import java.sql.Connection;

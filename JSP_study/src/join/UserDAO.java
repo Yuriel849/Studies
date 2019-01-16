@@ -1,3 +1,6 @@
+/* A DTO for the SignUpAction.java servlet,
+ * 	   contains only the "INSERT" query.
+ */
 package join;
 
 

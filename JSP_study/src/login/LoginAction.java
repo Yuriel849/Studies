@@ -1,4 +1,8 @@
-package study;
+/* A basic servlet for processing logins,
+ *     connects to WebContent > loginExercise > loginForm.jsp
+ */
+
+package login;
 
 import java.io.*;
 
@@ -40,7 +44,7 @@ public class LoginAction extends HttpServlet {
 			// id & pw가 일치하지 않는 경우
 			request.setAttribute("msg", "아이디 또는 비밀번호가 틀립니다."); // request 객체에 메시지를 저장
 			
-			RequestDispatcher reqDis = request.getRequestDispatcher("/loginForm.jsp");
+			RequestDispatcher reqDis = request.getRequestDispatcher("/loginExercise/loginForm.jsp");
 			reqDis.forward(request,  response);
 		}
 			

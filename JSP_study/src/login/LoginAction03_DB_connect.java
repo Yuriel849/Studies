@@ -1,3 +1,8 @@
+/* Uses a cookie to send a message that either the ID or the password was entered incorrectly,
+ * 	   unlike the previous, this uses a DB connection to obtain the ID and password,
+ *     connects to WebContent > loginExercise > loginForm03_DB_connect.jsp
+ */
+
 package login;
 
 import java.io.*;
@@ -22,7 +27,6 @@ public class LoginAction03_DB_connect extends HttpServlet { // HttpServlet 상�
 		// 요청 시 넘어온 값을 읽는다.
 		HttpSession session = request.getSession();
 		
-//		System.out.println("getting");
 		// DB 연동이 제대로 되는지 확인하는 코드
 //		String id = "dolphin";
 //		String pw = "22";
@@ -51,7 +55,7 @@ public class LoginAction03_DB_connect extends HttpServlet { // HttpServlet 상�
 //      System.out.println(compareId);
 //      System.out.println(comparePwd);
         
-        // user가 null인지 체크 -> null이라면 다시 id와 일치하는 user_id가 DB에 없는 것 -> 다시 loginForm으로 돌아가기
+        // user가 null인지 체크 -> null이라면 id와 일치하는 user_id가 DB에 없는 것 -> 다시 loginForm으로 돌아가기
         // user가 null이 아니라면 id & compareId, pw & comparePwd를 비교해서
         	// 일치하지 않으면 다시 loginForm으로 돌아가기
         	// 일치하면 index.jsp로 넘어가기
@@ -74,7 +78,7 @@ public class LoginAction03_DB_connect extends HttpServlet { // HttpServlet 상�
 		
 		session.setAttribute("loginFailure", "아이디 또는 비밀번호를 잘못 입력했습니다.");
 
-		response.sendRedirect("/loginForm03_DB_connect.jsp");
+		response.sendRedirect("/loginExercise/loginForm03_DB_connect.jsp");
 		// forward로는 cookie가 보내지지만 자동으로 로딩되지 않는다 (내가 새로고침해야 된다) -> redirect 사용할 것!
 //		RequestDispatcher reqDis = request.getRequestDispatcher("/loginForm03_DB_connect.jsp");
 //		reqDis.forward(request, response);
@@ -84,7 +88,6 @@ public class LoginAction03_DB_connect extends HttpServlet { // HttpServlet 상�
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// POST 요청이 GET 요청과 동일하게 처리되는 경우.
 		// doPost()를 작성하는 대신, doGet()을 호출한다.
-//		System.out.println("posting");
 		doGet(request, response);
 	} // doPost() 끝.
 }

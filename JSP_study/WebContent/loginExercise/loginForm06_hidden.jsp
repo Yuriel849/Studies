@@ -1,3 +1,5 @@
+<!-- Connects to src > login > LoginAction06_hidden.java -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "java.net.URLDecoder" %>
 <!DOCTYPE html>
@@ -91,7 +93,7 @@
 %>
 <%=message%>
 	<div class="imgcontainer">
-		<img src="Pictures\loginPic.jpg" alt="Avatar" class="avatar"><br><br>
+		<img src="..\Pictures\loginPic.jpg" alt="Avatar" class="avatar"><br><br>
 	</div>
 	
 	<div class="container">

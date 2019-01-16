@@ -1,3 +1,7 @@
+/* Receives data from the signUpForm.jsp and adds a new user to the DB,
+ *     connects to WebContent > joinExercise > signUpForm.jsp & success.jsp
+ */
+
 package join;
 
 import java.io.IOException;
@@ -75,7 +79,7 @@ public class SignUpAction extends HttpServlet { // HttpServlet 상속
 			if(result == -2) {
 				Cookie cookie = new Cookie("msg", URLEncoder.encode("<script>alert(\"회원가입에 실패했습니다.\");</script>", "utf-8"));
 				response.addCookie(cookie);
-				response.sendRedirect("/signUpForm.jsp");
+				response.sendRedirect("/joinExercise/signUpForm.jsp");
 			} else { // 성공적으로 회원가입한 경우
 				session.setAttribute("userID", user.getUserID());
 				
@@ -89,7 +93,7 @@ public class SignUpAction extends HttpServlet { // HttpServlet 상속
 					}
 				}
 				
-				RequestDispatcher reqDis = request.getRequestDispatcher("/success.jsp");
+				RequestDispatcher reqDis = request.getRequestDispatcher("/joinExercise/success.jsp");
 				reqDis.forward(request, response);
 			}		
 		}

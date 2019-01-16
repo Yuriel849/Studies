@@ -1,3 +1,8 @@
+/* Uses a cookie to send a message that either the ID or the password was entered incorrectly,
+ *     the ID is "asdf" and the password is "1234",
+ *     connects to WebContent > loginExercise > loginForm02.jsp
+ */
+
 package login;
 
 import java.io.*;
@@ -30,7 +35,6 @@ public class LoginAction02 extends HttpServlet { // HttpServlet 상속
 
 		HttpSession session = request.getSession();
 		
-//		System.out.println("getting");
 		id = request.getParameter("id");
 		pw = request.getParameter("pw");
 		chk = request.getParameter("checked");
@@ -57,7 +61,7 @@ public class LoginAction02 extends HttpServlet { // HttpServlet 상속
 			
 			session.setAttribute("loginFailure", "아이디 또는 비밀번호를 잘못 입력했습니다.");
 		
-			response.sendRedirect("loginForm02.jsp");
+			response.sendRedirect("/loginExercise/loginForm02.jsp");
 			// forward로는 cookie가 보내지지만 자동으로 로딩되지 않는다 (내가 새로고침해야 된다) -> redirect 사용할 것!
 //			RequestDispatcher reqDis = request.getRequestDispatcher("/loginForm02.jsp");
 //			reqDis.forward(request, response);
@@ -67,7 +71,6 @@ public class LoginAction02 extends HttpServlet { // HttpServlet 상속
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// POST 요청이 GET 요청과 동일하게 처리되는 경우.
 		// doPost()를 작성하는 대신, doGet()을 호출한다.
-//		System.out.println("posting");
 		doGet(request, response);
 	} // doPost() 끝.
 }

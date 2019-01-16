@@ -1,3 +1,8 @@
+/* Shows on screen the id and pw parameters from the request,
+ *     also shows the value of the count variable on this servlet file,
+ *     IMPORTANT a servlet is reused, meaning the value of count is NOT reinitialized!
+ */
+
 package study;
 
 import java.io.IOException;

@@ -1,11 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+<!-- The bulletin board (게시판),
+		requires the user to be logged in before accessing,
+		so redirects to the login form if not logged in.
+ -->
 
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import = "java.net.URLEncoder" %>
+<%
+	if(null == session.getAttribute("id")) {
+		Cookie cookie = new Cookie("msg", URLEncoder.encode("<script>alert(\"로그인하셔야 합니다.\");</script>", "utf-8"));
+		response.addCookie(cookie);
+
+		response.sendRedirect("/loginExercise/loginForm06_hidden.jsp?uri=" + request.getRequestURI()); 
+	}
+%>
+
+<!--
+원래 HTML 아래에 response.sendRedirect 놓으면 안된다!
+	HTML 페이지 출력 중 다른데로 보내는 것은 말이 안되니까!
+	BUT 버퍼를 사용하기에 HTML 페이지를 바로 출력하지 않고 버퍼에 데이터를 저장한다 -> 버퍼는 redirect하면서 지워진다 -> 여기서는 에러 없다!
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
     <style>
         table {
             border: 5px solid black;
@@ -54,7 +74,5 @@
         <tr></tr>
     
     </table>
-
-
 </body>
 </html>

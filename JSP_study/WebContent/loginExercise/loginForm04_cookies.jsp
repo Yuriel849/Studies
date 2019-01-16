@@ -1,10 +1,12 @@
+<!-- Connects to src > login > LoginAction04_cookies.java -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "java.net.URLDecoder" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sign Up</title>
+<title>Login</title>
 <style>
 	form { /* form 태그 전체에 대한 border를 설정*/
 		border: 3px solid #f1f1f1
@@ -58,32 +60,43 @@
   		padding-top: 16px;
 	}
 </style>
-
-<!-- web browser > F12 > console tab > jQuery 명령문 쓰기 위해 필요! -->
-<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-<!--
-	$('form').serialize();
-		form 태그의 내용을 묶어서 보여준다.	
--->
-
 </head>
 <body>
 <h2>Login</h2>
-<form action="/registerAction.jsp" method="post">
+
+<form action="/LoginAction04_cookies" method="post">
+<%
+	// 메시지 출력하기
+	String value = "";
+	String checked = "";
+	String message = "";
+	
+	Cookie[] cookies = request.getCookies();
+	if(cookies != null && cookies.length > 0) {
+		for(int i = 0; i < cookies.length; i++) {
+			if(cookies[i].getName().equals("userName")) {
+				value = URLDecoder.decode(cookies[i].getValue(), "utf-8");
+				checked = "checked";
+			} else if(cookies[i].getName().equals("msg")) {
+				message = URLDecoder.decode(cookies[i].getValue(), "utf-8");
+			} // cookies에서 필요한 쿠키를 찾는 if문 끝.
+		} // for문 끝.
+	} // cookies null 체크하는 if문 끝.
+%>
+<%=message%>
 	<div class="imgcontainer">
-		<img src="Pictures\loginPic.jpg" alt="Avatar" class="avatar"><br><br>
+		<img src="..\Pictures\loginPic.jpg" alt="Avatar" class="avatar"><br><br>
 	</div>
 	
 	<div class="container">
-		<label><b>ID (username)</b></label>
-		<input type="text" placeholder="Enter Username" name="id" required><br>
-		<label><b>Name</b></label>
-		<input type="text" placeholder="Enter Your Name" name="name" required><br>		
+		<label><b>Username</b></label>
+		<input type="text" placeholder="Enter Username" name="userName" value="<%=value%>" required><br>
+		
 		<label><b>Password</b></label>
-		<input type="password" placeholder="Enter Password" name="password" required><br>
-		<label><b>Email</b></label>
-		<input type="text" placeholder="Enter Email" name="email" required><br>
-		<button type="submit">Sign Up</button>
+		<input type="password" placeholder="Enter Password" name="pw" required><br>
+		
+		<button type="submit">Login</button>
+		<input type="checkbox" name="checker" <%=checked%>> Remember me<br><br>
 		<button type="button" class="cancelbtn">Cancel</button>
 		<span class="psw"><a href="#">Forgot password?</a></span>
 	</div>

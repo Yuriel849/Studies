@@ -1,3 +1,8 @@
+/* Gets the uri of where the request came from initially using a input[type="hidden"] tag,
+ *     (whether the user is trying to login from the main page or the bulletinBoard)
+ *     connects to WebContent > loginExercise > loginForm06_hidden.jsp
+ */
+
 package login;
 
 import java.io.*;
@@ -11,8 +16,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-// LoginAction07_hidden.java servlet & DB를 연동하기
 
 @WebServlet("/LoginAction06_hidden")
 public class LoginAction06_hidden extends HttpServlet { // HttpServlet 상속
@@ -69,7 +72,7 @@ public class LoginAction06_hidden extends HttpServlet { // HttpServlet 상속
 		Cookie cookie = new Cookie("msg", URLEncoder.encode("<script>alert(\"아이디 또는 비밀번호를 잘못 입력했습니다.\");</script>", "utf-8"));
 		response.addCookie(cookie);
 
-		response.sendRedirect("/loginForm06_hidden.jsp?uri=" + param);
+		response.sendRedirect("/loginExercise/loginForm06_hidden.jsp?uri=" + param);
 		
 		// forward로는 cookie가 보내지지만 자동으로 로딩되지 않는다 (내가 새로고침해야 된다) -> redirect 사용할 것!
 //		RequestDispatcher reqDis = request.getRequestDispatcher("/loginForm_DB_connect.jsp");

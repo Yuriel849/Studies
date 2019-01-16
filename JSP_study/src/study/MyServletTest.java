@@ -1,3 +1,5 @@
+/* Shows on screen the name and age parameters from the request (processes GET & POST methods the same way) */
+
 package study;
 
 import java.io.IOException;
@@ -8,9 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-// 서블릿 MyServlet 클래스를 만들어서 요청으로부터 넘겨받은 name, age를 화면에 출력하도록 작성하라.
-// (GET, POST 요청 둘 다 동일하게 처리하도록)
 
 @WebServlet("/MyServletTest")
 public class MyServletTest extends HttpServlet {

@@ -1,3 +1,5 @@
+/* A DTO for the SignUpAction.java servlet */
+
 package join;
 
 public class User {
