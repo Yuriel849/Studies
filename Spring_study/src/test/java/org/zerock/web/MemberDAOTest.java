@@ -20,14 +20,30 @@ public class MemberDAOTest {
 		System.out.println(dao.getTime());
 	}
 	
+//	@Test
+//	public void testInsertMember() throws Exception {
+//		MemberVO vo = new MemberVO();
+//		vo.setUserid("user00");
+//		vo.setUserpw("user00");
+//		vo.setUsername("USER00");
+//		vo.setEmail("user00@aaa.com");
+//		
+//		dao.insertMember(vo);
+//	}
+	
 	@Test
-	public void testInsertMember() throws Exception {
-		MemberVO vo = new MemberVO();
-		vo.setUserid("user00");
-		vo.setUserpw("user00");
-		vo.setUsername("USER00");
-		vo.setEmail("user00@aaa.com");
-		
-		dao.insertMember(vo);
+	public void testReadMember() throws Exception {
+		MemberVO vo = dao.readMember("user00");
+	}
+	
+	@Test
+	public void testReadWithPW() throws Exception {
+		MemberVO vo = dao.readWithPW("user00", "user00");
+		System.out.println(vo.getUserid());
+		System.out.println(vo.getUserpw());
+		System.out.println(vo.getUsername());
+		System.out.println(vo.getEmail());
+		System.out.println(vo.getRegdate());
+		System.out.println(vo.getUpdatedate());
 	}
 }
