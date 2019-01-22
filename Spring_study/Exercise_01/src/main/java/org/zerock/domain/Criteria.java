@@ -7,7 +7,7 @@ public class Criteria {
 	
 	public Criteria() { // 기본값으로 페이비 번호는 1페이지, 페이지당 데이터 수는 10개
 		this.page = 1;
-		this.perPageNum = 10;
+		this.perPageNum = 30;
 	}
 	
 	public void setPage(int page) {

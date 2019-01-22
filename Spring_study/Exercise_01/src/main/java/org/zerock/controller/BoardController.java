@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,8 +54,8 @@ public class BoardController {
 		model.addAttribute("list", service.listAll());
 	}
 	
-	@RequestMapping(value = "/read", method = RequestMethod.GET)
-	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
+	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
+	public void read(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
 					// "@RequestParam("X")" -> request.getParameter("X")와 유사하게 작동한다.
 										   // 외부(요청)에서 전달되는 매개변수라는 의미, 외부에서 전달되는 parameter의 이름은 "bno"로 지정
 		model.addAttribute(service.read(bno));
@@ -62,28 +63,31 @@ public class BoardController {
 										// 여기서는 BoardVO 객체니까 "boardVO"라는 속성명을 사용한다.
 	}
 	
-	@RequestMapping(value = "/remove", method = RequestMethod.POST)
-	public String remove(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception {
+	@RequestMapping(value = "/removePage", method = RequestMethod.POST)
+	public String remove(@RequestParam("bno") int bno, Criteria cri, RedirectAttributes rttr) throws Exception {
 		service.remove(bno);
 		
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addFlashAttribute("msg", "success");
 		
-		return "redirect:/board/listAll";
+		return "redirect:/board/listPage";
 	}
 	
-	@RequestMapping(value = "/modify", method = RequestMethod.GET)
-	public void modifyGET(int bno, Model model) throws Exception {
+	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
+	public void modifyPagingGET(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
 		model.addAttribute(service.read(bno));
 	}
 	
-	@RequestMapping(value = "/modify", method = RequestMethod.POST)
-	public String modifyPOST(BoardVO board, RedirectAttributes rttr) throws Exception {
-		logger.info("mod post............");
-		
+	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
+	public String modifyPagingPOST(BoardVO board, Criteria cri, RedirectAttributes rttr) throws Exception {
 		service.modify(board);
+		
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addFlashAttribute("msg", "success");
 		
-		return "redirect:/board/listAll";		
+		return "redirect:/board/listPage";
 	}
 	
 	@RequestMapping(value = "/listCri", method = RequestMethod.GET)
@@ -93,13 +97,16 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
-	public void listPage(Criteria cri, Model model) throws Exception {
+	public void listPage(@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
 		logger.info(cri.toString());
 		
 		model.addAttribute("list", service.listCriteria(cri));
+		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(10031);
+//		pageMaker.setTotalCount(10031);
+		
+		pageMaker.setTotalCount(service.listCountCriteria(cri));
 		
 		model.addAttribute("pageMaker", pageMaker);
 	}

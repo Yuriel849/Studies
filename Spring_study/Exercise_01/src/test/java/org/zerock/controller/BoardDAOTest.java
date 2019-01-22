@@ -10,6 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
 import org.zerock.persistence.BoardDAO;
@@ -60,7 +62,7 @@ public class BoardDAOTest {
 		}
 	}
 	
-	@Test
+
 	public void testListCriteria() throws Exception {
 		Criteria cri = new Criteria();
 		cri.setPage(2);
@@ -71,6 +73,26 @@ public class BoardDAOTest {
 		for(BoardVO boardVO : list) {
 			logger.info(boardVO.getBno() + ":" + boardVO.getTitle());
 		}
+	}
+
+
+	public void testURI() throws Exception {
+		UriComponents uriComponents = UriComponentsBuilder.newInstance().path("/board/read").queryParam("bno", 12).queryParam("perPageNum", 20).build();
+			// UriComponents 클래스는 path OR query 문자열들을 추가해서 원하는 URI를 생성할 때 사용한다.
+		
+		logger.info("/board/read?bno=12&perPageNum=20");
+		logger.info(uriComponents.toString());
+	}
+
+	@Test
+	public void testURI2() throws Exception {
+		UriComponents uriComponents = UriComponentsBuilder.newInstance().path("/{module}/{page}")
+				.queryParam("bno", 12).queryParam("perPageNum", 20).build().expand("board", "read").encode();
+			// UriComponents 클래스는 path OR query 문자열들을 추가해서 원하는 URI를 생성할 때 사용한다.
+			// expand(Object... 가변인자) -> URI 에 있는 "{}" 변수자리를 채운다.
+		
+		logger.info("/board/read?bno=12&perPageNum=20");
+		logger.info(uriComponents.toString());
 	}
 
 }
