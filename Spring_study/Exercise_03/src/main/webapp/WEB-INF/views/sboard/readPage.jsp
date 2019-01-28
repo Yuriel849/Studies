@@ -60,7 +60,7 @@
 	<!-- The time line -->
 	<ul class="timeline">
 		<!-- time line time label -->
-		<li class="time-label" id="repliesDiv"><span class="bg-green">Replies List</span></li>
+		<li class="time-label" id="repliesDiv"><span class="bg-green">Replies List&nbsp;&nbsp;<small id='replycntSmall'> [ ${boardVO.replycnt} ] </small></span></li>
 	</ul>
 	
 	<div class="text-center">
@@ -151,6 +151,7 @@
 			printPaging(data.pageMaker, $(".pagination"));
 			
 			$("#modifyModal").modal('hide');
+			$("#replycntSmall").html("[" + data.pageMaker.totalCount + "]");
 		});
 	}
 	
