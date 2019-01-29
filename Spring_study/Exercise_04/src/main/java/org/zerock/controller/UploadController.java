@@ -1,13 +1,19 @@
 package org.zerock.controller;
 
+
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.UUID;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.zerock.util.MediaUtils;
+import org.zerock.util.UploadFileUtils;
 
 @Controller
 public class UploadController {
@@ -65,6 +73,48 @@ public class UploadController {
 		logger.info("originalName: " + file.getOriginalFilename());
 		logger.info("size: " + file.getSize());
 		logger.info("contentType: " + file.getContentType());
-		return new ResponseEntity<>(file.getOriginalFilename(), HttpStatus.CREATED);
+		
+		return new ResponseEntity<>(UploadFileUtils.uploadFile(uploadPath,  file.getOriginalFilename(),  file.getBytes()), HttpStatus.CREATED);
+	}
+	
+	// 파일 전송 기능
+	@ResponseBody // displayFile()의 반환값을 응답으로 브라우저에 보내라는 설정
+	@RequestMapping("/displayFile")
+	public ResponseEntity<byte[]> displayFile(String fileName) throws Exception { // 매개변수로 브라우저에 보내야하는 파일의 파일명을 받는다.
+		InputStream in = null;
+		ResponseEntity<byte[]> entity = null; // displayFile()의 반환값으로 실제 파일의 데이터를 반환한다.
+		
+		logger.info("FILE NAME : " + fileName);
+		
+		try {
+			// 원본 파일의 확장자 추출
+			String formatName = fileName.substring(fileName.lastIndexOf(".") + 1);
+			
+			// 확장자를 가지고 이미지 타입의 파일인지 확인 (이미지 타입이라면 mType != null이다)
+			MediaType mType = MediaUtils.getMediaType(formatName);
+			
+			HttpHeaders headers = new HttpHeaders();
+			 
+			in = new FileInputStream(uploadPath + fileName);
+			
+			if(mType != null) {
+				headers.setContentType(mType);
+			} else {
+				fileName = fileName.substring(fileName.lastIndexOf("_") + 1);
+				headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+				// 								"application/octet-stream"은 다운로드 용 MIME 타입! -> 브라우저는 자동으로 다운로드 창을 연다!
+				headers.add("Content-Disposition", "attachment; filename=\"" + new String(fileName.getBytes("UTF-8"), "ISO-8859-1") + "\"");
+				//					"new String(fileName.getBytes("UTF-8"), "ISO-8859-1")" -> 다운로드 파일은 사용자에게 파일명이 보이기 때문에 한글 처리를 한다!
+			}
+			
+			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.CREATED);
+		} catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+		} finally {
+			in.close();
+		}
+		
+		return entity;		
 	}
 }

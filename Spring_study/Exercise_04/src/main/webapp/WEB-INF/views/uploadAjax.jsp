@@ -58,10 +58,46 @@
 				, contentType : false /* 파일은 multipart/form-data 방식으로 전송해야 하기에 false 설정 */
 				, type : 'POST'
 				, success : function(data) {
-					alert(data);
+					var str = "";
+					
+					console.log(data);
+					console.log(checkImageType(data));
+					
+					if(checkImageType(data)) {
+						str = "<div><a href='displayFile?fileName=" + getImageLink(data) + "'><img src='displayFile?fileName=" + data
+								+ "'/>" + getImageLink(data) + "</a></div>";
+					} else {
+						str = "<div><a href='displayFile?fileName=" + data + "'>" + getOriginalName(data) + "</a></div>";
+					}
+					
+					$(".uploadedList").append(str);
 				}
 			});
 		})
+		
+		/* 확장자가 존재하는지 확인한다. -> 존재한다면 이미지 파일이다. */
+		function checkImageType(fileName) {
+			var pattern = /jpg$|gif$|png$|jpeg$/i; /* "i" -> 대소문자 구분 없음을 의미! */
+			return fileName.match(pattern);
+		}
+		
+		/* 일반 파일의 이름이 너무 기니까 줄여준다. */
+		function getOriginalName(fileName) {
+			if(checkImageType(fileName)) { return; } /* 이미지 파일이면 아무 처리도 하지 않고 반환한다. */
+			
+			var idx = fileName.indexOf("_") + 1; /* idx는 UUID + "_" 이후의 위치를 나타낸다. */
+			return fileName.substr(idx); /* 파일명에서 UUID + "_"를 제외한 원래 파일명을 반환한다. */
+		}
+		
+		/* 썸네일이 아니라 원본 이미지를 가져온다. */
+		function getImageLink(fileName) {
+			if(!checkImageType(fileName)) { return; } /* 이미지 파일이 아니라면 아무 처리도 하지 않고 반환한다. */
+			
+			var front = fileName.substr(0, 12); /* "/년/월/일" 경로를 추출하는 용도 */
+			var end = fileName.substr(14); /* "s_" 이후의 경로를 추출하는 용도 */
+			
+			return front + end;
+		}
 	</script>
 </body>
 </html>
