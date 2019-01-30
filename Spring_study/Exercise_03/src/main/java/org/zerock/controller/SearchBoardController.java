@@ -107,33 +107,4 @@ public class SearchBoardController {
 		
 		return "redirect:/sboard/list"; // 사용자를 success 페이지로 보내는 대신 바로 목록 페이지로 redirect한다.
 	}
-	
-
-//	
-//	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
-//	public void listAll(Model model) throws Exception {
-//		logger.info("show all list...............");
-//		model.addAttribute("list", service.listAll());
-//	}
-//	//	
-//	@RequestMapping(value = "/listCri", method = RequestMethod.GET)
-//	public void listAll(Criteria cri, Model model) throws Exception {
-//		logger.info("show list page with criteria...............");
-//		model.addAttribute("list", service.listCriteria(cri));
-//	}
-//	
-//	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
-//	public void listPage(@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
-//		logger.info(cri.toString());
-//		
-//		model.addAttribute("list", service.listCriteria(cri));
-//		
-//		PageMaker pageMaker = new PageMaker();
-//		pageMaker.setCri(cri);
-////		pageMaker.setTotalCount(10031);
-//		
-//		pageMaker.setTotalCount(service.listCountCriteria(cri));
-//		
-//		model.addAttribute("pageMaker", pageMaker);
-//	}
 }
