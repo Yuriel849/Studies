@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ include file="../include/header.jsp" %>
+<script type="text/javascript" src="/resources/js/upload.js"></script>
+
+<!-- CSS for the popup tags -->
+<style type="text/css">
+	.popup { position: absolute; }
+	.back { background-color: gray; opacity: 0.5; width: 100%; height: 300%; overflow: hidden; z-index: 1101; }
+	.front { z-index: 1110; opacity: 1; border: 1px; margin: auto; }
+	.show { position: relative; max-width: 1200px; max-height: 800px; overflow: auto; }
+</style>
 
 	<%
 		/*
@@ -17,6 +26,11 @@
 		<input type="hidden" name="keyword" value="${cri.keyword}">
 	</form>
 
+	<div class="popup back" style="display:none;"></div>
+	<div id="popup_front" class="popup front" style="display:none;">
+		<img id="popup_img">
+	</div>
+
 	<div class="box-body">
 		<div class="form-group">
 			<label for="exampleInputEmail1">Title</label>
@@ -31,6 +45,9 @@
 			<input type="text" name="writer" class="form-control" value="${boardVO.writer}" readonly="readonly">
 		</div>
 	</div> <!-- /.box-body -->
+	
+	<!-- 업로드된 파일들이 보여지는 영역 -->
+	<ul class="mailbox-attachments clearfix uploadedList"></ul>
 	
 	<div class="box-footer">
 		<button type="submit" class="btn btn-warning modifyBtn">MODIFY</button>
@@ -90,6 +107,7 @@
 
 <%@ include file="../include/footer.jsp" %>
 
+<!-- Handlebars Template 01 -->
 <script id="template" type="text/x-handlebars-template">
 	{{#each .}}
 		<li class="replyLi" data-rno={{rno}}>
@@ -108,6 +126,16 @@
 	{{/each}}
 </script>
 
+<!-- Handlebars Template 02 -->
+<script id="templateAttach" type="text/x-handlebars-template">
+	<li data-src='{{fullName}}'>
+		<span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+		<div class="mailbox-attachment-info">
+			<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+		</div>
+	</li>
+</script>
+
 <script>
 	$(document).ready(function() {
 		var formObj = $("form[role='form']");
@@ -121,6 +149,22 @@
 		});
 		
 		$(".removeBtn").on("click", function() {
+			var replyCnt = $("#replycntSmall").html().replace(/[^0-9]/g, "");
+			
+			if(replyCnt > 0) {
+				alert("댓글이 달린 게시물을 삭제할 수 없습니다.");
+				return;
+			}
+			
+			var arr = [];
+			$(".uploadedList li").each(function(index) {
+				arr.push($(this).attr("data-src"));
+			})
+			
+			if(arr.length > 0) {
+				$.post("/deleteAllFiles", {files:arr}, function() {});
+			}
+			
 			formObj.attr("action", "/sboard/removePage");
 			formObj.submit();
 		});
@@ -275,4 +319,36 @@
 			}
 		});
 	});
+	
+	/* 업로드된 파일들이 보여지도록 Ajax로 요청하여 출력한다. */
+	var templateAttach = Handlebars.compile($("#templateAttach").html());
+	
+	$.getJSON("/sboard/getAttach/" + bno, function(list) {
+		$(list).each(function() {
+			var fileInfo = getFileInfo(this);
+			var html = templateAttach(fileInfo);
+			$(".uploadedList").append(html);
+		});
+	});
+	
+	/* 첨부파일이 이미지 파일인 경우 보여준다. */
+	$(".uploadedList").on('click', ".mailbox-attachment-info a", function(event) {
+		var fileLink = $(this).attr("href");
+		
+		if(checkImageType(fileLink)) {
+			event.preventDefault();
+			
+			var imgTag = $("#popup_img");
+			imgTag.attr("src", fileLink);
+			
+			console.log(imgTag.attr("src"));
+			
+			$(".popup").show('slow');
+			imgTag.addClass("show");
+		}
+	});
+	
+	$("#popup_img").on('click', function() {
+		$(".popup").hide('slow');
+	})
 </script>

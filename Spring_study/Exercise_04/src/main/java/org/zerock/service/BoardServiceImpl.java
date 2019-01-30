@@ -21,17 +21,13 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void regist(BoardVO board) throws Exception {
 		dao.create(board);
-		System.out.println("starting regist()");
 		
 		String[] files = board.getFiles();
 		if(files == null) { return; }
-		System.out.println("regist not dead yet!");
 		
 		for(String fileName : files) {
 			dao.addAttach(fileName);
 		}
-		
-		System.out.println("regist done, ending...");
 	}
 	
 	@Transactional(isolation=Isolation.READ_COMMITTED)
@@ -41,13 +37,27 @@ public class BoardServiceImpl implements BoardService {
 		return dao.read(bno);
 	}
 	
+	@Transactional
 	@Override
 	public void modify(BoardVO board) throws Exception {
 		dao.update(board);
+		
+		Integer bno = board.getBno();
+		
+		dao.deleteAttach(bno);
+		
+		String[] files = board.getFiles();
+		if(files == null) { return; }
+		
+		for(String fileName : files) {
+			dao.replaceAttach(fileName, bno);
+		}
 	}
 	
+	@Transactional
 	@Override
 	public void remove(Integer bno) throws Exception {
+		dao.deleteAttach(bno); // tbl_attach가 tbl_board를 참조하기 때문에 첨부파일부터 삭제한다.
 		dao.delete(bno);
 	}
 	
