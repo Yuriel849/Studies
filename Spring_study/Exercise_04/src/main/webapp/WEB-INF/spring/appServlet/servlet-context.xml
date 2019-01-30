@@ -19,6 +19,7 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="contentType" value="UTF-8" />
 	</beans:bean>
 	
 	<!-- multipartResolver, to handle the data received when a file is uploaded to the server -->

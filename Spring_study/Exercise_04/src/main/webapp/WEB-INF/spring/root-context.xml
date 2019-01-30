@@ -20,7 +20,7 @@
 		<property name="password" value="Sapph1r3"></property>
 	</bean>
 
-<!-- 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+ 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
 		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
 		<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
@@ -42,5 +42,5 @@
 
 	<aop:config></aop:config>
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
- -->
+	
 </beans>

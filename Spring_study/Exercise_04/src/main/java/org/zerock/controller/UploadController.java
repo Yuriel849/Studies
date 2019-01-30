@@ -117,4 +117,26 @@ public class UploadController {
 		
 		return entity;		
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/deleteFile", method = RequestMethod.POST)
+	public ResponseEntity<String> deleteFile(String fileName) {
+		logger.info("delete file : " + fileName);
+		
+		String formatName = fileName.substring(fileName.lastIndexOf(".") + 1);
+		
+		MediaType mType = MediaUtils.getMediaType(formatName);
+		
+		// 이미지 타입의 파일이라면 썸네일 아닌 원본 크기 파일을 삭제한다. (썸네일 파일은 아래에서 삭제!)
+		if(mType != null) {
+			String front = fileName.substring(0, 12);
+			String end = fileName.substring(14);
+			new File(uploadPath + (front+end).replace('/', File.separatorChar)).delete();
+		}
+		
+		// 일반 파일, 그리고 이미지 파일의 썸네일 파일을 삭제한다.
+		new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
+		
+		return new ResponseEntity<String>("deleted", HttpStatus.OK);
+	}
 }

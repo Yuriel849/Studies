@@ -9,10 +9,10 @@
 	</insert>
 	
 	<select id="readMessage" resultType="MessageVO">
-		select * from tbl_message where mid = #{mid}
+		select * from tbl_message where mno = #{mno}
 	</select>
 	
 	<update id="updateState">
-		update tbl_message set opendate = now() where mid = #{mid}
+		update tbl_message set opendate = now() where mno = #{mno}
 	</update>
 </mapper>
