@@ -15,7 +15,12 @@
 	<ul>
 		<li><a href="<%= request.getContextPath() %>/hello">/hello</a></li>
 		<li><a href="/mvc/member/regForm">/member/regForm</a></li>
-		<li><a href="/mvc/member/memberReg">/member/memberReg</a></li>
+		<li><a href="/mvc/member/memberReg">회원가입</a></li>
+		<li><a href="/mvc/order/order">상품주문</a></li>
+		<li><a href="/mvc/cookie/makeCookie">쿠키생성</a></li>
+		<li><a href="/mvc/header/view">헤더정보확인</a></li>
+		<li><a href="/mvc/search/searchForm">검색페이지</a></li>
+		<li><a href="/mvc/fileupload/form">파일업로드</a></li>
 	</ul>
 </body>
 </html>
