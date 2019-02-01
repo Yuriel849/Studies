@@ -3,6 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
@@ -26,11 +27,18 @@
 	<!-- DB 설정하기 (DataSource, JDBCTemplate, DAO(<> 자동설정: @Repository)) -->
 	<beans:bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<beans:property name="driverClass" value="com.mysql.jdbc.Driver" />
-		<beans:property name="jdbcUrl" value="jdbc:mysql://localhost/spring?characterEncoding=utf8" />
+		<beans:property name="jdbcUrl" value="jdbc:mysql://localhost/spring?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC" />
 		<beans:property name="user" value="Yuriel" />
 		<beans:property name="password" value="Sapph1r3" />
 	</beans:bean>
 	
+	<beans:bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" p:dataSource-ref="dataSource" />
+	
+	<!-- Unnecessary because the "@Repository" annotation is used in MemberDao.java -->
+	<!-- <beans:bean id="memberDao" class="com.leopard.app.dao.MemberDao" /> -->
+	
+	<!-- Unnecessary because the "@Service" annotation is used in MemberService.java -->
+	<!-- <beans:bean id="memberService" class="com.leopard.app.service.MemberService" /> -->
 	
 	
 </beans:beans>
