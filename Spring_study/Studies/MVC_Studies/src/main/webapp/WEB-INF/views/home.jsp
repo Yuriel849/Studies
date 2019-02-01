@@ -21,6 +21,13 @@
 		<li><a href="/mvc/header/view">헤더정보확인</a></li>
 		<li><a href="/mvc/search/searchForm">검색페이지</a></li>
 		<li><a href="/mvc/fileupload/form">파일업로드</a></li>
+		<li><a href="/mvc/guest/10">10번 손님의 메시지 확인</a></li>
+		<li><a href="/mvc/guest/1001">1001번 손님의 메시지 확인</a></li>
+		<li><a href="/mvc/guest/80">80번 손님의 메시지 확인</a></li>
+		<li><a href="/mvc/guest/8080">8080번 손님의 메시지 확인</a></li>
+		<li><a href="/mvc/member/login">로그인하기</a></li>
+		<li><a href="/mvc/interceptor/mypage1">INTERCEPTOR 작동 테스트 1번</a></li>
+		<li><a href="/mvc/interceptor/mypage2">INTERCEPTOR 작동 테스트 2번</a></li>
 	</ul>
 </body>
 </html>

@@ -22,11 +22,23 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-		<!-- 파일업로드 처리를 위한 multipartResolver bean 등록 -->
+	<!-- 파일업로드 처리를 위한 multipartResolver bean 등록 -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="defaultEncoding" value="UTF-8" />
 	</beans:bean>
 	
+	<!-- Set up interceptors -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/interceptor/**"/>
+			<exclude-mapping path="/interceptor/help/**"/>
+			<beans:bean class="com.leopard.interceptor.AuthCheckInterceptor"></beans:bean>
+		</interceptor>
+	</interceptors>
+	
+	
 	<context:component-scan base-package="com.leopard.mvc" />
+	<context:component-scan base-package="com.leopard.pathVariable" />
+	<context:component-scan base-package="com.leopard.interceptor" />
 	
 </beans:beans>
