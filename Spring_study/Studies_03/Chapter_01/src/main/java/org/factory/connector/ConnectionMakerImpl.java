@@ -1,4 +1,4 @@
-package org.yuriel.connector;
+package org.factory.connector;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

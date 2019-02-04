@@ -1,4 +1,4 @@
-package org.yuriel.connector;
+package org.xml.connector;
 
 import java.sql.Connection;
 import java.sql.SQLException;

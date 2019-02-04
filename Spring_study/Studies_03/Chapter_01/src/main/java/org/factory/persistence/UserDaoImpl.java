@@ -1,4 +1,4 @@
-package org.yuriel.persistence;
+package org.factory.persistence;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.yuriel.domain.User;
+import org.factory.domain.User;
 
 public class UserDaoImpl extends UserDao {
 	public void addUser(User user) throws ClassNotFoundException, SQLException {

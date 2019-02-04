@@ -1,18 +1,22 @@
-package org.yuriel.persistence;
+package org.factory.persistence;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.yuriel.connector.ConnectionMaker;
-import org.yuriel.domain.User;
+import org.factory.connector.ConnectionMaker;
+import org.factory.domain.User;
 
 public class UserDao {
 	private ConnectionMaker connectionMaker;
-	
-	public UserDao(ConnectionMaker maker) {
-		connectionMaker = maker;
+
+//	public UserDao(ConnectionMaker maker) {
+//		connectionMaker = maker;
+//	}
+	// using setter instead of constructor
+	public void setConnectionMaker(ConnectionMaker connectionMaker) {
+		this.connectionMaker = connectionMaker;
 	}
 	
 	public void addUser(User user) throws ClassNotFoundException, SQLException {

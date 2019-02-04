@@ -1,4 +1,4 @@
-package org.yuriel.domain;
+package org.factory.domain;
 
 public class User {
 	private String id;

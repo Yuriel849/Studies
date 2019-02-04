@@ -1,4 +1,4 @@
-package org.yuriel.controller;
+package org.factory.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
