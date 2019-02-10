@@ -10,4 +10,4 @@
 
 ###   >>   Updated to include team miniprojects (Bulletin Board System)
 
-###   >>   Updated to include Spring
+###   >>   Updated to include the Spring framework, by means of three separate books
