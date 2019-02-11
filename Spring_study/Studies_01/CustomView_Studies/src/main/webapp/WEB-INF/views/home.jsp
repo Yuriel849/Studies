@@ -14,6 +14,7 @@
 	<ul>
 		<li><a href="download/file">Download Notice download</a></li>
 		<li><a href="download/excel">EXCEL download</a></li>
+		<li><a href="download/pdf">PDF download</a></li>
 	</ul>
 </body>
 </html>

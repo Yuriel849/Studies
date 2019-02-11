@@ -46,4 +46,14 @@ public class DownloadController implements ApplicationContextAware {
 		
 		return new ModelAndView("pageRanks", "pageRanks", pageRanks);
 	}
+	
+	@RequestMapping("/pdf")
+	public ModelAndView getRanksPdf() {
+		List<PageRanks> pageRanks = new ArrayList<PageRanks>();
+		pageRanks.add(new PageRanks(1,  "https://www.naver.com"));
+		pageRanks.add(new PageRanks(2,  "https://www.daum.com"));
+		pageRanks.add(new PageRanks(3,  "https://www.nate.com"));
+		
+		return new ModelAndView("pageRanksPdf", "pageRanks", pageRanks);
+	}
 }

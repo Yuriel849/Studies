@@ -16,7 +16,7 @@ import org.springframework.web.servlet.view.document.AbstractXlsxView;
 import com.yuriel.domain.PageRanks;
 
 @Component(value="pageRanks")
-public class PageRanksView extends AbstractXlsxView {
+public class pageRanksView extends AbstractXlsxView {
 	@Override
 	protected void buildExcelDocument(
 				Map<String, Object> model,
