@@ -9,3 +9,5 @@ MySQL is used with an employees table made from a pre-made list of SQL commands.
 >> Spring version
 ### "BasicProject_Spring_03"
 >> New Spring version redesigned from the ground up
+### "BasicProject_Node"
+>> Version using Node.js instead of Spring
