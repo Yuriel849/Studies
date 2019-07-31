@@ -4,10 +4,10 @@ This is a basic website with basic CRUD functions, login and logout functions, a
 MySQL is used with an employees table made from a pre-made list of SQL commands.
 
 ### "BasicProject"
->> Pre-Spring version
+>> Pre-Spring version in Java
 ### "BasicProject_Spring"
 >> Spring version
-### "BasicProject_Spring_03"
+### "BasicProject_Spring_03" (later)
 >> New Spring version redesigned from the ground up
-### "BasicProject_Node"
+### "BasicProject_Node" (later)
 >> Version using Node.js instead of Spring
